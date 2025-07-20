@@ -1,5 +1,5 @@
 
-[ Interactive 3D voxel view of 🌳 Tree No. 8 based on TLS-derived LAD Marburg University Forest](https://gisma-courses.github.io/tls-tree-climate//doc/tree_voxel_viewer.html)
+![ Interactive 3D voxel view of 🌳 Tree No. 8 based on TLS-derived LAD Marburg University Forest](https://gisma-courses.github.io/tls-tree-climate//doc/tree_voxel_viewer.html)
 
 
 # TLS-tree-climate
