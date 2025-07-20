@@ -108,7 +108,7 @@ The input data set tree_08.las is a cleaned terrestrial laser scan of a single, 
 Set global parameters for the workflow, such as file paths, voxel resolution, and maximum LAD value for normalization.
 
 ```{r setup}
-install.packages("terra")
+
 library(terra)
 library(lidR)
 library(sf)

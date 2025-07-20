@@ -28,7 +28,8 @@ jobs:
       - name: Install Quarto Dependencies
         run: |
           sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libharfbuzz-dev libfribidi-dev
-          Rscript -e "install.packages(c('rmarkdown', 'htmltools', 'knitr', 'readr'))"
+          Rscript -e 'install.packages(c("terra", "rmarkdown", "knitr", "htmltools", "rgl", "sf", "tidyverse"))'
+
 
       - name: Render Site
         run: |
