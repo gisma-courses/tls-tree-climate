@@ -108,7 +108,7 @@ The input data set tree_08.las is a cleaned terrestrial laser scan of a single, 
 Set global parameters for the workflow, such as file paths, voxel resolution, and maximum LAD value for normalization.
 
 ```{r setup}
-
+install.packages("terra")
 library(terra)
 library(lidR)
 library(sf)
@@ -149,7 +149,7 @@ This gives a spatially distributed LAD profile suitable for further analysis or 
 
 ::: {.callout-tip title="View Code" appearance="minimal" collapse="true"}
 ```{r}
-
+library(terra)
 
  las <- lidR::readLAS(las_file)  # Read the LAS/LAZ file (point cloud data)
   las@data$Z <- las@data$Z - min(las@data$Z, na.rm = TRUE)  
@@ -283,7 +283,7 @@ The LAD conversion in the following code is a **relative, normalized mapping** o
 
 ::: {.callout-tip title="View Code" appearance="minimal" collapse="true"}
 ```{r}
-
+library(terra)
 convert_matrix_to_df <- function(mat) {  
   df <- as.data.frame(mat)  
   colnames(df) <- attr(mat, "dimnames")[[2]]  
@@ -462,6 +462,7 @@ For 3D vegetation parameterization in ENVI-met 5.8+, the raster stack enables pr
 The raster stack also supports canopy clustering and prototyping. It allows classification of structural types, simplification of complex vegetation, and the creation of representative profiles for simulation.
 
 ```{r}
+library(terra)
 # In SpatRasterStack umwandeln
 xy <- df_lad[, c("X", "Y")]  
 lad_vals <- df_lad[, grep("^lad_", names(df_lad), value = TRUE)]  
@@ -474,86 +475,86 @@ plot(lad_raster)
 In a more 3D version it looks like below.
 
 ```{r}
-#| eval: false
-#| include: false
-library(terra)
-library(rgl)
-
-# Threshold value for LAD
-threshold <- 0.1 # change as needed
-
-# Step 1: Convert raster to voxel data frame
-rast_cube <- lad_raster  # your raster stack
-voxel_df <- as.data.frame(rast_cube, xy = TRUE, na.rm = TRUE)
-names(voxel_df) <- c("x", "y", paste0("z", seq_len(nlyr(rast_cube))))
-
-# Step 2: Reshape to long format
-voxel_long <- reshape(
-  voxel_df,
-  direction = "long",
-  varying = paste0("z", seq_len(nlyr(rast_cube))),
-  v.names = "val",
-  timevar = "z",
-  times = seq_len(nlyr(rast_cube))
-)
-
-# Step 3: Clean up and filter by threshold
-voxel_long <- voxel_long[!is.na(voxel_long$val) & voxel_long$val > threshold, ]
-voxel_long$z <- as.numeric(voxel_long$z)
-
-# Step 4: Normalize colors
-colors <- terrain.colors(100)[cut(voxel_long$val, breaks = 100)]
-
-# Step 5: Draw voxel cubes
-open3d(useNULL = TRUE)
-for (i in seq_len(nrow(voxel_long))) {
-  shade3d(
-    translate3d(cube3d(scale = 1), 
-                voxel_long$x[i], 
-                voxel_long$y[i], 
-                voxel_long$z[i]),
-    color = colors[i],
-    alpha = 0.8
-  )
-}
-
-# Step 6: Render in browser
-# Determine the bounds of your voxel space
-xlim <- range(voxel_long$x)
-ylim <- range(voxel_long$y)
-zlim <- range(voxel_long$z)
-
-# Draw bounding box
-lines3d(rbind(
-  c(xlim[1], ylim[1], zlim[1]),
-  c(xlim[2], ylim[1], zlim[1]),
-  c(xlim[2], ylim[2], zlim[1]),
-  c(xlim[1], ylim[2], zlim[1]),
-  c(xlim[1], ylim[1], zlim[1])
-), col = "black", lwd = 2)
-
-lines3d(rbind(
-  c(xlim[1], ylim[1], zlim[2]),
-  c(xlim[2], ylim[1], zlim[2]),
-  c(xlim[2], ylim[2], zlim[2]),
-  c(xlim[1], ylim[2], zlim[2]),
-  c(xlim[1], ylim[1], zlim[2])
-), col = "black", lwd = 2)
-
-for (i in 1:4) {
-  lines3d(
-    rbind(
-      c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[1]),
-      c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[2])
-    ), col = "black", lwd = 2
-  )
-}
-
-# Optional: Add coordinate axes
-axes3d(edges = c("x--", "y--", "z--"), col = "gray40")
-title3d(xlab = "X", ylab = "Y", zlab = "Z")
-widget <- rglwidget()
-htmlwidgets::saveWidget(widget, "tree_voxel_viewer.html", selfcontained = TRUE)
+# #| eval: false
+# #| include: false
+# library(terra)
+# library(rgl)
+# 
+# # Threshold value for LAD
+# threshold <- 0.1 # change as needed
+# 
+# # Step 1: Convert raster to voxel data frame
+# rast_cube <- lad_raster  # your raster stack
+# voxel_df <- as.data.frame(rast_cube, xy = TRUE, na.rm = TRUE)
+# names(voxel_df) <- c("x", "y", paste0("z", seq_len(nlyr(rast_cube))))
+# 
+# # Step 2: Reshape to long format
+# voxel_long <- reshape(
+#   voxel_df,
+#   direction = "long",
+#   varying = paste0("z", seq_len(nlyr(rast_cube))),
+#   v.names = "val",
+#   timevar = "z",
+#   times = seq_len(nlyr(rast_cube))
+# )
+# 
+# # Step 3: Clean up and filter by threshold
+# voxel_long <- voxel_long[!is.na(voxel_long$val) & voxel_long$val > threshold, ]
+# voxel_long$z <- as.numeric(voxel_long$z)
+# 
+# # Step 4: Normalize colors
+# colors <- terrain.colors(100)[cut(voxel_long$val, breaks = 100)]
+# 
+# # Step 5: Draw voxel cubes
+# open3d(useNULL = TRUE)
+# for (i in seq_len(nrow(voxel_long))) {
+#   shade3d(
+#     translate3d(cube3d(scale = 1), 
+#                 voxel_long$x[i], 
+#                 voxel_long$y[i], 
+#                 voxel_long$z[i]),
+#     color = colors[i],
+#     alpha = 0.8
+#   )
+# }
+# 
+# # Step 6: Render in browser
+# # Determine the bounds of your voxel space
+# xlim <- range(voxel_long$x)
+# ylim <- range(voxel_long$y)
+# zlim <- range(voxel_long$z)
+# 
+# # Draw bounding box
+# lines3d(rbind(
+#   c(xlim[1], ylim[1], zlim[1]),
+#   c(xlim[2], ylim[1], zlim[1]),
+#   c(xlim[2], ylim[2], zlim[1]),
+#   c(xlim[1], ylim[2], zlim[1]),
+#   c(xlim[1], ylim[1], zlim[1])
+# ), col = "black", lwd = 2)
+# 
+# lines3d(rbind(
+#   c(xlim[1], ylim[1], zlim[2]),
+#   c(xlim[2], ylim[1], zlim[2]),
+#   c(xlim[2], ylim[2], zlim[2]),
+#   c(xlim[1], ylim[2], zlim[2]),
+#   c(xlim[1], ylim[1], zlim[2])
+# ), col = "black", lwd = 2)
+# 
+# for (i in 1:4) {
+#   lines3d(
+#     rbind(
+#       c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[1]),
+#       c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[2])
+#     ), col = "black", lwd = 2
+#   )
+# }
+# 
+# # Optional: Add coordinate axes
+# axes3d(edges = c("x--", "y--", "z--"), col = "gray40")
+# title3d(xlab = "X", ylab = "Y", zlab = "Z")
+# widget <- rglwidget()
+# htmlwidgets::saveWidget(widget, "tree_voxel_viewer.html", selfcontained = TRUE)
 ```
 
 #### Visualization
