@@ -19,6 +19,8 @@ comments: false
 
 
 
+
+
 This course teaches how to use terrestrial laser scanning (TLS) to model individual trees and their effects on microclimate. You’ll learn how to turn detailed 3D scans into leaf area density (LAD) profiles and use them in ENVI-met for realistic tree simulations.
 
 What you’ll learn:
