@@ -1,13 +1,7 @@
 
-<figure style="width: 80%; margin: auto;">
-  <iframe src="doc/tree_voxel_viewer.html"
-          width="100%"
-          height="500"
-          style="border: none; outline: none; display: block;"></iframe>
-  <figcaption style="text-align: center; font-size: 0.9em; margin-top: 0.5em;">
-    Interactive 3D voxel view of Tree No. 8 based on TLS-derived LAD Marburg University Forest
-  </figcaption>
-</figure>
+[ Interactive 3D voxel view of 🌳 Tree No. 8 based on TLS-derived LAD Marburg University Forest](https://gisma-courses.github.io/tls-tree-climate//doc/tree_voxel_viewer.html)
+
+
 # TLS-tree-climate
 
 This course is part of [gisma spatial science ressources](https://gisma-courses.github.io/gc/) of the [Department of Geography](https://www.uni-marburg.de/fb19).
