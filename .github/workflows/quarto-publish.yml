@@ -25,15 +25,20 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install Quarto Dependencies
+      - name: Install system dependencies (for sf, rgl, etc.)
         run: |
-          sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libharfbuzz-dev libfribidi-dev
-          Rscript -e 'install.packages(c("terra", "rmarkdown", "knitr", "htmltools", "rgl", "sf", "tidyverse"))'
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev \
+              libharfbuzz-dev libfribidi-dev libgl1-mesa-dev libx11-dev \
+              libgdal-dev gdal-bin libgeos-dev libproj-dev
 
-
-      - name: Render Site
+      - name: Restore R packages using renv
         run: |
-          quarto render
+          Rscript -e 'install.packages("renv")'
+          Rscript -e 'renv::restore(prompt = FALSE)'
+
+      - name: Render Quarto site
+        run: quarto render
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
