@@ -1,0 +1,128 @@
+---
+title: "Solare Einstrahlung mit GRASS GIS (r.sun.hourly)"
+author: "Chris Reudenbach, Lena Perzlmaier"
+date: "2025-07-16"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-tools: true
+engine: knitr
+---
+
+# Introduction
+
+This tutorial describes how to model hourly solar irradiance using GRASS GIS via `rgrass7` and `link2GI`. The method uses the `r.sun.hourly` module to simulate global radiation hour-by-hour, which is useful for microclimate modeling.
+
+------------------------------------------------------------------------
+
+# Requirements
+
+-   GRASS GIS installed (version 7.8+ or 8.x)
+-   R packages: `link2GI`, `rgrass7`, `terra`
+-   A DTM (e.g., `pred_topo.tif`) including slope/aspect bands
+
+------------------------------------------------------------------------
+
+# 1. Initialize GRASS session
+
+``` r
+library(link2GI)
+library(rgrass7)
+
+# Prepare path to your digital terrain model (DTM)
+dem_path <- file.path(envrmt$path_lidar_raster, "dem/rasterize_terrain.vrt")
+
+# Link GRASS to the raster and create new location
+linkGRASS7(x = rast(dem_path),
+           gisdbase = tempdir(),
+           location = "microclimate_solar",
+           override = TRUE)
+```
+
+------------------------------------------------------------------------
+
+# 2. Import data into GRASS
+
+``` r
+execGRASS("r.in.gdal",
+          flags = c("o", "overwrite"),
+          parameters = list(input = dem_path, output = "dtm"))
+
+execGRASS("g.region", parameters = list(raster = "dtm"))
+
+# Also import slope and aspect if already precomputed
+pred_path <- file.path(envrmt$path_topo, "pred_topo.tif")
+execGRASS("r.in.gdal",
+          flags = c("o", "overwrite"),
+          parameters = list(input = pred_path, output = "pred_topo"))
+```
+
+------------------------------------------------------------------------
+
+# 3. Install `r.sun.hourly` module (only once)
+
+``` r
+execGRASS("g.extension", parameters = list(extension = "r.sun.hourly"))
+```
+
+------------------------------------------------------------------------
+
+# 4. Run solar irradiance model (example: May 24, all hours)
+
+``` r
+for (i in 145:145) {  # Day 145 = May 24
+  output <- paste0("tot_rad_", i)
+  execGRASS("r.sun.hourly",
+            flags = c("overwrite", "quiet"),
+            parameters = list(
+              elevation = "pred_topo.1",
+              slope     = "pred_topo.2",
+              aspect    = "pred_topo.3",
+              mode = "mode1",
+              start_time = 0,
+              end_time = 23,
+              day = i,
+              year = 2018,
+              glob_rad_basename = output
+            ))
+}
+```
+
+-   This creates 24 raster layers: `tot_rad_145_0` through `tot_rad_145_23`
+
+------------------------------------------------------------------------
+
+# 5. Export GRASS raster to GeoTIFF
+
+Example: extract 1 PM layer and save as TIFF
+
+``` r
+execGRASS("r.out.gdal",
+          flags = c("overwrite"),
+          parameters = list(
+            input = "tot_rad_145_13",
+            output = file.path(envrmt$path_topo, "irradiance_hour13.tif"),
+            format = "GTiff"
+          ))
+```
+
+------------------------------------------------------------------------
+
+# Notes
+
+-   Processing time: \~3–5 minutes per day (24 hours)
+-   Output resolution matches the DTM
+-   `r.sun.hourly` uses elevation, slope, and aspect
+-   Optional outputs include direct and diffuse radiation (e.g. `beam_rad`, `diff_rad`)
+
+------------------------------------------------------------------------
+
+# Extensions
+
+You can run this for all 365 days and then:
+
+-   Calculate daily/monthly means using `r.series` in GRASS
+-   Or export all layers and compute summaries in R using `terra::app()`

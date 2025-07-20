@@ -1,0 +1,34 @@
+---
+title: Data and Software
+
+title-block-banner: ../images/envi_met_title.png
+title-block-banner-color: black 
+
+---
+
+
+
+## Data set for training purposes
+
+Please find all Data Downloads at the[Course Data Server](https://hessenbox.uni-marburg.de/getlink/fi5p6EzMUrtUVFW3DnkFky/envimet) Data folder for any file exchange and data related purposes.
+
+
+## Specific modeling software 
+
+Please find all Downloads according to ENVI-met at the [ENVI-met landing page](https://envi-met.info/doku.php?id=start)
+
+
+## Common Software 
+
+Shell — any command line environment will do for the exercises. For Linux we recommend the [bash](http://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) shell. For Windows the Windows command line can be used.
+
+* [QGIS](HTTP://www.qgis.org/de/docs/user_manual/index.html#qgis-manual-index-reference) has become one of the most promising and most integrative open source GIS systems over the last years. Through the processing plugin, it additionally integrates modules from the other leading free GIS solutions. We will need it (if necessary) to prepare or manipulate some of the data.
+
+Regarding installation, for Ubuntu Linux, the [Ubuntu GIS package](https://wiki.ubuntu.com/UbuntuGIS) is a good choice. For Windows, we strongly recommend installing everything via the [OSGeo4W](http://trac.osgeo.org/osgeo4w/) environment and not the standalone QGIS installation tool. 
+
+
+
+
+## Additional data sources
+
+

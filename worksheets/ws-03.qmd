@@ -1,0 +1,77 @@
+---
+title: "WS-3: Abstract the complex sufficiently"
+title-block-banner: ../images/envi_met_title_3d.png
+title-block-banner-color: "#600707" 
+---
+
+![](../images/mandantory.png){width=10%}
+
+## Goals 
+
+Now that the first steps have been taken - namely, the technical and simple hasenkopf example simulations and a rough structuring of the research questions - it is necessary to design a concrete approach.
+
+
+
+
+## Things you need
+
+* [Course Data Server](https://hessenbox.uni-marburg.de/getlink/fi5p6EzMUrtUVFW3DnkFky/envimet) You will find here all kinds of data, literature and tutorials 
+* [ENVI-met software](https://envi-met.info/doku.php?id=start)
+* Please have a look at the **Monde Tutorial videos**
+* QGIS
+
+## Assignment
+Design a concrete modeling approach and a suitable associated modeling concept to assess the performance of Envimet to simulate how are the effects of the Hasenkopf build up plans affecting the fresh air support of Marburg.  
+
+Consider the following aspects:
+
+* abiotic endowment of the model domain (relief, soil, site location).
+* biotic features of the model domain (simple/3D vegetation)
+* appropriate meteorology for model initialization (ideal, real values)
+* technical model domain (x,y,z extent, time steps nesting)
+* Validation strategy
+
+Design the necessary work packages you need to divide your team into groups/single workers to achieve the goal.
+
+ * WP 1 data aquisition (DEM/DSM, vegetation, soil, build up areas, planned hasenkopf build up area, meteo data )
+ * WP 2 data manipulation using QGIS 
+   - WP 2a Vegetation "simple
+   - WP 2b Vegetation "3D
+   - WP 2c buildings
+   - WP 2d Terrain, soil etc.
+ * WP 3 Meteorological data
+ * WP 4 Model Setup
+ * WP 6 Simulation
+ * WP 7 Presentation
+ 
+ 
+The task is then as follows:
+
+The resulting concept should be prepared as a table (similar to the below example), also addressing the literature/data  used as well as know shortcomings.
+
+### Assignment 1
+
+From your knowledge now prepare a table containing the following information 
+
+| ressources needed | solution | references | needs manipulation | knowledge available | Who is doing it |
+|:-------:|:--------|:---------|:---------|:---------|:---------|
+| relief | 1 m DOM |  download link etc. | yes, what kind of | no, what aditional knowledge do you need | Name(s) |
+| soil properties | soil data  | access has to be clarified |  who knows| ? | ? |
+| soil vertical structure | four levels temperature soil moisture build-in model| envi-met | ? | ? | ? |
+|... |... |... |... |... |... |
+
+
+Any written notes please put them on `comments` below. 
+
+### Assignment 2
+
+Identify the critical shortcomings to solve these problems. State them clearly and try to offer a solution.
+
+::: {.callout-tip appearance="simple"}
+
+It is very important to understand what needs to be done and in which order by looking at the previous sessions and the tutorial. 
+
+The focus is on identifying the required data, the appropriate data preparation (also think about 3D problems!) and the standard initialisation of Envimet.
+
+:::
+

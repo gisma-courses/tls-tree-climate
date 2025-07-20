@@ -1,0 +1,19 @@
+---
+title: "Microclimate Modeling"
+title-block-banner: ../images/envi_met_title.png
+title-block-banner-color: black 
+---
+
+
+Microclimates, or small-scale local atmospheric conditions, play a critical role in ecosystems, human activities, and environmental processes of all kinds. Microclimates are defined as the set of climatic conditions typical of a given small area. Local variations, often influenced by terrain, vegetation, and human activities, form a complex web of microclimates that shape our immediate environment.
+
+The study and modeling of microclimates is becoming increasingly important for understanding the complex dynamics of temperature, humidity, wind patterns, and other climate variables at fine spatial scales, especially in urban areas. As the critical importance of regional differences in the context of global climate change becomes more apparent, the need for robust and user-friendly microclimate models is growing.
+
+Microclimate modeling is based on the collection and evaluation of physical, statistical, observational, and analytical data. It is a highly interdisciplinary field, with a core of meteorology, climatology, and computer science, but also with large overlaps with, for example, ecology and urban planning. 
+
+In this course, the microclimate model Envi-met is used to answer typical urban planning questions. The overall goal is to teach the basics of practical application, from data collection and processing to modeling, analysis, and scientific presentation. 
+
+Advances in sensor technology, including ground-based sensors, drones, and aerial photography, as well as freely available data sets, help to create a realistic and complex modeling base. 
+
+
+Reliable simulation of different planning scenarios requires at least a basic understanding of the most important meteorological processes. As an introduction we refer to the book [Practical Meteorology](https://www.eoas.ubc.ca/books/Practical_Meteorology/) by Roland Stull, especially the chapter [Atmospheric Boundary Layer](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch18-abl-v102.pdf).

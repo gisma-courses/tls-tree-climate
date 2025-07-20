@@ -1,0 +1,80 @@
+---
+title: "WS-6: Visualize and Compare Simulation runs"
+title-block-banner: ../images/envi_met_title_3d.png
+title-block-banner-color: "#600707" 
+---
+
+![](../images/mandantory.png){width="10%"}
+
+## Goals
+
+Four model runs were created: 2 for the planned expansion, 2 for the actual state, each with simplified meteorological boundary conditions for a radiation situation with little exchange. These model runs are now to be examined with regard to our question. To do this, we formally formulate a hypothesis, which we then examine and evaluate on the basis of the data.
+
+## Things you need
+
+-   [ENVI-met software](https://envi-met.info/doku.php?id=start)
+-   Please have a look at the following Envi-met tutorials
+    - analysing simulation data using the [Leonardo](https://youtu.be/TdSUzJ94Kgc?si=7LCBHhKg30I3u-PV)
+    - [compare](https://youtu.be/SccwMiCngCs?si=HlaCEl9WyhvCKsib) and [average](https://youtu.be/pNAwvEC1qoQ?si=MA8vdyMzoWT90n9l) data in QGIS
+-   Current LTR Qgis Installation
+    -   Installation of Plugins
+        -   Geodata to ENVI-met
+        -   OSMDownloader
+        -   QuickOSM
+-  Since the simulations are very time-consuming and the resulting Envi-met Hasenkopf GIS and Simulation data sets are very large, they can be [downloaded from the external data server](https://gofile.me/7sxdt/2INH7gFAp) (needs VPN network)
+
+::: {.callout-tip appearance="simple"}
+Please note that there are eight directories, a total of four zero-wind simulations and four weak wind simulations, each divided into actual/planned conditions for summer and winter. The data that is of central interest can be found in the subdirectory ‘Atmosphere’.
+:::
+
+
+## Assignment
+
+-   Formulation of a hypothesis based on the main motivation that the cold air production will be significantly weakened by the expansion plans for the Hasenkopf residential area.
+-   Identification of suitable parameters and methods for qualitative and quantitative processing of the hypothesis.
+-   Creation of maps and tables
+
+
+
+
+## Hypothesis
+
+The following hypotheses are examples and should narrow down the further analysis. They can, of course, also be formulated differently or modified.
+
+::: {.callout-important appearance="minimal"}
+
+H1: In wind-weak radiation weather conditions (WS > 0.5 m/s), a reduction in the supply of fresh air (> 5 %) is to be expected for the affected district of Marburg, Ockershausen.
+
+H2: In low-wind radiation weather conditions (WS < 0.5 m/s), no significant reduction in the supply of fresh air (less than 5 %) is to be expected for the affected district of Marburg, Ockershausen.
+
+:::
+
+## Workflow approach
+
+Answering this question requires scientific principles and conceptual approaches. In addition, of course, technical knowledge is required, such as how to extract, visualize, and compare the data of interest.
+
+These two problem areas are interrelated, although they are independent of each other.
+
+In summary, we need (1) one or more meteorological parameters that describe and quantify the production of fresh air. (2) We have to decide whether we use the area integral over time or a point measurement of these parameters as a proxy variable for our investigation, and then (3) find suitable technical means to carry out these calculations and data extractions. (4) Finally, we have to edit and discuss our hypotheses on this basis.
+
+## Identification of proxy parameters
+
+First of all get familar with the boundary layer basic concept of [cold air production see p. 693-705](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch18-abl-v102.pdf).
+
+The simplest approach would be to use a directly calculated variables from the Envi-met simulation runs. Since the supply of fresh air depends on the wind vector and also represents a spatial and temporal integral of the cold air inflow area of Ockershausen, not only the temperature difference is crucial, but also the gravitative/synoptic transport component. However, since the core simulation domain does not cover the entire catchment area, the relative catchment area of the runoff line in the Heiligengrund must serve as a reference point.
+
+Therefore, according to the [avove chapters](https://www.eoas.ubc.ca/books/Practical_Meteorology/prmet102/Ch18-abl-v102.pdf), suitable parameters could be:
+
+* Temperature
+* Wind direction / wind speed 
+
+The conceptual realisation of both the meteorological and data-technical implementation could be as follows
+
+* to identify the appropriate existing variables from the [Envi-met parameter](https://envi-met.info/doku.php?id=filereference:output:atmosphere) list
+* to create summary [evaluation maps](https://youtu.be/TdSUzJ94Kgc?si=7LCBHhKg30I3u-PV) of the model runs and their differences
+* to export suitable data layers for further [processing and analysis with QGIS](https://youtu.be/SccwMiCngCs?si=HlaCEl9WyhvCKsib)
+* in QGIS
+  * to calculate the [catchment area](https://docs.qgis.org/3.34/en/docs/training_manual/processing/hydro.html)
+  * to calculate zonal statistics on the catchment area to quantitatively determine the air mass difference.
+
+
