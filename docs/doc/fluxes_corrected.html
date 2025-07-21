@@ -234,7 +234,6 @@ window.Quarto = {
   <li><a href="#step-2-residual-estimation-of-latent-heat-flux" id="toc-step-2-residual-estimation-of-latent-heat-flux" class="nav-link" data-scroll-target="#step-2-residual-estimation-of-latent-heat-flux">Step 2: Residual Estimation of Latent Heat Flux</a></li>
   <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
   </ul></li>
-  <li><a href="#figures-seasonal-interpretation-of-energy-fluxes" id="toc-figures-seasonal-interpretation-of-energy-fluxes" class="nav-link" data-scroll-target="#figures-seasonal-interpretation-of-energy-fluxes">Figures: Seasonal Interpretation of Energy Fluxes</a></li>
   <li><a href="#plot-seasonal-comparison-of-energy-fluxes" id="toc-plot-seasonal-comparison-of-energy-fluxes" class="nav-link" data-scroll-target="#plot-seasonal-comparison-of-energy-fluxes">Plot: Seasonal Comparison of Energy Fluxes</a>
   <ul class="collapse">
   <li><a href="#legend-for-energy-flux-components" id="toc-legend-for-energy-flux-components" class="nav-link" data-scroll-target="#legend-for-energy-flux-components">Legend for Energy Flux Components</a></li>
@@ -478,7 +477,7 @@ Wind profile, buoyancy effects and turbulent scalar transport
 <p>A logarithmic wind profile means that wind speed increases with height according to:</p>
 <p><span class="math display">\[
   u(z) = \frac{u_*}{k} \ln\left(\frac{z}{z_0}\right)
-  \]</span></p>
+\]</span></p>
 <p>where <span class="math inline">\(u_*\)</span> is the friction velocity, <span class="math inline">\(k\)</span> the von Kármán constant, and <span class="math inline">\(z_0\)</span> the roughness length. This profile arises from surface-layer theory under turbulent, steady conditions.</p>
 </section>
 <section id="note-on-diagnosing-atmospheric-stability" class="level3">
@@ -560,7 +559,6 @@ H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a}
 </div>
 </div>
 </div>
-<hr>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -578,7 +576,6 @@ H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a}
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<hr>
 </section>
 <section id="latent-heat-flux-le-residual-method" class="level3">
 <h3 class="anchored" data-anchor-id="latent-heat-flux-le-residual-method">Latent Heat Flux <span class="math inline">\(LE\)</span>: Residual Method</h3>
@@ -588,7 +585,6 @@ H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a}
 <li><strong>transpiration</strong> through stomata in plants, and</li>
 <li><strong>evaporation</strong> of intercepted rainfall from canopy surfaces.</li>
 </ul>
-<hr>
 </section>
 <section id="residual-energy-balance-equation" class="level3">
 <h3 class="anchored" data-anchor-id="residual-energy-balance-equation">Residual Energy Balance Equation</h3>
@@ -689,7 +685,6 @@ r_a = \frac{\ln(z_2 / z_1)}{k \cdot \bar{u}} = \frac{\ln(10 / 2)}{0.41 \cdot 1.6
 <p><span class="math display">\[
 H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a} = 1.225 \cdot 1005 \cdot \frac{0.5}{2.453} \approx 251\,\text{W/m}^2
 \]</span></p>
-<hr>
 </section>
 <section id="step-2-residual-estimation-of-latent-heat-flux" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-residual-estimation-of-latent-heat-flux">Step 2: Residual Estimation of Latent Heat Flux</h3>
@@ -707,10 +702,6 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 <section id="interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
 <p>By first estimating <span class="math inline">\(H\)</span> via physical gradients (bulk approach), and then applying the residual method, we close the energy balance without needing direct <span class="math inline">\(LE\)</span> measurements. This is a standard practice in micrometeorology when eddy covariance data are not available.</p>
-</section>
-</section>
-<section id="figures-seasonal-interpretation-of-energy-fluxes" class="level2">
-<h2 class="anchored" data-anchor-id="figures-seasonal-interpretation-of-energy-fluxes">Figures: Seasonal Interpretation of Energy Fluxes</h2>
 <p>Using the residual method:</p>
 <p><span class="math inline">\(LE = R_n - G - H\)</span></p>
 <div class="cell">
@@ -719,7 +710,7 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>energy <span class="ot">&lt;-</span> energy <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">LE =</span> Rn <span class="sc">-</span> G <span class="sc">-</span> H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<hr>
+</section>
 </section>
 <section id="plot-seasonal-comparison-of-energy-fluxes" class="level2">
 <h2 class="anchored" data-anchor-id="plot-seasonal-comparison-of-energy-fluxes">Plot: Seasonal Comparison of Energy Fluxes</h2>
@@ -779,7 +770,6 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 <li><strong>Ground heat flux (G)</strong> may show inversion (soil losing heat), particularly in the evening.</li>
 </ul>
 <p>This pattern reflects the <strong>dormant season</strong>, with minimal biological activity and colder atmospheric conditions.</p>
-<hr>
 </section>
 <section id="legend-for-energy-flux-components" class="level3">
 <h3 class="anchored" data-anchor-id="legend-for-energy-flux-components">Legend for Energy Flux Components</h3>
@@ -814,7 +804,6 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
 </section>
 <section id="notes-on-interpretation" class="level2">
@@ -824,7 +813,6 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 <li>Deviations in (R_n - G - H) often indicate <strong>instrument imbalance</strong>, <strong>storage terms</strong>, or <strong>closure errors</strong>.</li>
 <li>The <strong>residual approach</strong> to compute (LE) assumes high accuracy of the measured and modeled terms.</li>
 </ul>
-<hr>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Convert to Evapotranspiration (mm/day)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -908,7 +896,6 @@ ET = \frac{330}{2.45 \cdot 10^6} \cdot 86.4 \approx 11.64\,\text{mm/day}
 </li>
 <li>Oke, T. R. (2002). <em>Boundary Layer Climates</em>. Routledge.</li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="export-optional" class="level2">

@@ -127,13 +127,14 @@ Where:
 > This formula assumes: - horizontally homogeneous surface, - fully turbulent flow, - negligible atmospheric stability effects (i.e. neutral conditions).
 
 ::: {.callout-note title="Wind profile, buoyancy effects and turbulent scalar transport" appearance="minimal" collapse="true"}
+
 ### Note on logarithmic wind profile
 
 A logarithmic wind profile means that wind speed increases with height according to:
 
 $$
   u(z) = \frac{u_*}{k} \ln\left(\frac{z}{z_0}\right)
-  $$
+$$
 
 where $u_*$ is the friction velocity, $k$ the von Kármán constant, and $z_0$ the roughness length. This profile arises from surface-layer theory under turbulent, steady conditions.
 
@@ -211,7 +212,7 @@ which relate scalar differences to vertical fluxes via aerodynamic resistance $r
 ```
 :::
 
-------------------------------------------------------------------------
+
 
 ```{r}
 # Constants
@@ -228,8 +229,6 @@ energy <- energy %>%
   )
 ```
 
-------------------------------------------------------------------------
-
 ### Latent Heat Flux $LE$: Residual Method
 
 The **latent heat flux** $LE$ quantifies the energy used for **evapotranspiration** — the combined loss of water to the atmosphere by:
@@ -238,7 +237,7 @@ The **latent heat flux** $LE$ quantifies the energy used for **evapotranspiratio
 -   **transpiration** through stomata in plants, and
 -   **evaporation** of intercepted rainfall from canopy surfaces.
 
-------------------------------------------------------------------------
+
 
 ### Residual Energy Balance Equation
 
@@ -302,7 +301,7 @@ $$
 H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a} = 1.225 \cdot 1005 \cdot \frac{0.5}{2.453} \approx 251\,\text{W/m}^2
 $$
 
-------------------------------------------------------------------------
+
 
 ### Step 2: Residual Estimation of Latent Heat Flux
 
@@ -323,7 +322,6 @@ This gives the amount of energy used for **evaporation and transpiration**, infe
 
 By first estimating $H$ via physical gradients (bulk approach), and then applying the residual method, we close the energy balance without needing direct $LE$ measurements. This is a standard practice in micrometeorology when eddy covariance data are not available.
 
-## Figures: Seasonal Interpretation of Energy Fluxes
 
 Using the residual method:
 
@@ -333,7 +331,7 @@ $LE = R_n - G - H$
 energy <- energy %>% mutate(LE = Rn - G - H)
 ```
 
-------------------------------------------------------------------------
+
 
 ## Plot: Seasonal Comparison of Energy Fluxes
 
@@ -376,7 +374,7 @@ plot_fluxes(filter(energy_long, month_label == "November"), "Energy Fluxes in No
 
 This pattern reflects the **dormant season**, with minimal biological activity and colder atmospheric conditions.
 
-------------------------------------------------------------------------
+
 
 ### Legend for Energy Flux Components
 
@@ -387,7 +385,7 @@ This pattern reflects the **dormant season**, with minimal biological activity a
 | (LE)   | Latent heat flux   | Positive upward (evaporation) |
 | \(G\)  | Ground heat flux   | Positive downward (into soil) |
 
-------------------------------------------------------------------------
+
 
 ## Notes on Interpretation
 
@@ -395,7 +393,7 @@ This pattern reflects the **dormant season**, with minimal biological activity a
 -   Deviations in (R_n - G - H) often indicate **instrument imbalance**, **storage terms**, or **closure errors**.
 -   The **residual approach** to compute (LE) assumes high accuracy of the measured and modeled terms.
 
-------------------------------------------------------------------------
+
 
 ::: {.callout-note title="Convert to Evapotranspiration (mm/day)" appearance="minimal" collapse="true"}
 We calculate **latent heat flux** $LE$ as the **residual**:
@@ -461,10 +459,123 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 -   Arya, S. P. (2001). *Introduction to Micrometeorology*. Academic Press.\
 -   Oke, T. R. (2002). *Boundary Layer Climates*. Routledge.
 
-------------------------------------------------------------------------
+
 
 ## Export (Optional)
 
 ```{r}
 # write_csv(energy, "../data/processed_energy_fluxes.csv")
 ```
+
+## Complete Code
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(lubridate)
+library(units)
+
+energy <- read_csv("../data/energie_bil_wiese.csv") %>%
+  mutate(datetime = dmy_hm(datetime))
+
+
+## -
+energy <- energy %>%
+  rename(
+    Rn = rad_bil,
+    G = heatflux_soil,
+    Ta_2m = Ta_2m,
+    Ta_10m = Ta_10m,
+    WS_2m = Windspeed_2m,
+    WS_10m = Windspeed_10m
+  ) %>%
+  mutate(
+    delta_T = Ta_10m - Ta_2m,
+    WS_mean = (WS_2m + WS_10m) / 2,
+    month_num = month(datetime),
+    month_label = case_when(
+      month_num == 6 ~ "June",
+      month_num == 11 ~ "November",
+      TRUE ~ as.character(month(datetime, label = TRUE))
+    )
+  )
+
+
+## -
+# Constants
+rho_air <- set_units(1.225, "kg/m^3")
+cp_air <- set_units(1005, "J/kg/K")
+z1 <- 2
+z2 <- 10
+k <- 0.41
+
+energy <- energy %>%
+  mutate(
+    ra = log(z2 / z1) / (k * WS_mean),
+    H = drop_units(rho_air * cp_air * delta_T / ra)
+  )
+
+
+## -
+energy <- energy %>% mutate(LE = Rn - G - H)
+
+
+## -
+library(ggplot2)
+
+energy_long <- energy %>%
+  select(datetime, month_label, Rn, G, H, LE) %>%
+  pivot_longer(cols = c(Rn, G, H, LE), names_to = "flux", values_to = "value")
+
+plot_fluxes <- function(df, title) {
+  ggplot(df, aes(x = datetime, y = value, color = flux)) +
+    geom_line() +
+    labs(title = title, x = "Time", y = "Flux (W/m²)") +
+    theme_minimal()
+}
+
+plot_fluxes(filter(energy_long, month_label == "June"), "Energy Fluxes in June")
+
+
+## -
+plot_fluxes(filter(energy_long, month_label == "November"), "Energy Fluxes in November")
+
+
+## -
+library(dplyr)
+library(ggplot2)
+
+# Berechne ET
+lambda <- 2.45e6  # J/kg
+energy <- energy %>%
+  mutate(
+    ET_mm_day = (LE / lambda) * 86400,
+    month_label = month(datetime, label = TRUE, abbr = FALSE)
+  )
+
+# Aggregiere pro Monat
+monthly_et <- energy %>%
+  filter(!is.na(ET_mm_day)) %>%
+  group_by(month_label) %>%
+  summarise(
+    mean_ET = mean(ET_mm_day, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Plot
+ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
+  geom_col(show.legend = FALSE) +
+  labs(
+    title = "Mean Daily Evapotranspiration (ET) from Residual Method",
+    x = "Month",
+    y = "Evapotranspiration (mm/day)"
+  ) +
+  scale_fill_manual(values = c("June" = "tomato", "November" = "turquoise3")) +
+  theme_minimal()
+
+
+
+## -
+write_csv(energy, "../data/processed_energy_fluxes.csv")
+
+``` 
