@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>WS-4: Generating the model domain – Envi_Met TLS-tree-climate</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7b194200d69fd7e0c5f993034b57b305.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-52370ba2f93cbc1abe940a33eca0777c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7b194200d69fd7e0c5f993034b57b305.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: #600707;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: #600707;
+background-image: url(../images/envi_met_title_3d.png);
+background-size: cover;
+      }
+</style>
+
+
+<link rel="stylesheet" href="../css/styles.css">
+<meta property="og:title" content="WS-4: Generating the model domain – Envi_Met TLS-tree-climate">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://gisma-courses.github.io/TLS-tree-climate/images/mandantory.png">
+<meta property="og:site_name" content="Envi_Met TLS-tree-climate">
+<meta property="og:image:height" content="60">
+<meta property="og:image:width" content="173">
+<meta name="twitter:title" content="WS-4: Generating the model domain – Envi_Met TLS-tree-climate">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://gisma-courses.github.io/TLS-tree-climate/images/mandantory.png">
+<meta name="twitter:creator" content="@gisma">
+<meta name="twitter:image-height" content="60">
+<meta name="twitter:image-width" content="173">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logooil.jpg" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Envi_Met TLS-tree-climate</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">WS-4: Generating the model domain</h1>
+        </a>     
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">WS-4: Generating the model domain</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../doc/evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation of Atmosphere–Vegetation Interaction Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../doc/tls_v1_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using leaf area density (LAD) from TLS data in ENVI-met for 3D plants.</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">doc/fluxes.qmd</span>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#things-you-need" id="toc-things-you-need" class="nav-link" data-scroll-target="#things-you-need">Things you need</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#hands-on" id="toc-hands-on" class="nav-link" data-scroll-target="#hands-on">Hands on</a>
+  <ul class="collapse">
+  <li><a href="#download-of-the-data" id="toc-download-of-the-data" class="nav-link" data-scroll-target="#download-of-the-data">Download of the data</a></li>
+  </ul></li>
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data preprocessing</a>
+  <ul class="collapse">
+  <li><a href="#polygons-to-envi_met-vegetation" id="toc-polygons-to-envi_met-vegetation" class="nav-link" data-scroll-target="#polygons-to-envi_met-vegetation">Polygons to Envi_met vegetation</a></li>
+  <li><a href="#line-surface-types" id="toc-line-surface-types" class="nav-link" data-scroll-target="#line-surface-types">Line surface types</a></li>
+  </ul></li>
+  <li><a href="#buildings" id="toc-buildings" class="nav-link" data-scroll-target="#buildings">Buildings</a></li>
+  <li><a href="#check-for-missing-data" id="toc-check-for-missing-data" class="nav-link" data-scroll-target="#check-for-missing-data">Check for missing data</a></li>
+  <li><a href="#receptors" id="toc-receptors" class="nav-link" data-scroll-target="#receptors">Receptors</a></li>
+  <li><a href="#planning-data" id="toc-planning-data" class="nav-link" data-scroll-target="#planning-data">Planning data</a></li>
+  <li><a href="#convert-geodata-to-envimet" id="toc-convert-geodata-to-envimet" class="nav-link" data-scroll-target="#convert-geodata-to-envimet">Convert Geodata to envimet</a></li>
+  <li><a href="#help" id="toc-help" class="nav-link" data-scroll-target="#help">Help</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/worksheets/ws-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+
+<p><img src="../images/mandantory.png" class="img-fluid" style="width:10.0%"></p>
+<p>After the first attempts - specifically after the technical example simulations as well as a rough structuring of the research questions, it is now necessary to design a concrete approach.</p>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>Design and impementation of a concrete approach.</p>
+</section>
+<section id="things-you-need" class="level2">
+<h2 class="anchored" data-anchor-id="things-you-need">Things you need</h2>
+<ul>
+<li><a href="https://hessenbox.uni-marburg.de/getlink/fi5p6EzMUrtUVFW3DnkFky/envimet">Course Data Server</a> You will find here all kinds of data, literature and tutorials.</li>
+<li>For specific project data see <a href="https://gisma-courses.github.io/LV-19-d19-010-envi/worksheets/ws-04.html#download-of-the-data">Download of the data</a></li>
+<li><a href="https://envi-met.info/doku.php?id=start">ENVI-met software</a></li>
+<li>Current LTR Qgis Installation
+<ul>
+<li>Installation of Plugins
+<ul>
+<li>Geodata to ENVI-met</li>
+<li>OSMDownloader</li>
+<li>QuickOSM</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>Design a concrete modeling approach and a suitable associated modeling concept to assess the performance of Envimet to simulate how are the effects of the Hasenkopf build up plans affecting the fresh air support of Marburg. Consider the following aspects: * abiotic endowment of the model domain (relief, soil, site location). * biotic features of the model domain (simple/3D vegetation) * technical model domain (x,y,z extent, time steps nesting) * appropriate meteorology for model initialization (ideal, real values) * Validation strategy</p>
+</section>
+<section id="hands-on" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on">Hands on</h2>
+<p>The preparation of the modelling environment for an Envi_met model run can be as complex as desired, but the following criteria should always be kept in mind:</p>
+<ol type="1">
+<li>the size and desired resolution of the model domain (depending on the research question AND computing costs)</li>
+<li>scientific or planning level of detail of the research question</li>
+<li>focus of the modelling (wind field, plant respiration, micrometeorological parameters).</li>
+</ol>
+<p>The input data sources must be selected according to these factors. In hilly terrain, a high resolution digital terrain model or digital surface model is essential. In addition, at least a rough estimate of land use and soil type is required. In addition the three-dimensional structure of the model requires at least good estimates of vegetation and building heights in the selected model area.</p>
+<p>For the modeling of cold air drainage (i.e.&nbsp;fresh air production) in the Hasenkopf area, the terrain, land use and meteorologically critical situations are of central importance. If you do not want to collect all the data in the field manually (which may be a sensible approach), Open Street Map data and aerial images are particularly useful for land use and possible follow-up surveys. Terrain data is now available in high resolution in the 1m range for large parts of Europe and the world. This data must be downloaded and prepared accordingly (for the Envi_met logic). There is now a powerful and largely functional plugin for QGIS ‘Geodata to Envi_met’, which intuitively specifies how this data is to be organized.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>For the above question of cold air production, the freely available data from the State of Hesse and the Hessian Administration for Land Management and Geoinformation, as well as the Openstreetmap data, are well suited. In addition, some planning maps have to be digitised manually.</p>
+</div>
+</div>
+</div>
+<section id="download-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-of-the-data">Download of the data</h3>
+<ul>
+<li>Digital Elevation Model <a href="https://gds.hessen.de/downloadcenter/20241217/3D-Daten/Digitales%20Gel%C3%A4ndemodell%20(DGM1)/Landkreis%20Marburg-Biedenkopf/Marburg%20-%20DGM1.zip">DEM</a> and Digital Surface Model <a href="https://gds.hessen.de/downloadcenter/20241217/3D-Daten/Digitales%20Oberfl%C3%A4chenmodell%20(DOM1)/Landkreis%20Marburg-Biedenkopf/Marburg%20-%20DOM1.zip">DSM</a> files relevant for Marburg can be downloaded from the <a href="https://gds.hessen.de/INTERSHOP/web/WFS/HLBG-Geodaten-Site/de_DE/-/EUR/ViewDownloadcenter-Start">GDS website</a> of the Hessian Administration for Land Management and Geoinformation</li>
+<li>For downloading the OSM data it is recommended to use the <a href="https://github.com/lcoandrade/OSMDownloader">OSMDownloader</a> extension to QGIS. It simply provides the ability to draw a rectangle and download the complete and currently available OSM data to a file named <code>hasenkopf.osm</code>.</li>
+<li>If the data has to be digitised manually, it is advisable to use an up-to-date aerial photograph from Bing or Google. These can be easily integrated via <a href="https://search.brave.com/search?q=xyz+bing++and++google+tiles+qgis&amp;source=web&amp;conversation=3edfdf1027de79664f5117&amp;summary=1">XYZ tiles</a></li>
+<li>The planning data for the development and sealing were taken from page 23 of the <a href="https://www.marburg.de/downloads/datei/YmZlOWFhODY4NDFiNzUxNmxDTUtJYTVFWGRRZDBjUmxSQmFBN2lqRHpKaE9Id0d5cUlrcVdZZTgrdFlZTWdMWHMxK1dzaUJtbVA5a3ZQRmlVZ2hVa01MNkg4cjA3dDJINEFoL1FlazVNdmJVMVl6aXBPMDNYWlhJMzlBU3c5TWpsWUVaUUpKaFp1RC9WcTRkZ29qV2hCVXhFQmxjZkh0cThlU2FqNm5ENnl5SEY1Z2E2eHJPUzBHcWNHUT0">presentation of the winning design</a> via screenshot.</li>
+</ul>
+</section>
+</section>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">Data preprocessing</h2>
+<p>Starting with the OSM base data. Open the downloaded OSM file using the vector import dialogue box in a new group called OSM.</p>
+<p><img src="../images/osm.png" class="img-fluid" style="width:75.0%"></p>
+<p>Now open the attribute table and the function editor and select all natural and land use areas.</p>
+<p>Main keys: <code>landuse natural</code> with the values:</p>
+<pre><code>'allotments','farmland','farmyard','forest','grass','meadow','orchard','village_green','grassland','scrub','wood'</code></pre>
+<p>This can be done very easily with the following expression:</p>
+<pre><code>"landuse" IN ('allotments','farmland','farmyard','forest','grass','meadow','orchard','village_green','grassland','scrub','wood')
+ OR  
+"natural" IN ('allotments','farmland','farmyard','forest','grass','meadow','orchard','village_green','grassland','scrub','wood')
+</code></pre>
+<p><img src="../images/function_edit1.png" class="img-fluid" style="width:75.0%"></p>
+<p>Press <code>Select Objects</code> Button and Export selected Values only (do not forget to assign the correct projection EPSG:32632) and name it <code>vegtypes.gpkg</code>.</p>
+<p>Next do the same with the <code>hasenkopf — multilinestrings</code></p>
+<p>Main key: <code>highway</code> with the values:</p>
+<pre><code>primary','primary_link','residential','secondary','secondary_link','tertiary' 'tertiary_link','track'</code></pre>
+<p>Press <code>Select Objects</code> Button and Export selected Values only (do not forget to assign the correct projection EPSG:32632) and name it <code>surftypes_roads_ml.gpkg</code>.</p>
+<section id="polygons-to-envi_met-vegetation" class="level3">
+<h3 class="anchored" data-anchor-id="polygons-to-envi_met-vegetation">Polygons to Envi_met vegetation</h3>
+<p>In the next step, Envimet IDs are assigned to the vegetation polygons, which are either taken from the Envimet database or created by the user. This is done very simply as follows: Open the <code>vegtypes.gpkg</code> attribute table and then the <code>field calculator</code>. Create a new field with 6 alphanumeric characters and the name <code>ENVIMET_ID</code>. Then process the following expression. This assigns the corresponding vegetation database identifier to the new ‘ENVIMET_ID’ field.</p>
+<pre><code>CASE 
+CASE 
+  WHEN "landuse" =   'grass'       THEN '000000'
+    WHEN "landuse" =   'meadow'        THEN '000000'
+    WHEN "landuse" =   'farmyard'      THEN '0201H4'
+    WHEN "landuse" =   'forest'        THEN '0000SM'
+    WHEN "landuse" =   'allotments'    THEN '0201H4'
+    WHEN "landuse" =   'orchard'       THEN '000051'
+  WHEN "natural" =   'grassland'     THEN '000000'  
+  WHEN "natural" =   'wood'          THEN '0000SM'
+    WHEN "natural" =   'scrub'         THEN '0100H2'  
+    WHEN "landuse" =   'farmland'      THEN '02AGSS'
+    WHEN "landuse" =   'residental'    THEN '02AGSS'    
+    WHEN "landuse" =   'industrial'    THEN '0200AK'    
+    ELSE '000000'
+END</code></pre>
+<p><img src="../images/field_calc.png" class="img-fluid" style="width:75.0%"></p>
+<p>Save the file.</p>
+<p>On the same file, we need to edit the non-vegetated surfaces in a corresponding way:</p>
+<pre><code>CASE 
+    WHEN "landuse" =   'farmland'      THEN '02AGSS'
+    WHEN "landuse" =   'residental'    THEN '02AGSS'    
+    WHEN "landuse" =   'industrial'    THEN '0200AK'
+  ELSE '0200AK'</code></pre>
+<p>Press <code>Select Objects</code> Button and Export selected Values only (do not forget to assign the correct projection EPSG:32632) and name it <code>polygons_surfaces.gpkg</code>.</p>
+</section>
+<section id="line-surface-types" class="level3">
+<h3 class="anchored" data-anchor-id="line-surface-types">Line surface types</h3>
+<p>We need polygon data for the spatial setup of the envimet model domain. Line data is one-dimensional, so a simple approach is to buffer roads according to their priority. Therefore we buffer the different road types with 8m (primary), 5m (secondary), 4m (tertiary) and 2.5m (tracks).</p>
+<p>Then process the following expression to assign the <code>ENVIMET_IDs</code>:</p>
+<pre><code>
+CASE 
+  WHEN "highway" =   'primary'        THEN '0200AK'
+  WHEN "highway" =   'primary_link'   THEN '0200AK'
+  WHEN "highway" =   'secondary'      THEN '0200AK'
+  WHEN "highway" =   'secondary_link' THEN '0200AK'
+  WHEN "highway" =   'tertiary'       THEN '0200AK'
+  WHEN "highway" =   'tertiary_link'  THEN '0200AK'  
+  WHEN "surface" =   'asphalt'        THEN '0200AK'
+    WHEN "surface" =   'ground'         THEN '0200TS'
+    WHEN "surface" =   'dirt'           THEN '0200TS'
+    WHEN "surface" =   'mud'            THEN '0200TS'
+    WHEN "surface" =   'fine_gravel'    THEN '0200BS'
+    WHEN "surface" =   'gravel'         THEN '0200BS'
+    WHEN "surface" =   'grass'          THEN '02AGSS'
+    WHEN "surface" =   'unpaved'        THEN '0200TS'
+    WHEN "surface" =   'compacted'      THEN '0200BS'
+ELSE '0200TS'
+END</code></pre>
+<p>Save the file as <code>line_surfaces.gpgk</code>.</p>
+<p>Next merge <code>polygons_surfaces.gpkg</code> and <code>line_surface.gpgk</code> into <code>all_surfaces.gpgk</code>.</p>
+</section>
+</section>
+<section id="buildings" class="level2">
+<h2 class="anchored" data-anchor-id="buildings">Buildings</h2>
+<p>Use the OSM polygon data again and select all buildings that do not have the value NULL.</p>
+<pre><code> "building" is not NULL</code></pre>
+<p>Save the file as <code>buildings.gpgk</code>.</p>
+<p>We need the heights of the buildings, so we extract the data from the surface height model (SHM) for each building using the <code>zonal statistics</code> tool, which we previously calculated using the raster computer from the difference between the digital surface model (DSM) and the digital elevation model (DEM).</p>
+</section>
+<section id="check-for-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="check-for-missing-data">Check for missing data</h2>
+<p>Hide all data and activate only the generated vegetation, surface and building data. Check in the following order:</p>
+<ol type="1">
+<li>is there still surface data without information?</li>
+<li>are there vegetation areas without information?</li>
+<li>are all buildings present?</li>
+</ol>
+<ul>
+<li>Regarding 1: It is likely that important information is missing, especially for the surfaces. All streets and sealed surfaces should be present here, but the surfaces under vegetation, etc. have no information. The easiest way is to assign a soil type code to this total area. This is most easily done by calculating a symmetric difference between the surface data and the model area; the resulting polygon is a negative of the existing surfaces. This polygon is then assigned a field ‘ENVIMET_ID’ and the corresponding soil value is entered. The file is then merged with the existing surface file (merge tool).</li>
+<li>Regarding 2: If areas are unclear, they must be digitized <a href="https://docs.qgis.org/3.34/en/docs/training_manual/create_vector_data/create_new_vector.html">manual</a>. To do this, open the Bing/Google aerial map and open the corresponding vegetation file, make it editable and re-digitize it. It is important that the correct ENVIMET_ID is assigned at the end of each polygon.</li>
+<li>Regarding 3: Simply compare the aerial image to see if all buildings are present in the model area. If not, digitize them again and then use the zonal statistics tool again.</li>
+</ul>
+</section>
+<section id="receptors" class="level2">
+<h2 class="anchored" data-anchor-id="receptors">Receptors</h2>
+<p>So-called receptors can be set up to compare and locally measure continuous values. These work like complex measuring stations in the terrain. To do this, we use the tool [<code>Vector-&gt;Research Tools-&gt;Regular Points</code>] (https://youtu.be/ExgfFEEgeWA?si=nZWgiZR299VQBAR1). We can, for example, create a point every 100 meters. Points at the edge, in buildings, etc. can then be deleted manually, as they require a considerable amount of additional computing time during the simulation. There should not be many more than 50-60 points… Save the file as <code>receptors.gpkg</code>.</p>
+</section>
+<section id="planning-data" class="level2">
+<h2 class="anchored" data-anchor-id="planning-data">Planning data</h2>
+<p>Planning data is required to compare the production of fresh air between the actual and planned conditions. The available data can be found in the presentation linked above. We use the following screenshot to record the changes in land use, buildings and vegetation based on this. To do this, the map presentation image must be georeferenced. This is done using the tool <a href="https://docs.qgis.org/3.34/en/docs/user_manual/working_with_raster/georeferencer.html"><code>Layer-&gt;Georeferencer</code></a>.</p>
+<p>The basic approach is to find points (so-called ground control points) in the draft plan that can also be identified in the Bing aerial photograph, for example. Using these points, the image is integrated into the geometry of the GIS data and can then be digitized accordingly.</p>
+<p><img src="../images/georef.png" class="img-fluid" style="width:75.0%"></p>
+<p>The basic approach is to find points (so-called ground control points) in the draft plan that can also be identified in the Bing aerial photograph, for example. On the basis of these points, the image is integrated into the geometry of the GIS data and can then be digitized accordingly.</p>
+<p>After the georeferencing has been successfully carried out, the deviating structures are now integrated into copies of the respective inventory files by manual digitization. The number of floors is indicated for the buildings and can be adopted with a height of 3 m each. The trees were digitized as 3D plant points and assigned to different standard heights of a standard deciduous tree species, depending on their diameter. Paths are recorded as paved.</p>
+<p><img src="../images/planning.png" class="img-fluid" style="width:75.0%"></p>
+<p>Save the files under a unique name in each case, making it clear that the planning layers are meant.</p>
+</section>
+<section id="convert-geodata-to-envimet" class="level2">
+<h2 class="anchored" data-anchor-id="convert-geodata-to-envimet">Convert Geodata to envimet</h2>
+<p>You can now run the <a href="https://youtu.be/FgW1_PRPMWo?si=vgx3kY3uGR7-T995"><code>Convert Geodata to Envimet</code></a>] plug-in. Of course, two different models have to be generated: one for the actual state and one for the planned state.</p>
+</section>
+<section id="help" class="level2">
+<h2 class="anchored" data-anchor-id="help">Help</h2>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>All files, GCP and the model files and simulation control files generated from it, are included in the <a href="https://github.com/gisma-courses/LV-19-d19-010-envi/raw/refs/heads/master/assets/hasenkopf_core_area.zip">Envi-met Hasenkopf GIS and Modeldata</a> Archive file.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.quarto\.org\/custom");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<script src="https://utteranc.es/client.js" repo="gisma-courses/TLS-tree-climate" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>TLS-tree-climate (2025)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/worksheets/ws-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
