@@ -52,6 +52,14 @@ jobs:
             pkg-config \
             pandoc
 
+      - name: Cache renv packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+
       - name: Restore R packages using renv
         run: |
           Rscript -e 'install.packages("renv")'
