@@ -31,7 +31,7 @@ website:
     contents:
       - doc/evaluation.qmd
       - doc/tls_v1_1.qmd
-      - doc/fluxes.qmd
+      - doc/fluxes_corrected.qmd
       - text: "---"
 
 format:
