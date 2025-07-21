@@ -11,6 +11,7 @@ execute:
 editor: visual
 ---
 
+
 ## Introduction
 
 This tutorial calculates surface energy balance components using micrometeorological observations from an energy balance station. We implement a simplified diagnostic approach based on physical theory and field measurements.
