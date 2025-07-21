@@ -214,9 +214,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#surface-energy-balance-theory-and-interpretation" id="toc-surface-energy-balance-theory-and-interpretation" class="nav-link" data-scroll-target="#surface-energy-balance-theory-and-interpretation">Surface Energy Balance: Theory and Interpretation</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
+  <li><a href="#surface-energy-balance-theory-and-interpretation" id="toc-surface-energy-balance-theory-and-interpretation" class="nav-link" data-scroll-target="#surface-energy-balance-theory-and-interpretation">Surface Energy Balance: Theory and Interpretation</a></li>
   <li><a href="#basic-surface-energy-balance-equation" id="toc-basic-surface-energy-balance-equation" class="nav-link" data-scroll-target="#basic-surface-energy-balance-equation">Basic Surface Energy Balance Equation</a></li>
   </ul></li>
   <li><a href="#load-libraries-and-data" id="toc-load-libraries-and-data" class="nav-link" data-scroll-target="#load-libraries-and-data">Load Libraries and Data</a></li>
@@ -225,25 +225,25 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#aerodynamic-resistance-r_a" id="toc-aerodynamic-resistance-r_a" class="nav-link" data-scroll-target="#aerodynamic-resistance-r_a">Aerodynamic Resistance <span class="math inline">\(r_a\)</span></a></li>
   <li><a href="#assumptions-and-limitations" id="toc-assumptions-and-limitations" class="nav-link" data-scroll-target="#assumptions-and-limitations">Assumptions and Limitations</a></li>
-  <li><a href="#latent-heat-flux-le-residual-method" id="toc-latent-heat-flux-le-residual-method" class="nav-link" data-scroll-target="#latent-heat-flux-le-residual-method">Latent Heat Flux <span class="math inline">\(LE\)</span>: Residual Method</a></li>
+  </ul></li>
+  <li><a href="#latent-heat-flux-le-residual-method" id="toc-latent-heat-flux-le-residual-method" class="nav-link" data-scroll-target="#latent-heat-flux-le-residual-method">Latent Heat Flux <span class="math inline">\(LE\)</span>: Residual Method</a>
+  <ul class="collapse">
   <li><a href="#residual-energy-balance-equation" id="toc-residual-energy-balance-equation" class="nav-link" data-scroll-target="#residual-energy-balance-equation">Residual Energy Balance Equation</a></li>
+  <li><a href="#assumptions-and-cautions" id="toc-assumptions-and-cautions" class="nav-link" data-scroll-target="#assumptions-and-cautions">Assumptions and Cautions</a></li>
   </ul></li>
   <li><a href="#linking-bulk-and-residual-approaches" id="toc-linking-bulk-and-residual-approaches" class="nav-link" data-scroll-target="#linking-bulk-and-residual-approaches">Linking Bulk and Residual Approaches</a>
   <ul class="collapse">
-  <li><a href="#step-1-bulk-estimation-of-sensible-heat-flux" id="toc-step-1-bulk-estimation-of-sensible-heat-flux" class="nav-link" data-scroll-target="#step-1-bulk-estimation-of-sensible-heat-flux">Step 1: Bulk Estimation of Sensible Heat Flux</a></li>
-  <li><a href="#step-2-residual-estimation-of-latent-heat-flux" id="toc-step-2-residual-estimation-of-latent-heat-flux" class="nav-link" data-scroll-target="#step-2-residual-estimation-of-latent-heat-flux">Step 2: Residual Estimation of Latent Heat Flux</a></li>
   <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
   </ul></li>
   <li><a href="#plot-seasonal-comparison-of-energy-fluxes" id="toc-plot-seasonal-comparison-of-energy-fluxes" class="nav-link" data-scroll-target="#plot-seasonal-comparison-of-energy-fluxes">Plot: Seasonal Comparison of Energy Fluxes</a>
   <ul class="collapse">
-  <li><a href="#legend-for-energy-flux-components" id="toc-legend-for-energy-flux-components" class="nav-link" data-scroll-target="#legend-for-energy-flux-components">Legend for Energy Flux Components</a></li>
+  <li><a href="#energy-fluxes-in-june" id="toc-energy-fluxes-in-june" class="nav-link" data-scroll-target="#energy-fluxes-in-june">Energy Fluxes in June</a></li>
+  <li><a href="#energy-fluxes-in-november" id="toc-energy-fluxes-in-november" class="nav-link" data-scroll-target="#energy-fluxes-in-november">Energy Fluxes in November</a></li>
   </ul></li>
-  <li><a href="#notes-on-interpretation" id="toc-notes-on-interpretation" class="nav-link" data-scroll-target="#notes-on-interpretation">Notes on Interpretation</a>
-  <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
+  <li><a href="#notes-on-interpretation" id="toc-notes-on-interpretation" class="nav-link" data-scroll-target="#notes-on-interpretation">Notes on Interpretation</a></li>
   <li><a href="#export-optional" id="toc-export-optional" class="nav-link" data-scroll-target="#export-optional">Export (Optional)</a></li>
   <li><a href="#complete-code" id="toc-complete-code" class="nav-link" data-scroll-target="#complete-code">Complete Code</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/fluxes_corrected.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -272,10 +272,10 @@ window.Quarto = {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This tutorial calculates surface energy balance components using micrometeorological observations from an energy balance station. We implement a simplified diagnostic approach based on physical theory and field measurements.</p>
-</section>
-<section id="surface-energy-balance-theory-and-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="surface-energy-balance-theory-and-interpretation">Surface Energy Balance: Theory and Interpretation</h2>
+<section id="surface-energy-balance-theory-and-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="surface-energy-balance-theory-and-interpretation">Surface Energy Balance: Theory and Interpretation</h3>
 <p>Understanding the surface energy balance is essential for quantifying the partitioning of energy into heating, evaporation, and ground storage. This notebook follows a physically grounded approach to derive the key energy fluxes from field observations.</p>
+</section>
 <section id="basic-surface-energy-balance-equation" class="level3">
 <h3 class="anchored" data-anchor-id="basic-surface-energy-balance-equation">Basic Surface Energy Balance Equation</h3>
 <p>The fundamental balance at the land surface is:</p>
@@ -577,15 +577,15 @@ H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a}
 </details>
 </div>
 </section>
-<section id="latent-heat-flux-le-residual-method" class="level3">
-<h3 class="anchored" data-anchor-id="latent-heat-flux-le-residual-method">Latent Heat Flux <span class="math inline">\(LE\)</span>: Residual Method</h3>
+</section>
+<section id="latent-heat-flux-le-residual-method" class="level2">
+<h2 class="anchored" data-anchor-id="latent-heat-flux-le-residual-method">Latent Heat Flux <span class="math inline">\(LE\)</span>: Residual Method</h2>
 <p>The <strong>latent heat flux</strong> <span class="math inline">\(LE\)</span> quantifies the energy used for <strong>evapotranspiration</strong> — the combined loss of water to the atmosphere by:</p>
 <ul>
 <li><strong>evaporation</strong> from soil and wet surfaces,</li>
 <li><strong>transpiration</strong> through stomata in plants, and</li>
 <li><strong>evaporation</strong> of intercepted rainfall from canopy surfaces.</li>
 </ul>
-</section>
 <section id="residual-energy-balance-equation" class="level3">
 <h3 class="anchored" data-anchor-id="residual-energy-balance-equation">Residual Energy Balance Equation</h3>
 <p>When direct measurement is unavailable, we estimate <span class="math inline">\(LE\)</span> as the <strong>residual</strong> of the surface energy balance by subtracting all the known energy components from the total incoming energy:</p>
@@ -599,14 +599,14 @@ LE = R_n - G - H
 <li><span class="math inline">\(G\)</span>: ground heat flux [W/m²] (into or out of the soil)</li>
 <li><span class="math inline">\(H\)</span>: sensible heat flux [W/m²] (convective heat to the air)</li>
 </ul>
-<section id="assumptions-and-cautions" class="level4">
-<h4 class="anchored" data-anchor-id="assumptions-and-cautions">Assumptions and Cautions</h4>
+</section>
+<section id="assumptions-and-cautions" class="level3">
+<h3 class="anchored" data-anchor-id="assumptions-and-cautions">Assumptions and Cautions</h3>
 <ul>
 <li>Assumes <strong>energy balance closure</strong> (no significant storage (S)).</li>
 <li>Errors in <span class="math inline">\(R_n\)</span>, <span class="math inline">\(G\)</span>, or <span class="math inline">\(H\)</span> directly affect <span class="math inline">\(LE\)</span>.</li>
 <li>Nighttime or low-flux periods often show <strong>non-physical negative (LE)</strong>.</li>
 </ul>
-</section>
 </section>
 </section>
 <section id="linking-bulk-and-residual-approaches" class="level2">
@@ -662,8 +662,8 @@ LE = R_n - G - H
 </tr>
 </tbody>
 </table>
-<section id="step-1-bulk-estimation-of-sensible-heat-flux" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-bulk-estimation-of-sensible-heat-flux">Step 1: Bulk Estimation of Sensible Heat Flux</h3>
+<section id="step-1-bulk-estimation-of-sensible-heat-flux" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-bulk-estimation-of-sensible-heat-flux">Step 1: Bulk Estimation of Sensible Heat Flux</h4>
 <p>We use the following <strong>measured or typical values</strong> from a grassland site at midday:</p>
 <ul>
 <li><span class="math inline">\(T_{10m} = 19.0^\circ C\)</span></li>
@@ -686,8 +686,8 @@ r_a = \frac{\ln(z_2 / z_1)}{k \cdot \bar{u}} = \frac{\ln(10 / 2)}{0.41 \cdot 1.6
 H = \rho \cdot c_p \cdot \frac{\Delta T}{r_a} = 1.225 \cdot 1005 \cdot \frac{0.5}{2.453} \approx 251\,\text{W/m}^2
 \]</span></p>
 </section>
-<section id="step-2-residual-estimation-of-latent-heat-flux" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-residual-estimation-of-latent-heat-flux">Step 2: Residual Estimation of Latent Heat Flux</h3>
+<section id="step-2-residual-estimation-of-latent-heat-flux" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-residual-estimation-of-latent-heat-flux">Step 2: Residual Estimation of Latent Heat Flux</h4>
 <p>We now assume the following <strong>additional energy balance terms</strong> are available:</p>
 <ul>
 <li><span class="math inline">\(R_n = 620\,\text{W/m}^2\)</span>: net radiation (measured via radiometer)</li>
@@ -740,8 +740,8 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 </div>
 </div>
 </div>
-<section id="energy-fluxes-in-june" class="level4">
-<h4 class="anchored" data-anchor-id="energy-fluxes-in-june">Energy Fluxes in June</h4>
+<section id="energy-fluxes-in-june" class="level3">
+<h3 class="anchored" data-anchor-id="energy-fluxes-in-june">Energy Fluxes in June</h3>
 <ul>
 <li>High <strong>latent heat flux (LE)</strong> dominates, indicating active <strong>evapotranspiration</strong>.</li>
 <li><strong>Sensible heat (H)</strong> remains moderate, as much energy is used to vaporize water.</li>
@@ -762,17 +762,15 @@ LE = R_n - G - H = 620 - 80 - 251 = 289\,\text{W/m}^2
 </div>
 </div>
 </section>
-<section id="energy-fluxes-in-november" class="level4">
-<h4 class="anchored" data-anchor-id="energy-fluxes-in-november">Energy Fluxes in November</h4>
+<section id="energy-fluxes-in-november" class="level3">
+<h3 class="anchored" data-anchor-id="energy-fluxes-in-november">Energy Fluxes in November</h3>
 <ul>
 <li><strong>Latent heat (LE)</strong> is minimal — vegetation is inactive and evapotranspiration drops.</li>
 <li><strong>Sensible heat (H)</strong> becomes dominant — energy heats the air due to lack of biological water flux.</li>
 <li><strong>Ground heat flux (G)</strong> may show inversion (soil losing heat), particularly in the evening.</li>
 </ul>
 <p>This pattern reflects the <strong>dormant season</strong>, with minimal biological activity and colder atmospheric conditions.</p>
-</section>
-<section id="legend-for-energy-flux-components" class="level3">
-<h3 class="anchored" data-anchor-id="legend-for-energy-flux-components">Legend for Energy Flux Components</h3>
+<p><strong>Legend for Energy Flux Components</strong></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -883,20 +881,6 @@ ET = \frac{330}{2.45 \cdot 10^6} \cdot 86.4 \approx 11.64\,\text{mm/day}
 </div>
 </div>
 </div>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
-<ul>
-<li>Foken, T. (2008). <em>Micrometeorology</em>. Springer.<br>
-</li>
-<li>Monteith, J. L., &amp; Unsworth, M. H. (2013). <em>Principles of Environmental Physics</em>. Academic Press.<br>
-</li>
-<li>Allen, R. G., Pereira, L. S., Raes, D., &amp; Smith, M. (1998). <em>Crop evapotranspiration</em> – FAO Irrigation and Drainage Paper 56.<br>
-</li>
-<li>Arya, S. P. (2001). <em>Introduction to Micrometeorology</em>. Academic Press.<br>
-</li>
-<li>Oke, T. R. (2002). <em>Boundary Layer Climates</em>. Routledge.</li>
-</ul>
-</section>
 </section>
 <section id="export-optional" class="level2">
 <h2 class="anchored" data-anchor-id="export-optional">Export (Optional)</h2>
@@ -1026,6 +1010,20 @@ ET = \frac{330}{2.45 \cdot 10^6} \cdot 86.4 \approx 11.64\,\text{mm/day}
 <span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(energy, <span class="st">"../data/processed_energy_fluxes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Foken, T. (2008). <em>Micrometeorology</em>. Springer.<br>
+</li>
+<li>Monteith, J. L., &amp; Unsworth, M. H. (2013). <em>Principles of Environmental Physics</em>. Academic Press.<br>
+</li>
+<li>Allen, R. G., Pereira, L. S., Raes, D., &amp; Smith, M. (1998). <em>Crop evapotranspiration</em> – FAO Irrigation and Drainage Paper 56.<br>
+</li>
+<li>Arya, S. P. (2001). <em>Introduction to Micrometeorology</em>. Academic Press.<br>
+</li>
+<li>Oke, T. R. (2002). <em>Boundary Layer Climates</em>. Routledge.</li>
+</ul>
 
 
 </section>

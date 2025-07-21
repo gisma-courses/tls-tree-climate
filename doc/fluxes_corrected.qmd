@@ -15,7 +15,7 @@ execute:
 
 This tutorial calculates surface energy balance components using micrometeorological observations from an energy balance station. We implement a simplified diagnostic approach based on physical theory and field measurements.
 
-## Surface Energy Balance: Theory and Interpretation
+### Surface Energy Balance: Theory and Interpretation
 
 Understanding the surface energy balance is essential for quantifying the partitioning of energy into heating, evaporation, and ground storage. This notebook follows a physically grounded approach to derive the key energy fluxes from field observations.
 
@@ -229,7 +229,7 @@ energy <- energy %>%
   )
 ```
 
-### Latent Heat Flux $LE$: Residual Method
+## Latent Heat Flux $LE$: Residual Method
 
 The **latent heat flux** $LE$ quantifies the energy used for **evapotranspiration** — the combined loss of water to the atmosphere by:
 
@@ -254,7 +254,7 @@ Where:
 -   $G$: ground heat flux \[W/m²\] (into or out of the soil)
 -   $H$: sensible heat flux \[W/m²\] (convective heat to the air)
 
-#### Assumptions and Cautions
+### Assumptions and Cautions
 
 -   Assumes **energy balance closure** (no significant storage (S)).
 -   Errors in $R_n$, $G$, or $H$ directly affect $LE$.
@@ -276,7 +276,7 @@ To estimate the surface energy balance components, we combine two complementary 
 | **Key assumption** | Logarithmic wind profile, neutral stratification | Negligible storage term $S \approx 0$ |
 | **Output in your case** | $H = 251\,\text{W/m}^2$ (based on realistic inputs) | $LE = 289\,\text{W/m}^2$ (by residual) |
 
-### Step 1: Bulk Estimation of Sensible Heat Flux
+#### Step 1: Bulk Estimation of Sensible Heat Flux
 
 We use the following **measured or typical values** from a grassland site at midday:
 
@@ -303,7 +303,7 @@ $$
 
 
 
-### Step 2: Residual Estimation of Latent Heat Flux
+#### Step 2: Residual Estimation of Latent Heat Flux
 
 We now assume the following **additional energy balance terms** are available:
 
@@ -352,7 +352,7 @@ plot_fluxes <- function(df, title) {
 plot_fluxes(filter(energy_long, month_label == "June"), "Energy Fluxes in June")
 ```
 
-#### Energy Fluxes in June
+### Energy Fluxes in June
 
 -   High **latent heat flux (LE)** dominates, indicating active **evapotranspiration**.
 -   **Sensible heat (H)** remains moderate, as much energy is used to vaporize water.
@@ -366,7 +366,7 @@ This matches expectations for **early summer (June)**: longer days, moist soils,
 plot_fluxes(filter(energy_long, month_label == "November"), "Energy Fluxes in November")
 ```
 
-#### Energy Fluxes in November
+### Energy Fluxes in November
 
 -   **Latent heat (LE)** is minimal — vegetation is inactive and evapotranspiration drops.
 -   **Sensible heat (H)** becomes dominant — energy heats the air due to lack of biological water flux.
@@ -376,7 +376,7 @@ This pattern reflects the **dormant season**, with minimal biological activity a
 
 
 
-### Legend for Energy Flux Components
+**Legend for Energy Flux Components**
 
 | Symbol | Description        | Sign Convention               |
 |--------|--------------------|-------------------------------|
@@ -450,15 +450,6 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 
 ```
 :::
-
-### References
-
--   Foken, T. (2008). *Micrometeorology*. Springer.\
--   Monteith, J. L., & Unsworth, M. H. (2013). *Principles of Environmental Physics*. Academic Press.\
--   Allen, R. G., Pereira, L. S., Raes, D., & Smith, M. (1998). *Crop evapotranspiration* – FAO Irrigation and Drainage Paper 56.\
--   Arya, S. P. (2001). *Introduction to Micrometeorology*. Academic Press.\
--   Oke, T. R. (2002). *Boundary Layer Climates*. Routledge.
-
 
 
 ## Export (Optional)
@@ -587,3 +578,13 @@ write_csv(energy, "../data/processed_energy_fluxes.csv")
 
 
 ``` 
+
+
+## References
+
+-   Foken, T. (2008). *Micrometeorology*. Springer.\
+-   Monteith, J. L., & Unsworth, M. H. (2013). *Principles of Environmental Physics*. Academic Press.\
+-   Allen, R. G., Pereira, L. S., Raes, D., & Smith, M. (1998). *Crop evapotranspiration* – FAO Irrigation and Drainage Paper 56.\
+-   Arya, S. P. (2001). *Introduction to Micrometeorology*. Academic Press.\
+-   Oke, T. R. (2002). *Boundary Layer Climates*. Routledge.
+
