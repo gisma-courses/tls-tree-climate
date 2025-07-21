@@ -971,5 +971,15 @@
     "title": "Envi_Met TLS-tree-climate",
     "section": "",
     "text": "This course teaches how to use terrestrial laser scanning (TLS) to model individual trees and their effects on microclimate. You’ll learn how to turn detailed 3D scans into leaf area density (LAD) profiles and use them in ENVI-met for realistic tree simulations.\nWhat you’ll learn: What LAD means and why it matters for tree–climate interaction\nHow to process TLS data into vertical tree profiles\nHow to create 3D tree objects from LAD for use in ENVI-met\nHow to choose between simple scaling and light-based LAD models\nThis course is hands-on, focused, and designed for clear outcomes: understanding tree structure, visualizing it, and using it in a climate model."
+  },
+  {
+    "objectID": "doc/fluxes_corrected.html#complete-code",
+    "href": "doc/fluxes_corrected.html#complete-code",
+    "title": "Basic Energy Flux Analysis from Energy Balance Station",
+    "section": "Complete Code",
+    "text": "Complete Code",
+    "crumbs": [
+      "Basic Energy Flux Analysis from Energy Balance Station"
+    ]
   }
 ]
