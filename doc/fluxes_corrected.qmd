@@ -472,62 +472,70 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 ```{r}
 #| eval: false
 
-library(tidyverse)
-library(lubridate)
-library(units)
+# Load required libraries
+library(tidyverse)   # Core tidyverse packages (readr, dplyr, ggplot2, etc.)
+library(lubridate)   # For working with dates and times
+library(units)       # For physical units (e.g., J/kg/K)
 
+# Load energy flux data and parse datetime column
 energy <- read_csv("../data/energie_bil_wiese.csv") %>%
-  mutate(datetime = dmy_hm(datetime))
+  mutate(datetime = dmy_hm(datetime))  # Convert 'datetime' column from character to POSIXct
 
+## ----------------------------------------------------------------------
+# Rename and derive key variables from measurements
 
-## -
 energy <- energy %>%
   rename(
-    Rn = rad_bil,
-    G = heatflux_soil,
-    Ta_2m = Ta_2m,
-    Ta_10m = Ta_10m,
-    WS_2m = Windspeed_2m,
-    WS_10m = Windspeed_10m
+    Rn = rad_bil,            # Net radiation
+    G = heatflux_soil,       # Soil heat flux
+    Ta_2m = Ta_2m,            # Air temperature at 2 m
+    Ta_10m = Ta_10m,          # Air temperature at 10 m
+    WS_2m = Windspeed_2m,     # Wind speed at 2 m
+    WS_10m = Windspeed_10m    # Wind speed at 10 m
   ) %>%
   mutate(
-    delta_T = Ta_10m - Ta_2m,
-    WS_mean = (WS_2m + WS_10m) / 2,
-    month_num = month(datetime),
-    month_label = case_when(
+    delta_T = Ta_10m - Ta_2m,                          # Vertical temperature gradient
+    WS_mean = (WS_2m + WS_10m) / 2,                    # Mean wind speed
+    month_num = month(datetime),                      # Numeric month for logic
+    month_label = case_when(                          # Label month manually for plot filtering
       month_num == 6 ~ "June",
       month_num == 11 ~ "November",
       TRUE ~ as.character(month(datetime, label = TRUE))
     )
   )
 
+## ----------------------------------------------------------------------
+# Define physical constants for sensible heat flux calculation
 
-## -
-# Constants
-rho_air <- set_units(1.225, "kg/m^3")
-cp_air <- set_units(1005, "J/kg/K")
-z1 <- 2
-z2 <- 10
-k <- 0.41
+rho_air <- set_units(1.225, "kg/m^3")   # Air density
+cp_air <- set_units(1005, "J/kg/K")     # Specific heat capacity of air
+z1 <- 2                                 # Lower measurement height (2 m)
+z2 <- 10                                # Upper measurement height (10 m)
+k <- 0.41                               # von Kármán constant
 
+# Calculate aerodynamic resistance and sensible heat flux (H)
 energy <- energy %>%
   mutate(
-    ra = log(z2 / z1) / (k * WS_mean),
-    H = drop_units(rho_air * cp_air * delta_T / ra)
+    ra = log(z2 / z1) / (k * WS_mean),                     # Aerodynamic resistance [s/m]
+    H = drop_units(rho_air * cp_air * delta_T / ra)       # Sensible heat flux [W/m²]
   )
 
+## ----------------------------------------------------------------------
+# Estimate latent heat flux (LE) using residual method: LE = Rn - G - H
 
-## -
-energy <- energy %>% mutate(LE = Rn - G - H)
+energy <- energy %>%
+  mutate(LE = Rn - G - H)
 
+## ----------------------------------------------------------------------
+# Reshape data for plotting: long format for energy balance components
 
-## -
 library(ggplot2)
 
 energy_long <- energy %>%
   select(datetime, month_label, Rn, G, H, LE) %>%
   pivot_longer(cols = c(Rn, G, H, LE), names_to = "flux", values_to = "value")
 
+# Define plotting function for energy fluxes
 plot_fluxes <- function(df, title) {
   ggplot(df, aes(x = datetime, y = value, color = flux)) +
     geom_line() +
@@ -535,26 +543,25 @@ plot_fluxes <- function(df, title) {
     theme_minimal()
 }
 
+# Plot fluxes for June
 plot_fluxes(filter(energy_long, month_label == "June"), "Energy Fluxes in June")
 
+## ----------------------------------------------------------------------
 
-## -
+# Plot fluxes for November
 plot_fluxes(filter(energy_long, month_label == "November"), "Energy Fluxes in November")
 
+## ----------------------------------------------------------------------
+# Compute evapotranspiration (ET) from latent heat flux (LE)
 
-## -
-library(dplyr)
-library(ggplot2)
-
-# Berechne ET
-lambda <- 2.45e6  # J/kg
+lambda <- 2.45e6  # Latent heat of vaporization [J/kg]
 energy <- energy %>%
   mutate(
-    ET_mm_day = (LE / lambda) * 86400,
-    month_label = month(datetime, label = TRUE, abbr = FALSE)
+    ET_mm_day = (LE / lambda) * 86400,                            # Convert LE to mm/day
+    month_label = month(datetime, label = TRUE, abbr = FALSE)     # Full month name
   )
 
-# Aggregiere pro Monat
+# Monthly average ET
 monthly_et <- energy %>%
   filter(!is.na(ET_mm_day)) %>%
   group_by(month_label) %>%
@@ -563,7 +570,7 @@ monthly_et <- energy %>%
     .groups = "drop"
   )
 
-# Plot
+# Bar plot: mean ET by month
 ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
   geom_col(show.legend = FALSE) +
   labs(
@@ -574,9 +581,9 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
   scale_fill_manual(values = c("June" = "tomato", "November" = "turquoise3")) +
   theme_minimal()
 
-
-
-## -
+## ----------------------------------------------------------------------
+# Save processed data to CSV
 write_csv(energy, "../data/processed_energy_fluxes.csv")
+
 
 ``` 
