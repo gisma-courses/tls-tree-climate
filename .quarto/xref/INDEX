@@ -124,5 +124,11 @@
   },
   "modeling/script-00-interpolation.qmd": {
     "script-00-interpolation.html": "3eb1ddf1"
+  },
+  "doc/fluxes.qmd": {
+    "fluxes.html": "4cf3f040"
+  },
+  "doc/fluxes_corrected.qmd": {
+    "fluxes_corrected.html": "b641e331"
   }
 }

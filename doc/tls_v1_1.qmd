@@ -1,5 +1,7 @@
 ---
 title: "Using leaf area density (LAD) from TLS data in ENVI-met for 3D plants."
+author: "Chris Reudenbach"
+date: "2025-07-16"
 format:
   html:
     self-contained: true
@@ -15,9 +17,9 @@ execute:
 ---
 
 ::: {layout-ncol="2"}
-![Tree No. 8 original not projected TLS Data](doc/tls_tree8.gif){width="400"}
+![Tree No. 8 original not projected TLS Data](tls_tree8.gif){width="400"}
 
-![Tree No. 8 in Envimet 3D Plant representation](doc/envimet08tree.gif){width="580"}
+![Tree No. 8 in Envimet 3D Plant representation](envimet08tree.gif){width="580"}
 ::: 
 
 

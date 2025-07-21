@@ -964,5 +964,12 @@
     "title": "Data and Software",
     "section": "Additional data sources",
     "text": "Additional data sources\nYou can find information about the “Zukunftsquartier Hasenkopf” in various places:\n\nCity of Marburg Zukunftsquartier Hasenkopf\nSlides including the winning design\nCitizens’ initiative wirsindhasenkopf Flyer and here “We argue”\nEnvi-met Hasenkopf GIS and Modeldata\nDigital Elevation Model DEM and Digital Surface Model DSM files relevant for Marburg can be downloaded from the GDS website of the Hessian Administration for Land Management and Geoinformation\nFor downloading the OSM data it is recommended to use the OSMDownloader extension to QGIS. It simply provides the ability to draw a rectangle and download the complete and currently available OSM data to a file named hasenkopf.osm.\nIf the data has to be digitised manually, it is advisable to use an up-to-date aerial photograph from Bing or Google. These can be easily integrated via XYZ tiles\nThe planning data for the development and sealing were taken from page 23 of the presentation of the winning design via screenshot."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Envi_Met TLS-tree-climate",
+    "section": "",
+    "text": "This course teaches how to use terrestrial laser scanning (TLS) to model individual trees and their effects on microclimate. You’ll learn how to turn detailed 3D scans into leaf area density (LAD) profiles and use them in ENVI-met for realistic tree simulations.\nWhat you’ll learn: What LAD means and why it matters for tree–climate interaction\nHow to process TLS data into vertical tree profiles\nHow to create 3D tree objects from LAD for use in ENVI-met\nHow to choose between simple scaling and light-based LAD models\nThis course is hands-on, focused, and designed for clear outcomes: understanding tree structure, visualizing it, and using it in a climate model."
   }
 ]
