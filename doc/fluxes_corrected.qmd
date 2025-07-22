@@ -459,6 +459,12 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 ```
 
 ## Complete Code
+```{r}
+#| eval: false
+# Setup: source external script
+source("../doc/fluxes_corrected.R")
+``` 
+
 
 ```{r}
 #| eval: false
