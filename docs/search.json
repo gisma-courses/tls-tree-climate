@@ -1191,5 +1191,115 @@
     "crumbs": [
       "Using leaf area density (LAD) from TLS data in ENVI-met for 3D plants"
     ]
+  },
+  {
+    "objectID": "doc/osm2envi.html",
+    "href": "doc/osm2envi.html",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "",
+    "text": "The OSM2Envi_met QGIS Processing tool provides a fully automated workflow for preparing spatial input data from OpenStreetMap (OSM) and elevation datasets for use in ENVI-met 3D simulations. It combines a Python-based QGIS interface with a shell script that performs a robust geospatial preprocessing pipeline via qgis_process, gdal, and ogr2ogr.\nThis document describes how to install the tool, explains the internal processing workflow, and provides a link to the complete codebase.",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#requirements",
+    "href": "doc/osm2envi.html#requirements",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "Requirements",
+    "text": "Requirements\nTo run this tool successfully, you need:\n\nQGIS 3.28+ with qgis_process installed and accessible from the command line\nGDAL with ogr2ogr and gdal_calc.py\nA Bash shell (macOS/Linux, or Git Bash on Windows)",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#setup-steps",
+    "href": "doc/osm2envi.html#setup-steps",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "Setup Steps",
+    "text": "Setup Steps\n\nDownload the tool:\n\nFrom GitHub as ZIP:\nhttps://github.com/gisma/qgis-processing-workflows/archive/refs/heads/main.zip\nOr clone via Git: git clone https://github.com/gisma/qgis-processing-workflows.git\n\nCopy the relevant scripts to your QGIS processing script directory:\n~/.local/share/QGIS/QGIS3/profiles/default/processing/scripts/ ├── osm2envi_qgis.sh # Main processing Bash script └── osm2envi_tool.py # QGIS Processing tool wrapper\nMake the Bash script executable:\nchmod +x osm2envi_qgis.sh\nRestart QGIS.\nThe tool will now appear under: Processing Toolbox → Envi_met Tools → OSM2Envi_met",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#osm-conversion",
+    "href": "doc/osm2envi.html#osm-conversion",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "1. OSM Conversion",
+    "text": "1. OSM Conversion\n\nConverts the .osm file into a multi-layered GeoPackage using ogr2ogr.",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#feature-extraction",
+    "href": "doc/osm2envi.html#feature-extraction",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "2. Feature Extraction",
+    "text": "2. Feature Extraction\n\nExtracts thematic layers from multipolygons or lines using SQL expressions:\n\nVegetation: landuse like forest, meadow, orchard, etc.\nSurfaces: roads and natural surfaces from highway and landuse\nBuildings: all OSM geometries tagged as building\n\nEach layer is:\n\nReprojected into the target CRS using qgis_process\nClipped to the specified extent",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#classification-envimet-id",
+    "href": "doc/osm2envi.html#classification-envimet-id",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "3. Classification (ENVIMET ID)",
+    "text": "3. Classification (ENVIMET ID)\n\nAssigns an ENVIMET_ID attribute based on feature type:\n\nForest → 0000SM\nAsphalt → 0200AK\nIndustrial landuse → 0200AK\nWetland → 0200LI\n\nClassification is done using SQL CASE statements in qgis_process:fieldcalculator.",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#height-extraction-optional",
+    "href": "doc/osm2envi.html#height-extraction-optional",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "4. Height Extraction (optional)",
+    "text": "4. Height Extraction (optional)\nIf both DSM and DEM are provided:\n\nCalculates a difference raster (DSM − DEM) using gdal_calc.py\nComputes mean building heights (height_mean) via zonal statistics\nAdds height attribute to the building layer\n\nIf no elevation data is provided, this step is skipped.",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#road-buffering",
+    "href": "doc/osm2envi.html#road-buffering",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "5. Road Buffering",
+    "text": "5. Road Buffering\n\nBuffers road geometries based on highway type:\n\nPrimary: 10 m, Secondary: 6 m, Tertiary: 4 m, Track: 1 m\n\nBuffers are classified like surfaces and merged later.",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#layer-merging",
+    "href": "doc/osm2envi.html#layer-merging",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "6. Layer Merging",
+    "text": "6. Layer Merging\n\nMerges:\n\nBuffered roads\nSurface landuse polygons\n\nCreates a unified surface layer for ENVIMET (*_surface_final.gpkg)",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#cleanup",
+    "href": "doc/osm2envi.html#cleanup",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "7. Cleanup",
+    "text": "7. Cleanup\n\nDeletes all intermediate files:\n\n_tmp.gpkg, _proj.gpkg, _clip.gpkg\n\nKeeps only the final classified and merged output layers",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
+  },
+  {
+    "objectID": "doc/osm2envi.html#optimization-for-envi-met",
+    "href": "doc/osm2envi.html#optimization-for-envi-met",
+    "title": "QGIS ENVIMET Preprocessor",
+    "section": "8. Optimization for ENVI-met",
+    "text": "8. Optimization for ENVI-met\n\nRetains only necessary fields:\n\nGeometry\nENVIMET_ID\nheight_mean (if computed)\n\nSaves final layers as:\n\n*_surface_final_envimet.gpkg\n*_vegetation_final_envimet.gpkg\n*_buildings_final_envimet.gpkg",
+    "crumbs": [
+      "QGIS ENVIMET Preprocessor"
+    ]
   }
 ]
