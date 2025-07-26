@@ -94,6 +94,7 @@ merge_las_tiles <- function(tile_dir,
   return(paste0(sub("\\.la[sz]$", "", output_file), ".laz"))
   
   
+
   
   
   

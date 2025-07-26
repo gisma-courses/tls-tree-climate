@@ -20,7 +20,7 @@ library(tibble)
 library(rprojroot)
 #source("src/treespecies.R")
 # Parameters
-las_file <- here("data/ALS/output_cropped.laz")  # Path to ALS point cloud file
+las_file <- here("data/ALS/tiles/")  # Path to ALS point cloud file
 res_xy <- 1                                # Horizontal resolution of voxels (meters)
 res_z  <- 1                                # Vertical resolution of voxels (meters)
 k      <- 0.3                               # Light extinction coefficient for LAD
@@ -34,7 +34,14 @@ n_clusters <- 100                          # Number of LAD profile clusters
 dir.create("output", showWarnings = FALSE, recursive = TRUE)
 
 # Read and normalize LAS
-las <- readLAS(las_file)
+las=merge_las_tiles(
+  tile_dir = las_file,
+  output_file = "data/ALS/merged_output.laz",
+  chunk_size = 10000,
+  workers = 6
+)
+
+
 crs(las) <- "EPSG:25832"
 # Crop LAS file to extent
 #las_cropped <- clip_rectangle(las,sapflow_ext@xmin, sapflow_ext@xmax, sapflow_ext@ymin, sapflow_ext@ymax)
