@@ -1,5 +1,5 @@
 ---
-title: " Evaluation of Atmosphere–Vegetation Interaction Models"
+title: "Evaluation of Atmosphere–Vegetation Interaction Models"
 author: "Chris Reudenbach"
 date: "2025-07-16"
 

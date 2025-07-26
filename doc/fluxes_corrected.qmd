@@ -1,5 +1,7 @@
 ---
 title: "Basic Energy Flux Analysis from Energy Balance Station"
+author: "Chris Reudenbach"
+date: "2025-07-16"
 format:
   html:
     code-fold: true

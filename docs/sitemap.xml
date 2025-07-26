@@ -1,171 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/script-00-interpolation.html</loc>
-    <lastmod>2024-11-12T06:43:54.994Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/index.html</loc>
+    <lastmod>2025-07-26T14:30:01.560Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/qgis-tutorials.html</loc>
-    <lastmod>2024-12-16T16:45:34.642Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-02.html</loc>
-    <lastmod>2025-01-20T10:18:13.283Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-06.html</loc>
-    <lastmod>2025-01-20T18:57:59.735Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-05.html</loc>
-    <lastmod>2025-01-20T19:57:53.323Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/impressum.html</loc>
-    <lastmod>2024-11-12T06:43:54.919Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/modeling-material.html</loc>
+    <lastmod>2025-01-20T20:13:07.523Z</lastmod>
   </url>
   <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/base/about.html</loc>
     <lastmod>2024-11-12T06:43:54.919Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/mc_session/mcm1.html</loc>
-    <lastmod>2025-01-20T19:53:17.954Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/git-more.html</loc>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/learnr_app-2.html</loc>
-    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-buildings.html</loc>
-    <lastmod>2024-12-16T14:58:54.747Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-farmland.html</loc>
-    <lastmod>2024-12-16T14:49:10.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-scrub_32632.html</loc>
-    <lastmod>2024-12-16T15:32:31.825Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-grass.html</loc>
-    <lastmod>2024-12-16T14:30:38.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-grass_32632.html</loc>
-    <lastmod>2024-12-16T15:31:23.032Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-residental_32632.html</loc>
-    <lastmod>2024-12-16T15:33:36.448Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-residental.html</loc>
-    <lastmod>2024-12-16T14:56:36.303Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_1.html</loc>
+    <lastmod>2025-07-26T11:17:42.130Z</lastmod>
   </url>
   <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/helper_functions.html</loc>
     <lastmod>2025-07-20T14:40:50.650Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_1.html</loc>
-    <lastmod>2025-07-21T06:38:26.775Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
-    <lastmod>2025-07-24T06:13:21.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/evaluation.html</loc>
-    <lastmod>2025-07-20T14:39:02.307Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/templates/slides-template.html</loc>
-    <lastmod>2024-11-12T06:43:55.007Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/fluxes_corrected.html</loc>
-    <lastmod>2025-07-22T12:10:59.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_predictor_stack_commented.html</loc>
-    <lastmod>2025-07-20T14:53:08.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
-    <lastmod>2025-07-24T05:56:07.350Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-roads_32632.html</loc>
-    <lastmod>2024-12-16T15:29:21.180Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/stadtwald_32632.html</loc>
-    <lastmod>2024-12-16T15:28:45.591Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-forest_32632.html</loc>
-    <lastmod>2024-12-16T15:31:58.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-roads.html</loc>
-    <lastmod>2024-12-16T15:22:18.141Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-farmland_32632.html</loc>
-    <lastmod>2024-12-16T15:33:07.923Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-buildings_32632.html</loc>
-    <lastmod>2024-12-16T15:29:55.391Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-forest.html</loc>
-    <lastmod>2024-12-16T14:42:51.368Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assets/qgis/hasenkopf-scrub.html</loc>
-    <lastmod>2024-12-16T14:45:33.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
-    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
-  </url>
-  <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/slidelist.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/index.html</loc>
-    <lastmod>2025-07-21T06:45:52.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/faq.html</loc>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/impressum.html</loc>
     <lastmod>2024-11-12T06:43:54.919Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-03.html</loc>
-    <lastmod>2025-01-20T10:22:37.497Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/evaluation.html</loc>
+    <lastmod>2025-07-26T14:13:11.692Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-01.html</loc>
-    <lastmod>2025-01-20T10:16:38.913Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
+    <lastmod>2025-07-26T14:08:39.382Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-00.html</loc>
-    <lastmod>2025-01-20T10:14:54.784Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
+    <lastmod>2025-07-26T14:09:59.967Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/worksheets/ws-04.html</loc>
-    <lastmod>2025-01-20T20:10:03.866Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/modeling-material.html</loc>
-    <lastmod>2025-01-20T20:13:07.523Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/fluxes_corrected.html</loc>
+    <lastmod>2025-07-26T14:11:10.046Z</lastmod>
   </url>
 </urlset>

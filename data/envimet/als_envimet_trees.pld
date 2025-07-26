@@ -1,0 +1,5451 @@
+<ENVI-MET_Datafile>
+  <Header>
+    <filetype>DATA</filetype>
+    <version>1</version>
+    <revisiondate>2025-07-25T09:11:41</revisiondate>
+    <remark>Clustered TLS-based trees</remark>
+    <fileInfo>Clustered LAD Trees</fileInfo>
+    <checksum>32767</checksum>
+    <encryptionlevel>1699612</encryptionlevel>
+  </Header>
+  <PLANT3D>
+    <ID>S0002S</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,4.38999
+1,1,2,7.67761
+1,1,3,8.83276
+1,1,4,5.66718
+1,1,5,5.35409
+1,1,6,5.35099
+1,1,7,5.15481
+1,1,8,4.75707
+1,1,9,4.17643
+1,1,10,5.19560
+1,1,11,4.07762
+1,1,12,4.26997
+1,1,13,4.35405
+1,1,14,5.25706
+1,1,15,4.75519
+1,1,16,4.69556
+1,1,17,4.42197
+1,1,18,6.36656
+1,1,19,6.59993
+1,1,20,6.29270
+1,1,21,7.54988
+1,1,22,9.13527
+1,1,23,8.55679
+1,1,24,10.04967
+1,1,25,11.08200
+1,1,26,10.39424
+1,1,27,12.19013
+1,1,28,11.79852
+1,1,29,12.50716
+1,1,30,12.75763
+1,1,31,11.68003
+1,1,32,10.36084
+1,1,33,12.35679
+1,1,34,11.93391
+1,1,35,4.13600
+1,1,36,3.64710
+1,1,37,1.31452</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001B</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,6.15225
+1,1,2,8.14529
+1,1,3,10.32233
+1,1,4,7.93676
+1,1,5,3.35544
+1,1,6,3.42688
+1,1,7,5.96310
+1,1,8,5.33054
+1,1,9,6.88130
+1,1,10,5.25459
+1,1,11,4.95463
+1,1,12,3.81149
+1,1,13,4.52621
+1,1,14,5.86478
+1,1,15,4.75046
+1,1,16,4.81451
+1,1,17,5.05417
+1,1,18,3.74818
+1,1,19,5.63144
+1,1,20,6.10992
+1,1,21,6.54842
+1,1,22,7.30774
+1,1,23,8.94666
+1,1,24,9.52508
+1,1,25,9.98626
+1,1,26,10.69348
+1,1,27,12.01585
+1,1,28,12.93251
+1,1,29,11.40067
+1,1,30,11.02091
+1,1,31,12.07976
+1,1,32,6.91576
+1,1,33,3.18374
+1,1,34,1.91642</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001M</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,8.08583
+1,1,2,7.73215
+1,1,3,9.90233
+1,1,4,5.92109
+1,1,5,3.99000
+1,1,6,3.21769
+1,1,7,4.63145
+1,1,8,5.01065
+1,1,9,4.96500
+1,1,10,5.80580
+1,1,11,5.92428
+1,1,12,6.80012
+1,1,13,6.82658
+1,1,14,5.95721
+1,1,15,6.13175
+1,1,16,5.61121
+1,1,17,5.44922
+1,1,18,5.12853
+1,1,19,5.20291
+1,1,20,6.50763
+1,1,21,8.25957
+1,1,22,9.02265
+1,1,23,9.70746
+1,1,24,11.84518
+1,1,25,11.88826
+1,1,26,12.18357
+1,1,27,11.76891
+1,1,28,11.45120
+1,1,29,12.43499
+1,1,30,10.29914
+1,1,31,10.29997
+1,1,32,10.85435
+1,1,33,9.51228
+1,1,34,8.45405
+1,1,35,0.45749</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00022</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>40.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>40</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="40" defaultValue="0.00000">1,1,1,7.75226
+1,1,2,12.85933
+1,1,3,11.52683
+1,1,4,8.70966
+1,1,5,9.15324
+1,1,6,10.89828
+1,1,7,9.02100
+1,1,8,8.26573
+1,1,9,7.01278
+1,1,10,6.83374
+1,1,11,6.84520
+1,1,12,6.45778
+1,1,13,5.07140
+1,1,14,6.28446
+1,1,15,5.32872
+1,1,16,6.40016
+1,1,17,4.99156
+1,1,18,5.34498
+1,1,19,5.52947
+1,1,20,5.88366
+1,1,21,7.04156
+1,1,22,7.32267
+1,1,23,8.52402
+1,1,24,8.94328
+1,1,25,9.68505
+1,1,26,11.67448
+1,1,27,13.03335
+1,1,28,11.44533
+1,1,29,11.08575
+1,1,30,10.17265
+1,1,31,10.42129
+1,1,32,10.10182
+1,1,33,9.39994
+1,1,34,11.63032
+1,1,35,5.94842
+1,1,36,12.33844
+1,1,37,8.91728
+1,1,38,7.96295
+1,1,39,14.26708
+1,1,40,1.07109</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00005</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>43.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>43</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="43" defaultValue="0.00000">1,1,1,5.15598
+1,1,2,8.37851
+1,1,3,5.54526
+1,1,4,3.75317
+1,1,5,3.83181
+1,1,6,4.33313
+1,1,7,5.49122
+1,1,8,3.15215
+1,1,9,2.55563
+1,1,10,4.39811
+1,1,11,4.23467
+1,1,12,3.78940
+1,1,13,2.72422
+1,1,14,3.94550
+1,1,15,2.95618
+1,1,16,3.00796
+1,1,17,3.00462
+1,1,18,3.80781
+1,1,19,4.76998
+1,1,20,5.24775
+1,1,21,5.33203
+1,1,22,5.24270
+1,1,23,4.74472
+1,1,24,4.70652
+1,1,25,5.64564
+1,1,26,5.61120
+1,1,27,5.79730
+1,1,28,6.04572
+1,1,29,6.82539
+1,1,30,7.73545
+1,1,31,9.06700
+1,1,32,9.46260
+1,1,33,10.36579
+1,1,34,11.20714
+1,1,35,12.05180
+1,1,36,11.28850
+1,1,37,10.91778
+1,1,38,10.81960
+1,1,39,11.26890
+1,1,40,9.41792
+1,1,41,8.96238
+1,1,42,8.75443
+1,1,43,1.62898</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001C</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,3.65119
+1,1,2,7.27416
+1,1,3,9.78265
+1,1,4,5.79221
+1,1,5,5.96006
+1,1,6,6.14869
+1,1,7,5.65221
+1,1,8,6.49056
+1,1,9,7.18871
+1,1,10,7.69261
+1,1,11,7.19608
+1,1,12,7.40280
+1,1,13,8.31878
+1,1,14,7.79975
+1,1,15,8.16115
+1,1,16,9.07216
+1,1,17,9.55145
+1,1,18,9.72045
+1,1,19,11.58144
+1,1,20,13.54906
+1,1,21,13.12653
+1,1,22,11.35370
+1,1,23,6.97507
+1,1,24,7.85489
+1,1,25,10.19654
+1,1,26,11.33704
+1,1,27,9.92397
+1,1,28,12.30613
+1,1,29,9.93032
+1,1,30,12.53708
+1,1,31,8.29110
+1,1,32,6.63467
+1,1,33,1.98985
+1,1,34,22.47477
+1,1,35,2.45196</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001P</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>24.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>24</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="24" defaultValue="0.00000">1,1,1,2.46915
+1,1,2,2.22346
+1,1,3,2.14157
+1,1,4,1.92805
+1,1,5,1.61954
+1,1,6,1.50357
+1,1,7,2.35430
+1,1,8,3.05652
+1,1,9,2.01197
+1,1,10,2.92051
+1,1,11,3.49123
+1,1,12,4.45564
+1,1,13,6.87434
+1,1,14,8.11289
+1,1,15,8.88576
+1,1,16,10.66913
+1,1,17,14.67061
+1,1,18,15.85391
+1,1,19,15.66355
+1,1,20,11.12569
+1,1,21,7.45978
+1,1,22,2.73721
+1,1,23,0.86421
+1,1,24,0.56536</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001U</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>23.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>23</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="23" defaultValue="0.00000">1,1,1,4.07449
+1,1,2,4.02300
+1,1,3,2.55922
+1,1,4,2.51200
+1,1,5,2.40343
+1,1,6,3.15924
+1,1,7,4.04831
+1,1,8,3.70566
+1,1,9,4.54702
+1,1,10,4.17426
+1,1,11,4.28758
+1,1,12,5.41452
+1,1,13,6.67404
+1,1,14,9.09988
+1,1,15,11.81121
+1,1,16,14.35498
+1,1,17,18.37680
+1,1,18,14.95625
+1,1,19,9.78409
+1,1,20,5.68241
+1,1,21,3.75700
+1,1,22,2.77303
+1,1,23,0.92421</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001D</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,1.95677
+1,1,2,2.12728
+1,1,3,2.51543
+1,1,4,1.68932
+1,1,5,1.69418
+1,1,6,1.50608
+1,1,7,2.16063
+1,1,8,2.35799
+1,1,9,1.67754
+1,1,10,1.97327
+1,1,11,2.18146
+1,1,12,2.37345
+1,1,13,1.85391
+1,1,14,2.35520
+1,1,15,2.46948
+1,1,16,3.35802
+1,1,17,4.61435
+1,1,18,6.48716
+1,1,19,9.15051
+1,1,20,11.86287
+1,1,21,15.48284
+1,1,22,15.85218
+1,1,23,13.75651
+1,1,24,9.11437
+1,1,25,7.45345
+1,1,26,9.35954
+1,1,27,8.93409
+1,1,28,8.76603
+1,1,29,8.61271
+1,1,30,2.19909</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00020</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>41.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>41</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="41" defaultValue="0.00000">1,1,1,4.93833
+1,1,2,5.07117
+1,1,3,3.02486
+1,1,4,2.02469
+1,1,5,1.21353
+1,1,6,1.88704
+1,1,7,2.49064
+1,1,8,3.23964
+1,1,9,2.12692
+1,1,10,3.51949
+1,1,11,5.36333
+1,1,12,3.70998
+1,1,13,3.40407
+1,1,14,4.29418
+1,1,15,3.53525
+1,1,16,4.01451
+1,1,17,4.95848
+1,1,18,5.68536
+1,1,19,5.68030
+1,1,20,6.57497
+1,1,21,5.91724
+1,1,22,8.19468
+1,1,23,9.25646
+1,1,24,10.22898
+1,1,25,10.07191
+1,1,26,12.34985
+1,1,27,11.27959
+1,1,28,11.11151
+1,1,29,10.27384
+1,1,30,9.23915
+1,1,31,9.39719
+1,1,32,10.12320
+1,1,33,10.49865
+1,1,34,11.35896
+1,1,35,13.32205
+1,1,36,9.10086
+1,1,37,11.12792
+1,1,38,11.38759
+1,1,39,9.47471
+1,1,40,1.47318
+1,1,41,0.73992</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00026</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>40.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>40</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="40" defaultValue="0.00000">1,1,1,3.41960
+1,1,2,1.96072
+1,1,3,2.23148
+1,1,4,2.78649
+1,1,5,2.01105
+1,1,6,1.83617
+1,1,7,2.81454
+1,1,8,0.92562
+1,1,9,1.99350
+1,1,10,1.91392
+1,1,11,1.70662
+1,1,12,2.02502
+1,1,13,2.41845
+1,1,14,2.18836
+1,1,15,2.78728
+1,1,16,3.23322
+1,1,17,3.67652
+1,1,18,2.99231
+1,1,19,3.93295
+1,1,20,3.42417
+1,1,21,3.63269
+1,1,22,3.84437
+1,1,23,4.81521
+1,1,24,5.50352
+1,1,25,6.71606
+1,1,26,7.56355
+1,1,27,8.52912
+1,1,28,9.93039
+1,1,29,11.74728
+1,1,30,12.15788
+1,1,31,11.86895
+1,1,32,12.04740
+1,1,33,11.57025
+1,1,34,10.67174
+1,1,35,9.88884
+1,1,36,10.60302
+1,1,37,7.39138
+1,1,38,5.28358
+1,1,39,7.59229
+1,1,40,0.87514</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001W</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,6.09219
+1,1,2,4.40157
+1,1,3,5.88841
+1,1,4,4.79227
+1,1,5,2.89135
+1,1,6,1.44114
+1,1,7,2.25479
+1,1,8,2.98223
+1,1,9,2.39602
+1,1,10,3.77945
+1,1,11,2.85965
+1,1,12,2.84905
+1,1,13,4.22717
+1,1,14,3.84502
+1,1,15,3.19792
+1,1,16,3.56733
+1,1,17,3.22076
+1,1,18,4.01004
+1,1,19,3.76533
+1,1,20,3.49153
+1,1,21,3.64485
+1,1,22,4.02911
+1,1,23,4.24054
+1,1,24,5.21694
+1,1,25,6.47262
+1,1,26,9.04496
+1,1,27,10.13113
+1,1,28,11.61316
+1,1,29,12.17847
+1,1,30,13.57350
+1,1,31,12.08342
+1,1,32,10.39510
+1,1,33,7.99065
+1,1,34,7.45180
+1,1,35,9.51944
+1,1,36,11.19958
+1,1,37,6.09115
+1,1,38,1.70803
+1,1,39,0.41765</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00023</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>23.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>23</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="23" defaultValue="0.00000">1,1,1,2.02117
+1,1,2,1.20138
+1,1,3,2.00656
+1,1,4,2.09660
+1,1,5,2.14956
+1,1,6,2.28436
+1,1,7,2.58531
+1,1,8,2.92055
+1,1,9,3.52276
+1,1,10,4.01858
+1,1,11,4.31372
+1,1,12,5.33068
+1,1,13,6.36585
+1,1,14,8.66445
+1,1,15,12.89225
+1,1,16,19.72538
+1,1,17,13.45021
+1,1,18,8.84804
+1,1,19,6.05665
+1,1,20,10.33355
+1,1,21,8.23262
+1,1,22,3.49367
+1,1,23,0.60588</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001H</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,4.27999
+1,1,2,9.44794
+1,1,3,13.08260
+1,1,4,7.77061
+1,1,5,4.02727
+1,1,6,1.97482
+1,1,7,4.16635
+1,1,8,2.75186
+1,1,9,3.71612
+1,1,10,2.58347
+1,1,11,3.17428
+1,1,12,3.42494
+1,1,13,3.97262
+1,1,14,3.29536
+1,1,15,4.81834
+1,1,16,4.64158
+1,1,17,3.49265
+1,1,18,4.12287
+1,1,19,4.48159
+1,1,20,4.12509
+1,1,21,3.30936
+1,1,22,4.88106
+1,1,23,4.56184
+1,1,24,4.44293
+1,1,25,6.07839
+1,1,26,5.47075
+1,1,27,6.54661
+1,1,28,7.02647
+1,1,29,8.60876
+1,1,30,8.94135
+1,1,31,10.00460
+1,1,32,10.47048
+1,1,33,10.97844
+1,1,34,11.93237
+1,1,35,10.61883
+1,1,36,11.33827
+1,1,37,5.02634
+1,1,38,1.14291
+1,1,39,0.65380</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002I</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>41.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>41</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="41" defaultValue="0.00000">1,1,1,8.69179
+1,1,2,11.67637
+1,1,3,10.77787
+1,1,4,9.33519
+1,1,5,10.38790
+1,1,6,10.87359
+1,1,7,10.82395
+1,1,8,10.12780
+1,1,9,7.02373
+1,1,10,5.22599
+1,1,11,7.11853
+1,1,12,4.78438
+1,1,13,5.88272
+1,1,14,5.78215
+1,1,15,5.60305
+1,1,16,5.82105
+1,1,17,6.51147
+1,1,18,4.76985
+1,1,19,4.87787
+1,1,20,4.59007
+1,1,21,4.57199
+1,1,22,4.48040
+1,1,23,5.14276
+1,1,24,5.63312
+1,1,25,5.89874
+1,1,26,6.35192
+1,1,27,6.96567
+1,1,28,7.58919
+1,1,29,8.63172
+1,1,30,9.55516
+1,1,31,8.57781
+1,1,32,11.56437
+1,1,33,10.68930
+1,1,34,10.64512
+1,1,35,9.63145
+1,1,36,11.90656
+1,1,37,11.67784
+1,1,38,11.24772
+1,1,39,7.70383
+1,1,40,5.31472
+1,1,41,0.96322</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001L</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>28.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>28</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="28" defaultValue="0.00000">1,1,1,1.39841
+1,1,2,1.41911
+1,1,3,1.54640
+1,1,4,1.33978
+1,1,5,0.84590
+1,1,6,1.01672
+1,1,7,1.42506
+1,1,8,1.83633
+1,1,9,1.80572
+1,1,10,1.73025
+1,1,11,2.20069
+1,1,12,1.94587
+1,1,13,3.21764
+1,1,14,3.53523
+1,1,15,4.19431
+1,1,16,5.07893
+1,1,17,8.84629
+1,1,18,11.98170
+1,1,19,12.47698
+1,1,20,13.48089
+1,1,21,14.32546
+1,1,22,12.87375
+1,1,23,11.11044
+1,1,24,8.57603
+1,1,25,7.66602
+1,1,26,9.98757
+1,1,27,8.03505
+1,1,28,1.06923</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002B</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>41.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>41</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="41" defaultValue="0.00000">1,1,1,4.30393
+1,1,2,1.31156
+1,1,3,2.00190
+1,1,4,2.08598
+1,1,5,1.63916
+1,1,6,1.26910
+1,1,7,1.03544
+1,1,8,1.12351
+1,1,9,1.46922
+1,1,10,1.52777
+1,1,11,1.85545
+1,1,12,2.00818
+1,1,13,1.68094
+1,1,14,1.15405
+1,1,15,1.28256
+1,1,16,1.46111
+1,1,17,1.95544
+1,1,18,1.97187
+1,1,19,2.09588
+1,1,20,1.96003
+1,1,21,2.10769
+1,1,22,2.64810
+1,1,23,3.19602
+1,1,24,4.00710
+1,1,25,5.66720
+1,1,26,6.63971
+1,1,27,8.35603
+1,1,28,9.07818
+1,1,29,10.05150
+1,1,30,10.62098
+1,1,31,11.85047
+1,1,32,11.89253
+1,1,33,11.16821
+1,1,34,11.48832
+1,1,35,11.44164
+1,1,36,10.65823
+1,1,37,9.34930
+1,1,38,8.10440
+1,1,39,6.45115
+1,1,40,1.70771
+1,1,41,0.56536</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00028</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>27.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>27</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="27" defaultValue="0.00000">1,1,1,1.52497
+1,1,2,1.58087
+1,1,3,1.74290
+1,1,4,1.50392
+1,1,5,1.59417
+1,1,6,2.91138
+1,1,7,2.98451
+1,1,8,3.50115
+1,1,9,4.03059
+1,1,10,2.86237
+1,1,11,2.46383
+1,1,12,3.32968
+1,1,13,5.06995
+1,1,14,6.58990
+1,1,15,10.02884
+1,1,16,14.41570
+1,1,17,15.57143
+1,1,18,12.46340
+1,1,19,11.48565
+1,1,20,11.28220
+1,1,21,8.76719
+1,1,22,3.88112
+1,1,23,3.67875
+1,1,24,0.78594
+1,1,27,0.56536</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002O</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,8.40203
+1,1,2,7.11714
+1,1,3,5.34517
+1,1,4,4.17812
+1,1,5,3.36693
+1,1,6,2.58893
+1,1,7,3.76912
+1,1,8,3.99018
+1,1,9,3.80950
+1,1,10,3.59662
+1,1,11,3.98067
+1,1,12,3.89702
+1,1,13,4.48156
+1,1,14,4.45675
+1,1,15,4.57163
+1,1,16,4.94407
+1,1,17,5.04766
+1,1,18,6.48031
+1,1,19,7.10116
+1,1,20,8.44406
+1,1,21,11.40784
+1,1,22,12.45882
+1,1,23,13.52573
+1,1,24,11.19098
+1,1,25,10.54931
+1,1,26,10.02436
+1,1,27,9.56746
+1,1,28,8.71030
+1,1,29,8.08826
+1,1,30,7.05503
+1,1,31,9.03434
+1,1,32,8.19635
+1,1,33,4.85334
+1,1,34,6.18626
+1,1,35,0.45749</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002D</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,8.87809
+1,1,2,13.60716
+1,1,3,11.95992
+1,1,4,8.66641
+1,1,5,7.17611
+1,1,6,6.91426
+1,1,7,6.49881
+1,1,8,5.44985
+1,1,9,6.61232
+1,1,10,6.77833
+1,1,11,7.06687
+1,1,12,8.44602
+1,1,13,8.48741
+1,1,14,9.31718
+1,1,15,7.20270
+1,1,16,5.92973
+1,1,17,5.27076
+1,1,18,4.23300
+1,1,19,3.72355
+1,1,20,4.99192
+1,1,21,5.59331
+1,1,22,6.43303
+1,1,23,6.07517
+1,1,24,7.04000
+1,1,25,8.38840
+1,1,26,9.13118
+1,1,27,11.13479
+1,1,28,11.10941
+1,1,29,11.35857
+1,1,30,11.80048
+1,1,31,11.78671
+1,1,32,10.00293
+1,1,33,6.64697
+1,1,34,5.39274
+1,1,35,0.55223</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000G</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,9.97431
+1,1,2,10.09719
+1,1,3,12.37161
+1,1,4,11.51762
+1,1,5,11.34561
+1,1,6,6.49263
+1,1,7,5.64867
+1,1,8,5.15814
+1,1,9,4.00368
+1,1,10,4.75096
+1,1,11,5.27186
+1,1,12,3.43583
+1,1,13,3.80556
+1,1,14,3.82733
+1,1,15,3.23023
+1,1,16,3.36089
+1,1,17,3.07276
+1,1,18,2.61603
+1,1,19,2.77638
+1,1,20,2.30971
+1,1,21,3.00846
+1,1,22,3.69319
+1,1,23,4.61500
+1,1,24,5.06786
+1,1,25,5.96288
+1,1,26,7.07065
+1,1,27,7.64739
+1,1,28,9.55720
+1,1,29,9.88653
+1,1,30,9.76349
+1,1,31,9.89299
+1,1,32,10.45147
+1,1,33,8.90814
+1,1,34,11.41442
+1,1,35,11.36453
+1,1,36,9.50203
+1,1,37,9.17838
+1,1,38,1.67037
+1,1,39,0.64111</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001Q</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>45.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>45</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="45" defaultValue="0.00000">1,1,1,3.73634
+1,1,2,6.30730
+1,1,3,13.52147
+1,1,4,9.72338
+1,1,5,5.31521
+1,1,6,4.14667
+1,1,7,3.80936
+1,1,8,3.26682
+1,1,9,3.26647
+1,1,10,3.21091
+1,1,11,3.51836
+1,1,12,3.37063
+1,1,13,3.46407
+1,1,14,3.21436
+1,1,15,4.01996
+1,1,16,3.47903
+1,1,17,3.89578
+1,1,18,2.64337
+1,1,19,2.75981
+1,1,20,2.83797
+1,1,21,2.56242
+1,1,22,2.08387
+1,1,23,2.75555
+1,1,24,2.85053
+1,1,25,2.72115
+1,1,26,3.36024
+1,1,27,3.96729
+1,1,28,5.08341
+1,1,29,5.76921
+1,1,30,7.45914
+1,1,31,8.33473
+1,1,32,9.92067
+1,1,33,10.68922
+1,1,34,10.28286
+1,1,35,10.69352
+1,1,36,10.67948
+1,1,37,10.32222
+1,1,38,9.88755
+1,1,39,6.46101
+1,1,40,2.09126
+1,1,41,0.64095
+1,1,44,0.30978
+1,1,45,0.38420</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00017</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>38.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>38</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="38" defaultValue="0.00000">1,1,1,5.21646
+1,1,2,6.22294
+1,1,3,5.35766
+1,1,4,3.11211
+1,1,5,2.60706
+1,1,6,2.02203
+1,1,7,4.04746
+1,1,8,2.47398
+1,1,9,2.81966
+1,1,10,3.29309
+1,1,11,2.90193
+1,1,12,3.21372
+1,1,13,3.24407
+1,1,14,2.98812
+1,1,15,3.02411
+1,1,16,2.61369
+1,1,17,3.39578
+1,1,18,3.47179
+1,1,19,5.12739
+1,1,20,4.64995
+1,1,21,4.96115
+1,1,22,6.84261
+1,1,23,7.44766
+1,1,24,7.74413
+1,1,25,8.04793
+1,1,26,8.96768
+1,1,27,10.13521
+1,1,28,10.78591
+1,1,29,11.22657
+1,1,30,10.95025
+1,1,31,10.94002
+1,1,32,10.41005
+1,1,33,9.03940
+1,1,34,7.79379
+1,1,35,8.30598
+1,1,36,4.11971
+1,1,37,0.94691
+1,1,38,1.61507</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000R</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>26.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>26</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="26" defaultValue="0.00000">1,1,1,1.00912
+1,1,2,2.11805
+1,1,3,2.65030
+1,1,4,2.13441
+1,1,5,1.51373
+1,1,6,1.35424
+1,1,7,1.48293
+1,1,8,1.79661
+1,1,9,2.84024
+1,1,10,3.73270
+1,1,11,4.79441
+1,1,12,5.79565
+1,1,13,8.28589
+1,1,14,10.96297
+1,1,15,14.08084
+1,1,16,12.46499
+1,1,17,12.34520
+1,1,18,10.22991
+1,1,19,10.56408
+1,1,20,10.06595
+1,1,21,8.34666
+1,1,22,8.46568
+1,1,23,4.52697
+1,1,24,6.24905
+1,1,25,30.06026
+1,1,26,0.41765</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000S</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>26.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>26</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="26" defaultValue="0.00000">1,1,1,4.36890
+1,1,2,6.39491
+1,1,3,7.83776
+1,1,4,6.98080
+1,1,5,6.07001
+1,1,6,4.97398
+1,1,7,4.75612
+1,1,8,5.77569
+1,1,9,6.32118
+1,1,10,7.71909
+1,1,11,8.64527
+1,1,12,10.89734
+1,1,13,11.11662
+1,1,14,10.67778
+1,1,15,9.58611
+1,1,16,9.38230
+1,1,17,7.06244
+1,1,18,8.89601
+1,1,19,8.34322
+1,1,20,10.26734
+1,1,21,12.36837
+1,1,22,8.32994
+1,1,23,11.95240
+1,1,24,12.12408
+1,1,25,14.20259
+1,1,26,0.92882</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00004</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,8.64909
+1,1,2,16.72348
+1,1,3,13.58509
+1,1,4,8.17081
+1,1,5,5.74358
+1,1,6,5.98912
+1,1,7,6.54857
+1,1,8,5.85157
+1,1,9,3.60901
+1,1,10,6.08926
+1,1,11,5.96800
+1,1,12,5.28447
+1,1,13,5.26299
+1,1,14,4.38444
+1,1,15,5.14400
+1,1,16,5.76862
+1,1,17,4.67410
+1,1,18,3.88375
+1,1,19,3.82053
+1,1,20,3.93203
+1,1,21,4.60798
+1,1,22,4.20436
+1,1,23,5.36354
+1,1,24,5.46064
+1,1,25,7.38961
+1,1,26,7.94219
+1,1,27,7.76313
+1,1,28,9.56330
+1,1,29,9.66350
+1,1,30,9.74172
+1,1,31,10.64510
+1,1,32,10.12499
+1,1,33,10.21733
+1,1,34,11.47081
+1,1,35,11.84778
+1,1,36,9.47994
+1,1,37,9.43521
+1,1,38,6.92847
+1,1,39,3.76623</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000O</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,5.25041
+1,1,2,11.63954
+1,1,3,8.22921
+1,1,4,3.76818
+1,1,5,2.91368
+1,1,6,2.77889
+1,1,7,3.33227
+1,1,8,3.85831
+1,1,9,5.41003
+1,1,10,5.98269
+1,1,11,5.20379
+1,1,12,5.59631
+1,1,13,6.08528
+1,1,14,5.68279
+1,1,15,4.66828
+1,1,16,5.31305
+1,1,17,4.89437
+1,1,18,5.14709
+1,1,19,4.43383
+1,1,20,5.26478
+1,1,21,6.33061
+1,1,22,6.33448
+1,1,23,7.41792
+1,1,24,7.88160
+1,1,25,9.05114
+1,1,26,9.46709
+1,1,27,10.43157
+1,1,28,10.31013
+1,1,29,10.66412
+1,1,30,11.18586
+1,1,31,12.15195
+1,1,32,11.64552
+1,1,33,11.96460
+1,1,34,5.13188
+1,1,35,1.68934
+1,1,36,7.81704</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000N</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>40.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>40</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="40" defaultValue="0.00000">1,1,1,3.88466
+1,1,2,5.93531
+1,1,3,7.63551
+1,1,4,4.53292
+1,1,5,3.93199
+1,1,6,3.66142
+1,1,7,3.44386
+1,1,8,3.56276
+1,1,9,4.74576
+1,1,10,5.44221
+1,1,11,6.89259
+1,1,12,6.00695
+1,1,13,6.34709
+1,1,14,5.05675
+1,1,15,5.78868
+1,1,16,6.03528
+1,1,17,6.94421
+1,1,18,6.94463
+1,1,19,7.65188
+1,1,20,7.46662
+1,1,21,7.49995
+1,1,22,7.19889
+1,1,23,7.46120
+1,1,24,7.73270
+1,1,25,7.84414
+1,1,26,7.75185
+1,1,27,8.38595
+1,1,28,8.31225
+1,1,29,9.23985
+1,1,30,10.39316
+1,1,31,10.95251
+1,1,32,10.71327
+1,1,33,10.83328
+1,1,34,11.77337
+1,1,35,11.18532
+1,1,36,11.69585
+1,1,37,9.12437
+1,1,38,5.18706
+1,1,39,6.38459
+1,1,40,0.91918</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00009</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,6.84089
+1,1,2,6.22600
+1,1,3,6.54894
+1,1,4,5.40095
+1,1,5,4.48504
+1,1,6,5.14368
+1,1,7,6.66629
+1,1,8,6.63631
+1,1,9,6.49964
+1,1,10,7.68385
+1,1,11,5.87297
+1,1,12,6.64289
+1,1,13,6.06583
+1,1,14,5.99589
+1,1,15,5.72123
+1,1,16,6.15449
+1,1,17,6.59755
+1,1,18,6.13208
+1,1,19,6.48773
+1,1,20,5.97357
+1,1,21,7.22807
+1,1,22,6.84436
+1,1,23,7.76275
+1,1,24,8.26178
+1,1,25,9.11718
+1,1,26,9.63644
+1,1,27,11.03493
+1,1,28,10.95928
+1,1,29,11.99252
+1,1,30,10.57452
+1,1,31,12.61536
+1,1,32,10.66888
+1,1,33,8.95125
+1,1,34,8.89625
+1,1,35,3.31024
+1,1,36,1.94623</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001X</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,3.84906
+1,1,2,4.56591
+1,1,3,4.18659
+1,1,4,2.54043
+1,1,5,1.66946
+1,1,6,1.88364
+1,1,7,2.42116
+1,1,8,1.81180
+1,1,9,2.24833
+1,1,10,3.33304
+1,1,11,2.33983
+1,1,12,3.45661
+1,1,13,3.73426
+1,1,14,4.57474
+1,1,15,4.79784
+1,1,16,5.28661
+1,1,17,5.45065
+1,1,18,6.74461
+1,1,19,7.88533
+1,1,20,9.15473
+1,1,21,10.96398
+1,1,22,11.63482
+1,1,23,11.80175
+1,1,24,13.95137
+1,1,25,13.16453
+1,1,26,12.58269
+1,1,27,11.75199
+1,1,28,8.27545
+1,1,29,5.78356
+1,1,30,6.35666
+1,1,31,11.81709
+1,1,32,7.36747
+1,1,33,9.11140
+1,1,34,1.19488</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000J</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,14.98065
+1,1,2,17.70238
+1,1,3,14.99728
+1,1,4,8.00297
+1,1,5,7.76909
+1,1,6,6.05706
+1,1,7,5.80278
+1,1,8,7.22454
+1,1,9,7.87439
+1,1,10,8.39846
+1,1,11,8.07856
+1,1,12,7.46221
+1,1,13,7.47796
+1,1,14,8.17920
+1,1,15,7.78097
+1,1,16,7.13825
+1,1,17,6.45176
+1,1,18,7.84739
+1,1,19,7.19981
+1,1,20,6.81972
+1,1,21,6.25575
+1,1,22,7.03925
+1,1,23,7.00705
+1,1,24,6.16508
+1,1,25,7.47621
+1,1,26,7.98249
+1,1,27,10.11271
+1,1,28,10.95567
+1,1,29,11.55423
+1,1,30,13.46221
+1,1,31,11.60401
+1,1,32,10.52143
+1,1,33,9.66644
+1,1,34,9.88943
+1,1,35,3.49250
+1,1,36,1.31094</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000M</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>38.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>38</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="38" defaultValue="0.00000">1,1,1,6.10241
+1,1,2,9.74556
+1,1,3,7.50430
+1,1,4,4.57621
+1,1,5,2.57667
+1,1,6,3.83609
+1,1,7,5.21777
+1,1,8,3.60963
+1,1,9,4.60944
+1,1,10,3.83475
+1,1,11,3.88534
+1,1,12,2.39399
+1,1,13,4.27601
+1,1,14,3.38617
+1,1,15,4.00813
+1,1,16,4.16036
+1,1,17,4.47050
+1,1,18,4.36027
+1,1,19,5.71164
+1,1,20,4.69598
+1,1,21,3.25917
+1,1,22,4.73566
+1,1,23,5.35626
+1,1,24,6.77261
+1,1,25,7.39710
+1,1,26,9.94946
+1,1,27,10.53687
+1,1,28,10.97143
+1,1,29,12.52542
+1,1,30,12.58059
+1,1,31,12.12483
+1,1,32,10.88328
+1,1,33,8.40284
+1,1,34,10.36529
+1,1,35,11.67638
+1,1,36,11.10088
+1,1,37,2.92472
+1,1,38,0.59677</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000Q</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,3.47166
+1,1,2,5.85904
+1,1,3,10.21281
+1,1,4,9.95888
+1,1,5,10.37534
+1,1,6,9.15707
+1,1,7,8.68990
+1,1,8,5.29256
+1,1,9,3.65966
+1,1,10,2.36921
+1,1,11,2.72538
+1,1,12,3.74633
+1,1,13,2.61748
+1,1,14,4.07577
+1,1,15,4.94897
+1,1,16,5.25182
+1,1,17,4.78002
+1,1,18,6.49685
+1,1,19,5.38132
+1,1,20,6.13236
+1,1,21,5.66344
+1,1,22,6.99510
+1,1,23,6.85060
+1,1,24,8.29062
+1,1,25,7.39563
+1,1,26,8.78377
+1,1,27,7.95400
+1,1,28,8.47854
+1,1,29,8.54366
+1,1,30,9.15351
+1,1,31,9.94533
+1,1,32,9.32241
+1,1,33,10.69540
+1,1,34,12.44468
+1,1,35,13.72567
+1,1,36,11.22503
+1,1,37,7.32792
+1,1,38,5.68117
+1,1,39,1.02403</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000P</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,3.68881
+1,1,2,4.55115
+1,1,3,7.61569
+1,1,4,6.94998
+1,1,5,7.38529
+1,1,6,7.13133
+1,1,7,8.02634
+1,1,8,8.53971
+1,1,9,10.16324
+1,1,10,8.65075
+1,1,11,8.12432
+1,1,12,7.25114
+1,1,13,6.52142
+1,1,14,6.88576
+1,1,15,7.23946
+1,1,16,6.14150
+1,1,17,6.62065
+1,1,18,4.78911
+1,1,19,5.57807
+1,1,20,6.58858
+1,1,21,6.66810
+1,1,22,7.74514
+1,1,23,8.54026
+1,1,24,9.69978
+1,1,25,10.11997
+1,1,26,9.80701
+1,1,27,11.22756
+1,1,28,13.21359
+1,1,29,11.89262
+1,1,30,11.27391
+1,1,31,9.80777
+1,1,32,9.99240
+1,1,33,8.21980
+1,1,34,6.82536
+1,1,35,11.74060
+1,1,36,0.56862</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001T</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>31.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>31</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="31" defaultValue="0.00000">1,1,1,2.21354
+1,1,2,5.11540
+1,1,3,5.91269
+1,1,4,5.36730
+1,1,5,4.69945
+1,1,6,4.54840
+1,1,7,5.40811
+1,1,8,4.70030
+1,1,9,5.49781
+1,1,10,5.42079
+1,1,11,4.94073
+1,1,12,5.08228
+1,1,13,5.44073
+1,1,14,5.00926
+1,1,15,5.86180
+1,1,16,6.31155
+1,1,17,6.82945
+1,1,18,7.11168
+1,1,19,7.94061
+1,1,20,8.86660
+1,1,21,9.07774
+1,1,22,9.93954
+1,1,23,10.03451
+1,1,24,12.05228
+1,1,25,12.98169
+1,1,26,13.80348
+1,1,27,11.80596
+1,1,28,10.82527
+1,1,29,7.80938
+1,1,30,13.75567
+1,1,31,9.18256</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001K</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,8.38776
+1,1,2,11.30894
+1,1,3,6.85930
+1,1,4,5.15149
+1,1,5,2.59754
+1,1,6,2.18685
+1,1,7,3.17200
+1,1,8,2.77084
+1,1,9,3.48981
+1,1,10,3.19206
+1,1,11,4.11352
+1,1,12,2.46696
+1,1,13,2.67525
+1,1,14,2.84518
+1,1,15,2.59916
+1,1,16,2.73588
+1,1,17,2.99812
+1,1,18,3.38540
+1,1,19,4.15204
+1,1,20,4.20979
+1,1,21,5.13382
+1,1,22,5.20193
+1,1,23,6.61994
+1,1,24,7.00139
+1,1,25,9.06033
+1,1,26,10.19194
+1,1,27,11.78764
+1,1,28,12.43277
+1,1,29,12.55790
+1,1,30,11.82543
+1,1,31,11.47956
+1,1,32,11.31256
+1,1,33,11.05774
+1,1,34,7.40863
+1,1,35,0.92940</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000U</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,4.05511
+1,1,2,4.87348
+1,1,3,4.32477
+1,1,4,4.49050
+1,1,5,2.59235
+1,1,6,3.31319
+1,1,7,3.76775
+1,1,8,3.80058
+1,1,9,4.25252
+1,1,10,3.71547
+1,1,11,3.87364
+1,1,12,3.61617
+1,1,13,3.96835
+1,1,14,4.40586
+1,1,15,4.99741
+1,1,16,5.37442
+1,1,17,6.35805
+1,1,18,7.78473
+1,1,19,9.08822
+1,1,20,9.61590
+1,1,21,11.21406
+1,1,22,12.34183
+1,1,23,13.15777
+1,1,24,11.29644
+1,1,25,11.22827
+1,1,26,12.37033
+1,1,27,12.09995
+1,1,28,11.63952
+1,1,29,15.52602
+1,1,30,12.18579
+1,1,31,9.49246
+1,1,32,8.56453
+1,1,33,0.64095</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00021</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,2.99729
+1,1,2,5.32908
+1,1,3,4.83888
+1,1,4,4.44454
+1,1,5,3.60364
+1,1,6,3.14742
+1,1,7,2.88418
+1,1,8,3.79233
+1,1,9,2.87918
+1,1,10,2.88123
+1,1,11,4.05916
+1,1,12,3.28549
+1,1,13,3.43479
+1,1,14,2.23635
+1,1,15,3.00959
+1,1,16,2.85624
+1,1,17,3.32493
+1,1,18,4.06911
+1,1,19,4.15173
+1,1,20,5.81188
+1,1,21,6.51226
+1,1,22,7.61360
+1,1,23,9.54894
+1,1,24,9.65842
+1,1,25,10.61058
+1,1,26,11.40664
+1,1,27,13.49889
+1,1,28,14.40693
+1,1,29,12.73330
+1,1,30,9.18512
+1,1,31,6.14410
+1,1,32,4.98664
+1,1,33,2.78875</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00007</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,7.87970
+1,1,2,9.44680
+1,1,3,8.73841
+1,1,4,8.14645
+1,1,5,8.89777
+1,1,6,9.55088
+1,1,7,6.63820
+1,1,8,4.53668
+1,1,9,3.26319
+1,1,10,4.58795
+1,1,11,5.09453
+1,1,12,6.13325
+1,1,13,5.93544
+1,1,14,5.95388
+1,1,15,5.72199
+1,1,16,6.38849
+1,1,17,7.83333
+1,1,18,8.08510
+1,1,19,8.51233
+1,1,20,9.79304
+1,1,21,9.03745
+1,1,22,10.44727
+1,1,23,10.31271
+1,1,24,10.72240
+1,1,25,9.05969
+1,1,26,9.13142
+1,1,27,10.69449
+1,1,28,9.89235
+1,1,29,12.54944
+1,1,30,11.31873
+1,1,31,13.61606
+1,1,32,13.30559
+1,1,33,9.50281
+1,1,34,9.89690
+1,1,35,6.18724
+1,1,36,0.77635</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00002</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>32.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>32</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="32" defaultValue="0.00000">1,1,1,4.76264
+1,1,2,9.57758
+1,1,3,7.22575
+1,1,4,6.23034
+1,1,5,6.45824
+1,1,6,7.41552
+1,1,7,9.94714
+1,1,8,12.46066
+1,1,9,11.14318
+1,1,10,7.22127
+1,1,11,5.63126
+1,1,12,5.32074
+1,1,13,6.30524
+1,1,14,6.09455
+1,1,15,6.85176
+1,1,16,7.16312
+1,1,17,9.03215
+1,1,18,10.35583
+1,1,19,11.29634
+1,1,20,11.95549
+1,1,21,8.92484
+1,1,22,8.56047
+1,1,23,8.69812
+1,1,24,9.60312
+1,1,25,7.79649
+1,1,26,8.63636
+1,1,27,11.42153
+1,1,28,12.97067
+1,1,29,12.57817
+1,1,30,14.64324
+1,1,31,14.52950
+1,1,32,2.08261</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001R</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,4.01724
+1,1,2,4.40870
+1,1,3,5.43674
+1,1,4,4.11388
+1,1,5,3.57099
+1,1,6,3.30776
+1,1,7,3.62652
+1,1,8,3.85664
+1,1,9,4.14600
+1,1,10,3.90862
+1,1,11,4.28131
+1,1,12,4.23093
+1,1,13,4.63850
+1,1,14,5.24652
+1,1,15,5.19224
+1,1,16,4.34906
+1,1,17,5.18346
+1,1,18,4.85762
+1,1,19,5.52381
+1,1,20,6.72558
+1,1,21,7.41471
+1,1,22,9.28353
+1,1,23,11.10547
+1,1,24,11.79949
+1,1,25,11.97246
+1,1,26,12.10968
+1,1,27,11.22282
+1,1,28,11.75885
+1,1,29,12.37624
+1,1,30,11.65242
+1,1,31,7.79076
+1,1,32,10.10721
+1,1,33,0.67007</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000V</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>38.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>38</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="38" defaultValue="0.00000">1,1,1,9.77825
+1,1,2,11.80207
+1,1,3,10.18061
+1,1,4,3.78851
+1,1,5,1.48652
+1,1,6,1.36550
+1,1,7,3.04754
+1,1,8,5.12950
+1,1,9,2.65978
+1,1,10,3.01559
+1,1,11,2.26977
+1,1,12,2.13795
+1,1,13,3.84532
+1,1,14,2.63742
+1,1,15,2.67266
+1,1,16,3.78471
+1,1,17,3.07735
+1,1,18,2.71703
+1,1,19,3.73976
+1,1,20,2.73329
+1,1,21,3.55990
+1,1,22,4.40969
+1,1,23,4.60718
+1,1,24,4.90194
+1,1,25,6.46033
+1,1,26,6.92411
+1,1,27,8.53825
+1,1,28,9.07712
+1,1,29,10.36874
+1,1,30,11.54241
+1,1,31,10.84770
+1,1,32,12.53038
+1,1,33,12.30245
+1,1,34,11.50994
+1,1,35,11.04895
+1,1,36,12.03844
+1,1,37,5.40858
+1,1,38,2.38672</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00029</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>28.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>28</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="28" defaultValue="0.00000">1,1,1,7.84700
+1,1,2,7.65565
+1,1,3,5.82875
+1,1,4,4.91171
+1,1,5,5.24074
+1,1,6,5.75816
+1,1,7,5.13346
+1,1,8,5.51642
+1,1,9,5.92505
+1,1,10,5.46519
+1,1,11,5.24491
+1,1,12,4.83050
+1,1,13,6.44967
+1,1,14,6.28730
+1,1,15,7.14255
+1,1,16,8.04952
+1,1,17,8.43800
+1,1,18,9.52539
+1,1,19,10.64542
+1,1,20,11.94687
+1,1,21,12.24234
+1,1,22,11.96212
+1,1,23,8.79948
+1,1,24,9.07136
+1,1,25,8.85359
+1,1,26,12.06710
+1,1,27,10.11661
+1,1,28,2.27045</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002F</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,5.48368
+1,1,2,8.29404
+1,1,3,11.94522
+1,1,4,8.83420
+1,1,5,5.42330
+1,1,6,4.12635
+1,1,7,3.31966
+1,1,8,3.34116
+1,1,9,3.90004
+1,1,10,4.07683
+1,1,11,3.51137
+1,1,12,4.49443
+1,1,13,3.83987
+1,1,14,3.96836
+1,1,15,3.89995
+1,1,16,3.54107
+1,1,17,3.27945
+1,1,18,2.48573
+1,1,19,2.91759
+1,1,20,3.50714
+1,1,21,4.21331
+1,1,22,5.23216
+1,1,23,7.12629
+1,1,24,8.64969
+1,1,25,9.60240
+1,1,26,11.01152
+1,1,27,10.40835
+1,1,28,11.97839
+1,1,29,11.06749
+1,1,30,11.95162
+1,1,31,8.10075
+1,1,32,10.07915
+1,1,33,9.44898
+1,1,34,10.64380
+1,1,35,9.18716
+1,1,36,2.11369</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000B</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,4.18248
+1,1,2,6.05605
+1,1,3,9.12622
+1,1,4,8.19495
+1,1,5,6.08284
+1,1,6,4.99097
+1,1,7,4.03860
+1,1,8,3.00930
+1,1,9,3.33676
+1,1,10,3.36453
+1,1,11,3.46280
+1,1,12,2.66401
+1,1,13,3.39548
+1,1,14,4.71098
+1,1,15,4.61340
+1,1,16,3.96744
+1,1,17,3.45860
+1,1,18,4.69836
+1,1,19,4.89317
+1,1,20,5.44541
+1,1,21,6.03444
+1,1,22,8.33933
+1,1,23,8.39350
+1,1,24,8.68452
+1,1,25,9.77250
+1,1,26,9.72321
+1,1,27,11.53251
+1,1,28,11.23016
+1,1,29,10.47550
+1,1,30,11.06646
+1,1,31,13.36835
+1,1,32,12.06889
+1,1,33,11.89754
+1,1,34,10.30838
+1,1,35,5.84678
+1,1,36,5.96755
+1,1,37,3.71098</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001F</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,7.38122
+1,1,2,8.42399
+1,1,3,5.23451
+1,1,4,4.35698
+1,1,5,3.21142
+1,1,6,4.06923
+1,1,7,3.98088
+1,1,8,4.20773
+1,1,9,3.72542
+1,1,10,3.26880
+1,1,11,3.80755
+1,1,12,3.83339
+1,1,13,3.62044
+1,1,14,4.36611
+1,1,15,5.09749
+1,1,16,5.66420
+1,1,17,6.43518
+1,1,18,7.49045
+1,1,19,8.42699
+1,1,20,11.63694
+1,1,21,13.28206
+1,1,22,13.38616
+1,1,23,14.02735
+1,1,24,12.01930
+1,1,25,10.56667
+1,1,26,10.50390
+1,1,27,10.14225
+1,1,28,3.38996
+1,1,29,3.51578
+1,1,30,1.07109</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001E</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,6.71810
+1,1,2,9.14312
+1,1,3,4.89934
+1,1,4,5.09900
+1,1,5,3.52874
+1,1,6,2.70092
+1,1,7,3.07666
+1,1,8,2.86824
+1,1,9,4.03825
+1,1,10,4.07781
+1,1,11,4.00210
+1,1,12,5.10899
+1,1,13,5.61571
+1,1,14,5.55886
+1,1,15,4.52720
+1,1,16,5.43671
+1,1,17,3.83077
+1,1,18,3.34645
+1,1,19,3.60026
+1,1,20,2.53407
+1,1,21,3.42098
+1,1,22,4.22784
+1,1,23,4.89020
+1,1,24,6.67772
+1,1,25,7.64736
+1,1,26,7.48686
+1,1,27,7.85307
+1,1,28,8.20312
+1,1,29,9.27832
+1,1,30,10.49280
+1,1,31,10.58535
+1,1,32,11.19573
+1,1,33,10.41386
+1,1,34,12.32459
+1,1,35,12.63538
+1,1,36,12.17679
+1,1,37,12.18097
+1,1,38,6.22973
+1,1,39,0.85714</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001J</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,1.27668
+1,1,2,4.13759
+1,1,3,5.86476
+1,1,4,3.48825
+1,1,5,3.46875
+1,1,6,3.32615
+1,1,7,3.24003
+1,1,8,3.12451
+1,1,9,1.05893
+1,1,10,1.59217
+1,1,11,1.52250
+1,1,12,2.09923
+1,1,13,2.71693
+1,1,14,2.16345
+1,1,15,2.64443
+1,1,16,2.48920
+1,1,17,2.32330
+1,1,18,3.01297
+1,1,19,2.76687
+1,1,20,3.49953
+1,1,21,3.86533
+1,1,22,4.17549
+1,1,23,5.24747
+1,1,24,7.03602
+1,1,25,7.82947
+1,1,26,10.03273
+1,1,27,11.86930
+1,1,28,15.28530
+1,1,29,15.94415
+1,1,30,11.95659
+1,1,31,8.35796
+1,1,32,2.75370
+1,1,33,1.38087</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001Y</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,12.28359
+1,1,2,18.18206
+1,1,3,10.64136
+1,1,4,7.74180
+1,1,5,5.54328
+1,1,6,5.04901
+1,1,7,4.17189
+1,1,8,3.65118
+1,1,9,2.97023
+1,1,10,2.73256
+1,1,11,3.26285
+1,1,12,3.36685
+1,1,13,3.68303
+1,1,14,4.74860
+1,1,15,4.20361
+1,1,16,5.25128
+1,1,17,5.54134
+1,1,18,6.68754
+1,1,19,7.25922
+1,1,20,7.83475
+1,1,21,8.62991
+1,1,22,9.73416
+1,1,23,12.58739
+1,1,24,15.11075
+1,1,25,13.46414
+1,1,26,12.20828
+1,1,27,11.08412
+1,1,28,8.57424
+1,1,29,9.44392
+1,1,30,0.57262</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000D</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,2.67267
+1,1,2,5.03769
+1,1,3,7.93345
+1,1,4,5.38200
+1,1,5,3.57363
+1,1,6,2.60208
+1,1,7,2.66762
+1,1,8,2.71797
+1,1,9,3.59008
+1,1,10,2.68604
+1,1,11,3.22137
+1,1,12,3.56025
+1,1,13,3.13706
+1,1,14,4.31901
+1,1,15,3.78946
+1,1,16,4.18661
+1,1,17,4.96621
+1,1,18,4.97663
+1,1,19,5.87585
+1,1,20,6.54178
+1,1,21,7.95966
+1,1,22,7.42730
+1,1,23,7.48331
+1,1,24,8.63021
+1,1,25,9.05889
+1,1,26,8.24495
+1,1,27,9.09626
+1,1,28,9.76814
+1,1,29,10.15275
+1,1,30,10.90952
+1,1,31,11.66566
+1,1,32,11.54254
+1,1,33,11.49940
+1,1,34,11.41817
+1,1,35,10.26454
+1,1,36,11.25303
+1,1,37,5.51873
+1,1,38,1.88474
+1,1,39,0.36284</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00006</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,6.30935
+1,1,2,5.88483
+1,1,3,7.12750
+1,1,4,6.71131
+1,1,5,6.34969
+1,1,6,7.54953
+1,1,7,8.45663
+1,1,8,10.25488
+1,1,9,8.74358
+1,1,10,9.21148
+1,1,11,8.89812
+1,1,12,7.22212
+1,1,13,5.86368
+1,1,14,6.26576
+1,1,15,6.21633
+1,1,16,6.04439
+1,1,17,5.52967
+1,1,18,5.85309
+1,1,19,6.54394
+1,1,20,7.55329
+1,1,21,7.88601
+1,1,22,9.25635
+1,1,23,8.78449
+1,1,24,10.30558
+1,1,25,11.16187
+1,1,26,10.30425
+1,1,27,11.08864
+1,1,28,11.03556
+1,1,29,11.71973
+1,1,30,11.36274
+1,1,31,10.13614
+1,1,32,7.59738
+1,1,33,0.45749</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00012</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,3.39010
+1,1,2,6.43154
+1,1,3,7.30617
+1,1,4,4.98928
+1,1,5,3.40382
+1,1,6,3.34934
+1,1,7,4.11335
+1,1,8,4.47698
+1,1,9,4.43935
+1,1,10,3.07331
+1,1,11,3.40036
+1,1,12,3.88313
+1,1,13,3.67097
+1,1,14,4.93630
+1,1,15,4.45187
+1,1,16,4.28563
+1,1,17,5.01148
+1,1,18,5.42018
+1,1,19,5.76342
+1,1,20,5.58722
+1,1,21,6.45510
+1,1,22,7.96704
+1,1,23,8.74850
+1,1,24,11.23166
+1,1,25,11.43792
+1,1,26,11.56024
+1,1,27,11.71155
+1,1,28,12.85370
+1,1,29,12.31451
+1,1,30,13.32594
+1,1,31,8.71929
+1,1,32,5.59175
+1,1,33,1.04352</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002N</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>31.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>31</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="31" defaultValue="0.00000">1,1,1,7.01463
+1,1,2,4.44803
+1,1,3,4.52893
+1,1,4,3.62371
+1,1,5,3.46158
+1,1,6,2.82774
+1,1,7,2.87171
+1,1,8,3.41323
+1,1,9,4.28928
+1,1,10,4.42459
+1,1,11,4.26273
+1,1,12,4.89597
+1,1,13,5.00327
+1,1,14,5.00189
+1,1,15,5.25593
+1,1,16,5.71095
+1,1,17,5.44503
+1,1,18,6.43774
+1,1,19,6.80332
+1,1,20,7.88700
+1,1,21,8.94516
+1,1,22,10.03779
+1,1,23,10.48726
+1,1,24,11.00276
+1,1,25,12.27016
+1,1,26,12.97075
+1,1,27,10.44773
+1,1,28,10.91752
+1,1,29,10.30473
+1,1,30,6.10982
+1,1,31,0.30978</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000W</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,6.15457
+1,1,2,8.14043
+1,1,3,9.00501
+1,1,4,7.28706
+1,1,5,3.44138
+1,1,6,2.74017
+1,1,7,4.10826
+1,1,8,3.11146
+1,1,9,2.31350
+1,1,10,2.80138
+1,1,11,2.16936
+1,1,12,2.64128
+1,1,13,3.64362
+1,1,14,3.16200
+1,1,15,2.93728
+1,1,16,2.83494
+1,1,17,3.55931
+1,1,18,3.42267
+1,1,19,3.56709
+1,1,20,4.64216
+1,1,21,4.19590
+1,1,22,5.97321
+1,1,23,5.88710
+1,1,24,7.61769
+1,1,25,9.29673
+1,1,26,10.48760
+1,1,27,11.85507
+1,1,28,12.94342
+1,1,29,11.84656
+1,1,30,11.56851
+1,1,31,12.51951
+1,1,32,12.42203
+1,1,33,11.39285
+1,1,34,9.50849
+1,1,35,6.78835
+1,1,36,9.88885
+1,1,37,2.85494</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002Q</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>32.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>32</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="32" defaultValue="0.00000">1,1,1,5.87445
+1,1,2,16.54556
+1,1,3,5.70565
+1,1,4,3.28277
+1,1,5,3.34951
+1,1,6,3.14466
+1,1,7,3.46235
+1,1,8,5.01733
+1,1,9,4.14330
+1,1,10,4.34501
+1,1,11,4.34385
+1,1,12,3.93311
+1,1,13,4.15351
+1,1,14,3.89614
+1,1,15,3.26516
+1,1,16,3.67660
+1,1,17,4.12490
+1,1,18,4.45663
+1,1,19,5.41509
+1,1,20,6.13388
+1,1,21,6.23264
+1,1,22,8.54339
+1,1,23,9.79967
+1,1,24,11.60444
+1,1,25,12.05424
+1,1,26,12.93205
+1,1,27,13.93835
+1,1,28,12.46680
+1,1,29,10.12041
+1,1,30,10.34443
+1,1,31,7.33014
+1,1,32,1.37393</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00003</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>32.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>32</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="32" defaultValue="0.00000">1,1,1,5.58922
+1,1,2,6.25593
+1,1,3,6.16024
+1,1,4,4.32328
+1,1,5,2.23049
+1,1,6,2.50017
+1,1,7,2.17455
+1,1,8,2.23436
+1,1,9,3.29789
+1,1,10,2.97362
+1,1,11,2.59557
+1,1,12,2.62788
+1,1,13,4.06524
+1,1,14,3.50290
+1,1,15,3.96523
+1,1,16,4.47617
+1,1,17,4.85898
+1,1,18,4.57663
+1,1,19,5.04394
+1,1,20,5.97548
+1,1,21,6.56835
+1,1,22,8.98070
+1,1,23,9.45629
+1,1,24,10.41462
+1,1,25,11.66395
+1,1,26,13.01590
+1,1,27,13.06323
+1,1,28,13.04482
+1,1,29,11.05217
+1,1,30,6.55814
+1,1,31,3.71564
+1,1,32,3.40096</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00010</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,4.87229
+1,1,2,8.95842
+1,1,3,3.64497
+1,1,4,3.99781
+1,1,5,3.57669
+1,1,6,3.02920
+1,1,7,3.29817
+1,1,8,5.29069
+1,1,9,5.11908
+1,1,10,4.57062
+1,1,11,3.77886
+1,1,12,4.82962
+1,1,13,4.53771
+1,1,14,4.17317
+1,1,15,4.23574
+1,1,16,4.54900
+1,1,17,2.96206
+1,1,18,3.83656
+1,1,19,3.34097
+1,1,20,3.20889
+1,1,21,3.87147
+1,1,22,4.98523
+1,1,23,5.15122
+1,1,24,6.44936
+1,1,25,7.28825
+1,1,26,9.82472
+1,1,27,10.09871
+1,1,28,11.75882
+1,1,29,12.58684
+1,1,30,12.80186
+1,1,31,12.20860
+1,1,32,10.81063
+1,1,33,11.25077
+1,1,34,13.43687
+1,1,35,11.37796
+1,1,36,2.30183
+1,1,37,0.71182</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001V</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,10.34840
+1,1,2,13.32430
+1,1,3,9.71833
+1,1,4,7.39414
+1,1,5,6.01168
+1,1,6,5.06547
+1,1,7,4.35845
+1,1,8,3.89571
+1,1,9,4.33386
+1,1,10,3.84406
+1,1,11,5.00788
+1,1,12,4.59455
+1,1,13,3.98996
+1,1,14,4.26193
+1,1,15,4.45819
+1,1,16,4.69546
+1,1,17,5.23377
+1,1,18,6.09043
+1,1,19,6.49262
+1,1,20,7.96301
+1,1,21,8.60233
+1,1,22,9.58982
+1,1,23,10.49850
+1,1,24,10.58963
+1,1,25,10.68868
+1,1,26,10.54934
+1,1,27,11.26083
+1,1,28,10.29156
+1,1,29,10.91010
+1,1,30,11.37877
+1,1,31,10.08157
+1,1,32,12.27342
+1,1,33,10.91296
+1,1,34,11.26637
+1,1,35,6.55327
+1,1,36,0.89488</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000I</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Quercus robur</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.20000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.35000</Transmittance>
+    <Height>39.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>5.00000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>39</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="39" defaultValue="0.00000">1,1,1,2.34994
+1,1,2,3.70228
+1,1,3,7.61392
+1,1,4,5.53779
+1,1,5,3.93117
+1,1,6,4.40356
+1,1,7,2.66402
+1,1,8,2.45057
+1,1,9,1.70467
+1,1,10,2.19937
+1,1,11,2.30244
+1,1,12,1.97094
+1,1,13,2.08695
+1,1,14,1.84860
+1,1,15,1.77568
+1,1,16,1.52400
+1,1,17,1.99427
+1,1,18,2.49849
+1,1,19,3.03161
+1,1,20,3.17465
+1,1,21,2.65028
+1,1,22,2.94597
+1,1,23,3.04388
+1,1,24,4.18875
+1,1,25,4.73943
+1,1,26,5.78920
+1,1,27,6.09349
+1,1,28,7.33070
+1,1,29,8.80105
+1,1,30,9.68566
+1,1,31,10.91422
+1,1,32,11.73054
+1,1,33,12.20239
+1,1,34,11.72362
+1,1,35,12.95733
+1,1,36,10.53592
+1,1,37,6.57594
+1,1,38,2.87531
+1,1,39,1.74635</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001O</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,3.51610
+1,1,2,3.72645
+1,1,3,3.06169
+1,1,4,2.16597
+1,1,5,1.48799
+1,1,6,1.70416
+1,1,7,1.53492
+1,1,8,1.87805
+1,1,9,2.06623
+1,1,10,2.01834
+1,1,11,1.98224
+1,1,12,2.15742
+1,1,13,1.88131
+1,1,14,2.56457
+1,1,15,2.28969
+1,1,16,1.98461
+1,1,17,2.15003
+1,1,18,2.35524
+1,1,19,3.08493
+1,1,20,2.78899
+1,1,21,3.46871
+1,1,22,4.79322
+1,1,23,6.74471
+1,1,24,7.95425
+1,1,25,10.29486
+1,1,26,10.72906
+1,1,27,13.61714
+1,1,28,16.15311
+1,1,29,14.68816
+1,1,30,10.37950
+1,1,31,8.61979
+1,1,32,6.15682
+1,1,33,1.24074</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001A</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,6.79430
+1,1,2,3.04389
+1,1,3,3.81763
+1,1,4,2.62184
+1,1,5,1.81384
+1,1,6,1.91563
+1,1,7,1.71032
+1,1,8,2.06480
+1,1,9,2.17997
+1,1,10,3.21195
+1,1,11,2.35974
+1,1,12,2.75390
+1,1,13,2.71279
+1,1,14,3.45357
+1,1,15,2.88482
+1,1,16,4.49539
+1,1,17,4.54298
+1,1,18,4.60720
+1,1,19,5.29055
+1,1,20,5.71076
+1,1,21,6.76716
+1,1,22,7.80157
+1,1,23,8.47069
+1,1,24,9.48417
+1,1,25,10.97234
+1,1,26,12.74150
+1,1,27,12.96681
+1,1,28,13.79883
+1,1,29,11.53426
+1,1,30,10.08824
+1,1,31,8.57195
+1,1,32,7.89010
+1,1,33,9.18288
+1,1,34,0.30978</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00001</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,4.71467
+1,1,2,5.80421
+1,1,3,5.69874
+1,1,4,4.34204
+1,1,5,3.23748
+1,1,6,4.39033
+1,1,7,3.87058
+1,1,8,3.19874
+1,1,9,2.80840
+1,1,10,3.34516
+1,1,11,4.42326
+1,1,12,4.73982
+1,1,13,4.81668
+1,1,14,6.03190
+1,1,15,5.70715
+1,1,16,4.97044
+1,1,17,6.33830
+1,1,18,6.92119
+1,1,19,6.10495
+1,1,20,6.46153
+1,1,21,7.52866
+1,1,22,8.22883
+1,1,23,9.60002
+1,1,24,10.10190
+1,1,25,11.42895
+1,1,26,12.34864
+1,1,27,12.43804
+1,1,28,12.12239
+1,1,29,12.05264
+1,1,30,9.49145
+1,1,31,7.34758
+1,1,32,5.26221
+1,1,33,1.66043</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000L</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,2.88575
+1,1,2,4.54460
+1,1,3,3.35660
+1,1,4,3.65073
+1,1,5,2.33910
+1,1,6,1.81498
+1,1,7,2.23178
+1,1,8,1.96184
+1,1,9,2.89890
+1,1,10,3.25761
+1,1,11,3.34662
+1,1,12,3.04469
+1,1,13,3.45151
+1,1,14,4.03128
+1,1,15,4.44439
+1,1,16,4.61986
+1,1,17,4.14807
+1,1,18,4.49983
+1,1,19,5.20472
+1,1,20,6.32770
+1,1,21,7.32274
+1,1,22,8.98935
+1,1,23,9.98146
+1,1,24,11.66150
+1,1,25,13.65967
+1,1,26,14.87829
+1,1,27,13.93919
+1,1,28,10.66848
+1,1,29,4.96179
+1,1,30,1.26707</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002R</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,3.77038
+1,1,2,8.21745
+1,1,3,7.83183
+1,1,4,3.28275
+1,1,5,2.31168
+1,1,6,2.55010
+1,1,7,2.79782
+1,1,8,4.33865
+1,1,9,2.55602
+1,1,10,3.12418
+1,1,11,3.32532
+1,1,12,3.03192
+1,1,13,3.30083
+1,1,14,3.45777
+1,1,15,4.11261
+1,1,16,2.85484
+1,1,17,2.82185
+1,1,18,3.30111
+1,1,19,3.53988
+1,1,20,4.12867
+1,1,21,4.86633
+1,1,22,5.96885
+1,1,23,6.62576
+1,1,24,7.31229
+1,1,25,8.83294
+1,1,26,10.37998
+1,1,27,10.84667
+1,1,28,12.95584
+1,1,29,13.30190
+1,1,30,11.72853
+1,1,31,12.68619
+1,1,32,9.77490
+1,1,33,4.66507
+1,1,34,0.70781</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002C</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,11.29397
+1,1,2,9.29599
+1,1,3,6.60354
+1,1,4,5.18352
+1,1,5,4.15741
+1,1,6,3.34982
+1,1,7,3.15348
+1,1,8,3.14689
+1,1,9,4.10749
+1,1,10,2.99840
+1,1,11,2.73927
+1,1,12,2.94516
+1,1,13,3.79261
+1,1,14,3.59472
+1,1,15,3.75245
+1,1,16,3.07032
+1,1,17,2.97569
+1,1,18,3.24254
+1,1,19,4.32636
+1,1,20,4.62177
+1,1,21,5.73774
+1,1,22,6.32719
+1,1,23,7.08324
+1,1,24,7.68567
+1,1,25,9.95527
+1,1,26,11.45345
+1,1,27,12.33667
+1,1,28,12.49826
+1,1,29,13.74761
+1,1,30,14.08381
+1,1,31,8.68533
+1,1,32,6.71088
+1,1,33,3.38569</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00027</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,9.08842
+1,1,2,4.90080
+1,1,3,4.86002
+1,1,4,4.19159
+1,1,5,2.71804
+1,1,6,2.25844
+1,1,7,2.59769
+1,1,8,2.47545
+1,1,9,1.76521
+1,1,10,1.97701
+1,1,11,2.50062
+1,1,12,1.96038
+1,1,13,2.76300
+1,1,14,2.73134
+1,1,15,2.31597
+1,1,16,2.72683
+1,1,17,3.55177
+1,1,18,4.07190
+1,1,19,4.25001
+1,1,20,4.53335
+1,1,21,5.51168
+1,1,22,6.42520
+1,1,23,6.61520
+1,1,24,7.41933
+1,1,25,7.78908
+1,1,26,8.48137
+1,1,27,9.04309
+1,1,28,9.14164
+1,1,29,10.26595
+1,1,30,10.48524
+1,1,31,13.01447
+1,1,32,13.58014
+1,1,33,14.21380
+1,1,34,7.30448
+1,1,35,2.40127
+1,1,36,0.43093</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002K</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,6.55046
+1,1,2,6.80860
+1,1,3,7.84025
+1,1,4,7.15819
+1,1,5,4.07378
+1,1,6,4.29218
+1,1,7,4.73022
+1,1,8,5.46883
+1,1,9,5.49143
+1,1,10,5.15643
+1,1,11,3.79735
+1,1,12,3.48957
+1,1,13,3.52446
+1,1,14,3.82169
+1,1,15,4.04887
+1,1,16,4.42637
+1,1,17,4.96809
+1,1,18,5.71358
+1,1,19,5.76656
+1,1,20,5.89508
+1,1,21,7.67108
+1,1,22,8.01490
+1,1,23,8.10928
+1,1,24,8.20547
+1,1,25,9.16864
+1,1,26,8.46807
+1,1,27,10.61317
+1,1,28,9.68675
+1,1,29,11.37164
+1,1,30,10.68271
+1,1,31,13.07512
+1,1,32,13.08351
+1,1,33,9.37232
+1,1,34,11.96243
+1,1,35,7.57106
+1,1,36,0.92655</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001S</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,6.00764
+1,1,2,2.27703
+1,1,3,2.34228
+1,1,4,2.24485
+1,1,5,2.28695
+1,1,6,2.67716
+1,1,7,4.66096
+1,1,8,4.57253
+1,1,9,3.71350
+1,1,10,3.97866
+1,1,11,3.72496
+1,1,12,4.31615
+1,1,13,4.76396
+1,1,14,5.18573
+1,1,15,5.71522
+1,1,16,6.27583
+1,1,17,6.03187
+1,1,18,6.72185
+1,1,19,6.20234
+1,1,20,6.34096
+1,1,21,6.66256
+1,1,22,7.11803
+1,1,23,7.75548
+1,1,24,8.97486
+1,1,25,10.01279
+1,1,26,10.41689
+1,1,27,11.10801
+1,1,28,12.66325
+1,1,29,12.94113
+1,1,30,10.02864
+1,1,31,7.97638
+1,1,32,6.60795
+1,1,33,4.18932</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00018</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,3.44599
+1,1,2,5.30179
+1,1,3,8.81521
+1,1,4,4.67638
+1,1,5,3.13551
+1,1,6,2.47645
+1,1,7,1.57839
+1,1,8,2.52970
+1,1,9,2.85655
+1,1,10,2.75199
+1,1,11,2.31359
+1,1,12,3.36181
+1,1,13,2.85729
+1,1,14,2.68853
+1,1,15,3.18163
+1,1,16,3.79090
+1,1,17,3.81761
+1,1,18,3.69485
+1,1,19,3.97630
+1,1,20,3.44165
+1,1,21,4.17827
+1,1,22,4.47742
+1,1,23,5.97567
+1,1,24,7.05563
+1,1,25,8.41957
+1,1,26,10.81740
+1,1,27,11.08921
+1,1,28,11.99027
+1,1,29,13.23458
+1,1,30,14.56325
+1,1,31,11.23114
+1,1,32,9.66750
+1,1,33,3.96332
+1,1,34,1.40074</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002M</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,6.03542
+1,1,2,4.45938
+1,1,3,4.20771
+1,1,4,3.07214
+1,1,5,2.56126
+1,1,6,2.30879
+1,1,7,2.03222
+1,1,8,2.74927
+1,1,9,2.05861
+1,1,10,2.12648
+1,1,11,2.96227
+1,1,12,3.91843
+1,1,13,4.56050
+1,1,14,6.57337
+1,1,15,11.21649
+1,1,16,16.24460
+1,1,17,12.30750
+1,1,18,9.98133
+1,1,19,10.75133
+1,1,20,10.26924
+1,1,21,9.88720
+1,1,22,9.92025
+1,1,23,8.21143
+1,1,24,8.51356
+1,1,25,8.30910
+1,1,26,6.04675
+1,1,27,7.69339
+1,1,28,9.43382
+1,1,29,9.57313
+1,1,30,5.75207</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00011</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>32.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>32</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="32" defaultValue="0.00000">1,1,1,9.44882
+1,1,2,11.86116
+1,1,3,10.22041
+1,1,4,6.72689
+1,1,5,4.10205
+1,1,6,2.88866
+1,1,7,4.16251
+1,1,8,3.77247
+1,1,9,4.14301
+1,1,10,3.97168
+1,1,11,4.71747
+1,1,12,4.27359
+1,1,13,4.82813
+1,1,14,5.01088
+1,1,15,4.98711
+1,1,16,4.60445
+1,1,17,5.13174
+1,1,18,5.56203
+1,1,19,6.10117
+1,1,20,6.84904
+1,1,21,7.79340
+1,1,22,9.03214
+1,1,23,8.72484
+1,1,24,10.41067
+1,1,25,12.45249
+1,1,26,12.90558
+1,1,27,13.03768
+1,1,28,13.02085
+1,1,29,12.69395
+1,1,30,12.48147
+1,1,31,11.60692
+1,1,32,2.52035</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000H</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,2.31244
+1,1,2,5.58512
+1,1,3,7.54028
+1,1,4,6.36502
+1,1,5,5.45292
+1,1,6,4.64825
+1,1,7,4.05473
+1,1,8,4.76883
+1,1,9,5.19834
+1,1,10,6.32975
+1,1,11,5.84351
+1,1,12,6.61438
+1,1,13,7.80026
+1,1,14,8.91234
+1,1,15,10.22781
+1,1,16,11.92620
+1,1,17,8.02512
+1,1,18,5.47171
+1,1,19,5.92953
+1,1,20,8.98528
+1,1,21,8.56281
+1,1,22,9.97486
+1,1,23,10.19566
+1,1,24,12.09581
+1,1,25,12.82496
+1,1,26,12.58014
+1,1,27,13.19584
+1,1,28,8.91539
+1,1,29,4.71711
+1,1,30,0.41765</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002G</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>35.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>35</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="35" defaultValue="0.00000">1,1,1,7.27491
+1,1,2,6.90067
+1,1,3,4.14777
+1,1,4,3.22741
+1,1,5,2.77784
+1,1,6,2.06983
+1,1,7,2.25175
+1,1,8,2.59117
+1,1,9,2.82849
+1,1,10,3.27431
+1,1,11,2.54802
+1,1,12,3.06874
+1,1,13,3.85908
+1,1,14,3.46310
+1,1,15,3.83528
+1,1,16,4.77781
+1,1,17,5.16169
+1,1,18,5.86986
+1,1,19,5.62130
+1,1,20,6.22355
+1,1,21,6.02927
+1,1,22,6.13018
+1,1,23,6.95011
+1,1,24,6.32990
+1,1,25,7.60600
+1,1,26,8.20455
+1,1,27,8.85319
+1,1,28,9.81103
+1,1,29,11.89904
+1,1,30,13.88625
+1,1,31,14.36707
+1,1,32,12.46201
+1,1,33,9.55946
+1,1,34,11.06010
+1,1,35,1.01051</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00025</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,10.72098
+1,1,2,12.50702
+1,1,3,7.45624
+1,1,4,5.47253
+1,1,5,3.29919
+1,1,6,4.18047
+1,1,7,3.22959
+1,1,8,4.46334
+1,1,9,4.50441
+1,1,10,5.64039
+1,1,11,3.71513
+1,1,12,4.47621
+1,1,13,3.79509
+1,1,14,2.71925
+1,1,15,5.00437
+1,1,16,5.04036
+1,1,17,3.61831
+1,1,18,4.84033
+1,1,19,2.87055
+1,1,20,3.16436
+1,1,21,4.31761
+1,1,22,4.08058
+1,1,23,3.87109
+1,1,24,4.80395
+1,1,25,4.86536
+1,1,26,5.34155
+1,1,27,7.34131
+1,1,28,8.11194
+1,1,29,9.88638
+1,1,30,10.92757
+1,1,31,11.61051
+1,1,32,14.21967
+1,1,33,14.65472
+1,1,34,13.13425
+1,1,35,8.10802
+1,1,36,6.39988
+1,1,37,1.47510</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00015</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,3.88247
+1,1,2,5.98367
+1,1,3,9.87534
+1,1,4,6.96740
+1,1,5,5.96969
+1,1,6,4.37557
+1,1,7,4.47189
+1,1,8,4.52159
+1,1,9,3.63231
+1,1,10,4.15526
+1,1,11,4.01202
+1,1,12,4.29244
+1,1,13,4.12099
+1,1,14,4.27612
+1,1,15,4.31627
+1,1,16,4.83296
+1,1,17,5.81833
+1,1,18,5.23284
+1,1,19,4.69744
+1,1,20,5.38969
+1,1,21,6.51609
+1,1,22,6.86350
+1,1,23,8.50990
+1,1,24,9.44646
+1,1,25,10.82733
+1,1,26,12.84234
+1,1,27,14.10792
+1,1,28,13.42543
+1,1,29,11.08196
+1,1,30,11.99681
+1,1,31,12.34191
+1,1,32,17.00015
+1,1,33,3.93622
+1,1,34,1.38087</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000Z</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,3.02997
+1,1,2,7.59029
+1,1,3,8.38142
+1,1,4,5.31392
+1,1,5,2.79120
+1,1,6,2.52867
+1,1,7,2.66544
+1,1,8,2.59106
+1,1,9,2.23450
+1,1,10,3.03899
+1,1,11,2.85200
+1,1,12,3.01942
+1,1,13,3.00068
+1,1,14,2.82902
+1,1,15,3.55962
+1,1,16,3.97198
+1,1,17,4.56352
+1,1,18,4.97606
+1,1,19,4.72375
+1,1,20,5.08329
+1,1,21,5.50434
+1,1,22,6.76733
+1,1,23,7.19833
+1,1,24,7.51636
+1,1,25,8.29963
+1,1,26,10.90240
+1,1,27,10.69773
+1,1,28,13.41545
+1,1,29,13.47788
+1,1,30,13.30356
+1,1,31,12.33467
+1,1,32,9.40225
+1,1,33,3.00311</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002J</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,19.95382
+1,1,2,20.36570
+1,1,3,20.43392
+1,1,4,13.34953
+1,1,5,10.02261
+1,1,6,7.89957
+1,1,7,8.69965
+1,1,8,7.25820
+1,1,9,6.72573
+1,1,10,5.68218
+1,1,11,6.73945
+1,1,12,7.13639
+1,1,13,6.46048
+1,1,14,7.14247
+1,1,15,6.32048
+1,1,16,9.08191
+1,1,17,7.61914
+1,1,18,9.66378
+1,1,19,10.25831
+1,1,20,12.15991
+1,1,21,11.57051
+1,1,22,12.20732
+1,1,23,11.48129
+1,1,24,12.68743
+1,1,25,10.48366
+1,1,26,11.23593
+1,1,27,9.01864
+1,1,28,13.77090
+1,1,29,10.21679
+1,1,30,6.77501</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002L</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,9.74533
+1,1,2,10.48900
+1,1,3,9.56617
+1,1,4,7.70100
+1,1,5,7.48688
+1,1,6,8.17181
+1,1,7,9.97900
+1,1,8,9.20984
+1,1,9,9.33617
+1,1,10,9.72904
+1,1,11,5.84552
+1,1,12,4.15351
+1,1,13,4.45108
+1,1,14,5.02999
+1,1,15,5.05648
+1,1,16,6.19322
+1,1,17,7.84964
+1,1,18,8.95951
+1,1,19,8.23294
+1,1,20,8.81488
+1,1,21,9.01487
+1,1,22,10.11474
+1,1,23,11.06940
+1,1,24,12.17879
+1,1,25,9.71080
+1,1,26,10.26458
+1,1,27,10.08042
+1,1,28,9.88131
+1,1,29,11.40555
+1,1,30,9.48774
+1,1,31,10.03818
+1,1,32,7.18341
+1,1,33,1.01380</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002H</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,7.00052
+1,1,2,4.57540
+1,1,3,5.61583
+1,1,4,5.24992
+1,1,5,6.04851
+1,1,6,5.78021
+1,1,7,5.94581
+1,1,8,7.27048
+1,1,9,7.63117
+1,1,10,6.99527
+1,1,11,7.77859
+1,1,12,7.98814
+1,1,13,7.33460
+1,1,14,9.18091
+1,1,15,7.62585
+1,1,16,9.17077
+1,1,17,8.79206
+1,1,18,7.60806
+1,1,19,6.14723
+1,1,20,5.88996
+1,1,21,5.93421
+1,1,22,6.63667
+1,1,23,7.48610
+1,1,24,7.91101
+1,1,25,9.22605
+1,1,26,11.19724
+1,1,27,11.70758
+1,1,28,12.13547
+1,1,29,14.22430
+1,1,30,13.28368
+1,1,31,14.65515
+1,1,32,16.00840
+1,1,33,5.98654
+1,1,34,1.10904</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001G</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>27.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>27</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="27" defaultValue="0.00000">1,1,1,11.81558
+1,1,2,11.27110
+1,1,3,9.19724
+1,1,4,6.09552
+1,1,5,5.88355
+1,1,6,5.65765
+1,1,7,4.28918
+1,1,8,3.70609
+1,1,9,3.30340
+1,1,10,3.49340
+1,1,11,3.73116
+1,1,12,4.82408
+1,1,13,5.65893
+1,1,14,7.41519
+1,1,15,8.58486
+1,1,16,11.31042
+1,1,17,14.33882
+1,1,18,14.69241
+1,1,19,13.38396
+1,1,20,10.11037
+1,1,21,9.03040
+1,1,22,9.71893
+1,1,23,10.57577
+1,1,24,11.67175
+1,1,25,13.42979
+1,1,26,7.66823
+1,1,27,0.64095</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000E</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>37.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>37</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="37" defaultValue="0.00000">1,1,1,6.97158
+1,1,2,7.58462
+1,1,3,4.02979
+1,1,4,3.33293
+1,1,5,2.56638
+1,1,6,3.40770
+1,1,7,3.42520
+1,1,8,2.73719
+1,1,9,3.72220
+1,1,10,5.44612
+1,1,11,4.28552
+1,1,12,5.24064
+1,1,13,4.27960
+1,1,14,5.19902
+1,1,15,4.18590
+1,1,16,5.69916
+1,1,17,4.73563
+1,1,18,6.04364
+1,1,19,5.13484
+1,1,20,6.91255
+1,1,21,6.70610
+1,1,22,6.05656
+1,1,23,6.66738
+1,1,24,6.73013
+1,1,25,7.83200
+1,1,26,8.45177
+1,1,27,8.80352
+1,1,28,9.94786
+1,1,29,11.67348
+1,1,30,11.25361
+1,1,31,11.74752
+1,1,32,16.42346
+1,1,33,16.20861
+1,1,34,12.32500
+1,1,35,11.25396
+1,1,36,25.58130
+1,1,37,6.39718</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001Z</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,7.83628
+1,1,2,5.89082
+1,1,3,7.81505
+1,1,4,6.14733
+1,1,5,5.02259
+1,1,6,5.67991
+1,1,7,6.18933
+1,1,8,6.70906
+1,1,9,6.18152
+1,1,10,6.40985
+1,1,11,7.66026
+1,1,12,9.48181
+1,1,13,9.90595
+1,1,14,9.00425
+1,1,15,7.82913
+1,1,16,7.09069
+1,1,17,6.63692
+1,1,18,5.68117
+1,1,19,6.24465
+1,1,20,7.42541
+1,1,21,7.28506
+1,1,22,8.10783
+1,1,23,8.78240
+1,1,24,11.31356
+1,1,25,11.52523
+1,1,26,12.38581
+1,1,27,13.65781
+1,1,28,14.32736
+1,1,29,10.92028
+1,1,30,11.87137
+1,1,31,11.80403
+1,1,32,5.45529
+1,1,33,1.68924</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000K</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,5.21474
+1,1,2,4.10204
+1,1,3,4.73872
+1,1,4,4.37465
+1,1,5,3.88066
+1,1,6,3.14660
+1,1,7,3.62925
+1,1,8,5.94143
+1,1,9,4.66174
+1,1,10,5.54076
+1,1,11,5.22451
+1,1,12,5.84333
+1,1,13,6.53419
+1,1,14,7.21770
+1,1,15,8.22300
+1,1,16,9.05136
+1,1,17,10.03910
+1,1,18,10.74169
+1,1,19,10.95903
+1,1,20,10.92211
+1,1,21,11.03986
+1,1,22,11.31277
+1,1,23,11.01561
+1,1,24,10.93128
+1,1,25,12.07795
+1,1,26,12.02478
+1,1,27,13.32304
+1,1,28,13.39363
+1,1,29,11.30185
+1,1,30,10.46396
+1,1,31,10.20775
+1,1,32,8.91692
+1,1,33,1.47616</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00008</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>29.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>29</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="29" defaultValue="0.00000">1,1,1,8.11328
+1,1,2,8.51360
+1,1,3,5.58487
+1,1,4,4.49506
+1,1,5,3.61853
+1,1,6,3.07723
+1,1,7,3.14089
+1,1,8,2.59863
+1,1,9,3.10175
+1,1,10,3.01753
+1,1,11,2.71175
+1,1,12,3.77125
+1,1,13,4.57889
+1,1,14,5.45049
+1,1,15,6.06759
+1,1,16,7.31213
+1,1,17,8.21624
+1,1,18,8.76787
+1,1,19,9.75313
+1,1,20,10.58597
+1,1,21,10.72821
+1,1,22,10.79914
+1,1,23,11.55213
+1,1,24,10.53411
+1,1,25,11.34939
+1,1,26,9.17672
+1,1,27,9.95809
+1,1,28,5.61476
+1,1,29,1.48797</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00019</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>27.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>27</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="27" defaultValue="0.00000">1,1,1,22.95900
+1,1,2,26.80284
+1,1,3,18.00109
+1,1,4,14.53843
+1,1,5,12.64872
+1,1,6,7.91318
+1,1,7,7.39398
+1,1,8,7.49226
+1,1,9,5.64511
+1,1,10,6.91871
+1,1,11,8.67578
+1,1,12,8.66836
+1,1,13,10.19996
+1,1,14,10.48903
+1,1,15,9.81009
+1,1,16,8.44450
+1,1,17,8.95238
+1,1,18,10.38155
+1,1,19,11.46165
+1,1,20,13.20478
+1,1,21,12.40560
+1,1,22,9.87301
+1,1,23,8.02873
+1,1,24,6.58455
+1,1,25,10.86450
+1,1,26,10.78535
+1,1,27,0.56536</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000A</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,7.60286
+1,1,2,5.32242
+1,1,3,5.18725
+1,1,4,5.13428
+1,1,5,4.58189
+1,1,6,4.85969
+1,1,7,5.35013
+1,1,8,7.07688
+1,1,9,6.87519
+1,1,10,6.96151
+1,1,11,6.67702
+1,1,12,7.54132
+1,1,13,8.01619
+1,1,14,6.83078
+1,1,15,6.80077
+1,1,16,7.32450
+1,1,17,9.03465
+1,1,18,8.98060
+1,1,19,8.42764
+1,1,20,6.46679
+1,1,21,8.09286
+1,1,22,6.66130
+1,1,23,6.71344
+1,1,24,6.10170
+1,1,25,7.55902
+1,1,26,8.99575
+1,1,27,8.80819
+1,1,28,10.32021
+1,1,29,9.63667
+1,1,30,11.51067
+1,1,31,11.83737
+1,1,32,13.49330
+1,1,33,13.93091
+1,1,34,13.55034
+1,1,35,12.16538
+1,1,36,5.61972</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002E</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,2.35405
+1,1,2,4.49752
+1,1,3,6.10095
+1,1,4,5.27310
+1,1,5,4.73663
+1,1,6,3.83766
+1,1,7,4.09225
+1,1,8,4.98332
+1,1,9,5.43864
+1,1,10,5.44590
+1,1,11,5.27776
+1,1,12,5.48343
+1,1,13,5.62591
+1,1,14,5.42835
+1,1,15,4.93694
+1,1,16,5.57096
+1,1,17,6.43278
+1,1,18,6.19594
+1,1,19,6.98540
+1,1,20,8.23595
+1,1,21,8.56512
+1,1,22,7.71641
+1,1,23,8.91454
+1,1,24,8.73309
+1,1,25,10.35222
+1,1,26,10.29732
+1,1,27,10.34167
+1,1,28,12.09551
+1,1,29,14.39754
+1,1,30,14.60658
+1,1,31,12.10488
+1,1,32,12.15502
+1,1,33,7.29882
+1,1,34,1.59290</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002P</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>26.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>26</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="26" defaultValue="0.00000">1,1,1,27.74106
+1,1,2,20.77291
+1,1,3,9.78114
+1,1,4,5.32911
+1,1,5,3.83976
+1,1,6,5.02106
+1,1,7,6.31532
+1,1,8,5.40899
+1,1,9,6.28359
+1,1,10,5.29739
+1,1,11,6.47696
+1,1,12,4.51661
+1,1,13,5.55411
+1,1,14,6.25420
+1,1,15,8.26890
+1,1,16,8.78042
+1,1,17,9.87936
+1,1,18,10.63195
+1,1,19,11.86875
+1,1,20,12.41670
+1,1,21,13.77823
+1,1,22,14.12726
+1,1,23,13.19338
+1,1,24,11.66183
+1,1,25,7.61335
+1,1,26,4.08848</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000T</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>34.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>34</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="34" defaultValue="0.00000">1,1,1,4.40287
+1,1,2,7.11453
+1,1,3,5.01120
+1,1,4,4.41705
+1,1,5,4.27358
+1,1,6,4.09185
+1,1,7,4.30395
+1,1,8,3.90852
+1,1,9,5.08691
+1,1,10,4.49386
+1,1,11,5.85538
+1,1,12,5.62531
+1,1,13,6.91416
+1,1,14,7.95552
+1,1,15,8.13689
+1,1,16,10.09558
+1,1,17,10.47885
+1,1,18,12.44582
+1,1,19,12.96025
+1,1,20,11.84470
+1,1,21,11.46916
+1,1,22,10.05409
+1,1,23,8.80649
+1,1,24,8.48533
+1,1,25,6.62519
+1,1,26,6.89675
+1,1,27,6.77017
+1,1,28,9.20177
+1,1,29,10.98431
+1,1,30,12.31779
+1,1,31,8.69360
+1,1,32,8.82286
+1,1,33,11.89640
+1,1,34,0.93886</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000Y</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>31.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>31</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="31" defaultValue="0.00000">1,1,1,23.08449
+1,1,2,23.30593
+1,1,3,13.06367
+1,1,4,5.15634
+1,1,5,3.98144
+1,1,6,2.55651
+1,1,7,2.87558
+1,1,8,2.45087
+1,1,9,3.21115
+1,1,10,4.25449
+1,1,11,3.79781
+1,1,12,4.54495
+1,1,13,6.03047
+1,1,14,5.09030
+1,1,15,5.57938
+1,1,16,6.03445
+1,1,17,6.59942
+1,1,18,7.57284
+1,1,19,8.98390
+1,1,20,8.73793
+1,1,21,8.39004
+1,1,22,9.62205
+1,1,23,10.63939
+1,1,24,11.35648
+1,1,25,12.59451
+1,1,26,12.56073
+1,1,27,12.34435
+1,1,28,9.95578
+1,1,29,5.85568
+1,1,30,1.51651
+1,1,31,0.43757</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001I</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>33.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>33</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="33" defaultValue="0.00000">1,1,1,3.66046
+1,1,2,2.63601
+1,1,3,2.23578
+1,1,4,1.80466
+1,1,5,1.46887
+1,1,6,1.72885
+1,1,7,1.75165
+1,1,8,1.66973
+1,1,9,1.66538
+1,1,10,3.08008
+1,1,11,2.47768
+1,1,12,2.90880
+1,1,13,2.91515
+1,1,14,3.13627
+1,1,15,3.22838
+1,1,16,3.66177
+1,1,17,5.14349
+1,1,18,5.17258
+1,1,19,6.16626
+1,1,20,7.95343
+1,1,21,8.53966
+1,1,22,10.08078
+1,1,23,12.08412
+1,1,24,12.49572
+1,1,25,11.66541
+1,1,26,11.07740
+1,1,27,9.49635
+1,1,28,9.28473
+1,1,29,11.23968
+1,1,30,11.06719
+1,1,31,11.50280
+1,1,32,10.44768
+1,1,33,1.67206</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0002A</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>36.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>36</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="36" defaultValue="0.00000">1,1,1,4.13741
+1,1,2,4.86662
+1,1,3,6.55568
+1,1,4,6.86747
+1,1,5,5.78772
+1,1,6,5.96139
+1,1,7,6.35783
+1,1,8,6.30652
+1,1,9,6.20594
+1,1,10,6.17250
+1,1,11,5.99732
+1,1,12,5.33742
+1,1,13,5.89785
+1,1,14,5.91349
+1,1,15,6.02319
+1,1,16,6.61960
+1,1,17,7.09673
+1,1,18,6.35074
+1,1,19,7.25556
+1,1,20,7.00675
+1,1,21,7.32778
+1,1,22,6.80235
+1,1,23,6.08742
+1,1,24,7.27945
+1,1,25,8.30843
+1,1,26,9.41904
+1,1,27,10.77574
+1,1,28,10.73090
+1,1,29,11.64381
+1,1,30,11.88002
+1,1,31,11.05673
+1,1,32,10.58665
+1,1,33,9.36987
+1,1,34,5.47923
+1,1,35,2.61370
+1,1,36,0.32336</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00024</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>29.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>29</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="29" defaultValue="0.00000">1,1,1,6.91848
+1,1,2,13.94470
+1,1,3,16.77663
+1,1,4,10.57956
+1,1,5,8.86295
+1,1,6,11.23183
+1,1,7,9.24117
+1,1,8,7.12904
+1,1,9,5.18867
+1,1,10,5.03118
+1,1,11,5.54532
+1,1,12,5.25654
+1,1,13,5.40681
+1,1,14,5.40802
+1,1,15,6.25893
+1,1,16,6.84383
+1,1,17,7.81570
+1,1,18,7.71765
+1,1,19,7.59442
+1,1,20,8.45310
+1,1,21,9.11127
+1,1,22,10.75505
+1,1,23,11.45225
+1,1,24,11.70349
+1,1,25,10.35999
+1,1,26,9.43131
+1,1,27,8.83498
+1,1,28,5.16885
+1,1,29,1.01887</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000X</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>24.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>24</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="24" defaultValue="0.00000">1,1,1,1.29138
+1,1,2,4.10385
+1,1,3,4.10542
+1,1,4,2.59688
+1,1,5,3.63588
+1,1,6,3.73377
+1,1,7,4.40810
+1,1,8,4.49717
+1,1,9,4.28314
+1,1,10,4.97641
+1,1,11,5.27445
+1,1,12,5.90430
+1,1,13,7.74377
+1,1,14,9.31139
+1,1,15,8.80084
+1,1,16,10.97021
+1,1,17,10.79721
+1,1,18,12.84269
+1,1,19,12.25692
+1,1,20,12.66312
+1,1,21,13.72515
+1,1,22,14.72346
+1,1,23,10.68855
+1,1,24,1.13009</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0001N</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>26.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>26</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="26" defaultValue="0.00000">1,1,1,1.58804
+1,1,2,1.47247
+1,1,3,1.89931
+1,1,4,2.31372
+1,1,5,2.45043
+1,1,6,2.70560
+1,1,7,3.88384
+1,1,8,3.98304
+1,1,9,5.23746
+1,1,10,6.20029
+1,1,11,7.26549
+1,1,12,8.17925
+1,1,13,8.15709
+1,1,14,10.07583
+1,1,15,10.73005
+1,1,16,11.51951
+1,1,17,12.19364
+1,1,18,11.26527
+1,1,19,9.58349
+1,1,20,8.79436
+1,1,21,7.13527
+1,1,22,7.41766
+1,1,23,12.17527
+1,1,24,13.68209
+1,1,25,13.09157
+1,1,26,1.24527</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00016</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>29.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>29</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="29" defaultValue="0.00000">1,1,1,5.75942
+1,1,2,8.29209
+1,1,3,8.86093
+1,1,4,7.05126
+1,1,5,6.07784
+1,1,6,4.67853
+1,1,7,4.79763
+1,1,8,5.46121
+1,1,9,6.39636
+1,1,10,6.32365
+1,1,11,6.04047
+1,1,12,6.87632
+1,1,13,7.56252
+1,1,14,8.13334
+1,1,15,8.23663
+1,1,16,8.45211
+1,1,17,8.58322
+1,1,18,9.00024
+1,1,19,10.37840
+1,1,20,10.35175
+1,1,21,10.53396
+1,1,22,11.25775
+1,1,23,11.43380
+1,1,24,11.47245
+1,1,25,10.45582
+1,1,26,6.50294
+1,1,27,10.04334
+1,1,28,4.71526
+1,1,29,1.82079</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00014</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,1.81934
+1,1,2,1.79547
+1,1,3,1.63873
+1,1,4,2.04348
+1,1,5,2.00149
+1,1,6,2.26095
+1,1,7,2.32712
+1,1,8,2.71684
+1,1,9,4.12449
+1,1,10,5.04585
+1,1,11,5.46227
+1,1,12,6.36059
+1,1,13,7.62574
+1,1,14,8.39777
+1,1,15,10.46762
+1,1,16,11.37170
+1,1,17,11.19647
+1,1,18,10.08402
+1,1,19,8.31481
+1,1,20,9.01722
+1,1,21,10.70006
+1,1,22,12.71111
+1,1,23,9.56480
+1,1,24,7.55935
+1,1,25,6.77799
+1,1,26,9.59623
+1,1,27,13.80045
+1,1,28,17.84835
+1,1,29,6.39186
+1,1,30,0.59467</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S00013</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>28.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>28</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="28" defaultValue="0.00000">1,1,1,4.34801
+1,1,2,11.33741
+1,1,3,8.20976
+1,1,4,5.96744
+1,1,5,5.73394
+1,1,6,4.92727
+1,1,7,5.77040
+1,1,8,6.38891
+1,1,9,7.28444
+1,1,10,7.72454
+1,1,11,8.75629
+1,1,12,8.46140
+1,1,13,8.98378
+1,1,14,8.81258
+1,1,15,8.94789
+1,1,16,9.20304
+1,1,17,10.94188
+1,1,18,9.95437
+1,1,19,12.74273
+1,1,20,11.11008
+1,1,21,10.23859
+1,1,22,12.02781
+1,1,23,12.10350
+1,1,24,12.76222
+1,1,25,15.86530
+1,1,26,13.85143
+1,1,27,3.68418
+1,1,28,1.07109</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000F</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>30.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>30</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="30" defaultValue="0.00000">1,1,1,9.33609
+1,1,2,14.59668
+1,1,3,9.87544
+1,1,4,6.56646
+1,1,5,5.07318
+1,1,6,2.95367
+1,1,7,3.24662
+1,1,8,4.06376
+1,1,9,4.84637
+1,1,10,4.89394
+1,1,11,4.14430
+1,1,12,4.71683
+1,1,13,4.95700
+1,1,14,4.81805
+1,1,15,4.65570
+1,1,16,6.06308
+1,1,17,5.79449
+1,1,18,6.62985
+1,1,19,7.54540
+1,1,20,8.04404
+1,1,21,9.82092
+1,1,22,10.94922
+1,1,23,11.68637
+1,1,24,12.82406
+1,1,25,12.81896
+1,1,26,11.95583
+1,1,27,9.01883
+1,1,28,3.74584
+1,1,29,0.88655
+1,1,30,0.41765</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+  <PLANT3D>
+    <ID>S0000C</ID>
+    <Description>Clustered TLS Tree</Description>
+    <AlternativeName>Fagus sylvatica</AlternativeName>
+    <Planttype>0</Planttype>
+    <Leaftype>1</Leaftype>
+    <Albedo>0.18000</Albedo>
+    <Eps>0.96000</Eps>
+    <Transmittance>0.30000</Transmittance>
+    <Height>17.00000</Height>
+    <Width>1.00000</Width>
+    <Depth>1.00000</Depth>
+    <RootDiameter>4.50000</RootDiameter>
+    <cellsize>1.00000</cellsize>
+    <xy_cells>1</xy_cells>
+    <z_cells>17</z_cells>
+    <scalefactor>1.00000</scalefactor>
+    <LAD-Profile type="sparematrix-3D" dataI="1" dataJ="1" zlayers="17" defaultValue="0.00000">1,1,1,7.38749
+1,1,2,7.97629
+1,1,3,10.07254
+1,1,4,13.15788
+1,1,5,11.93924
+1,1,6,9.31000
+1,1,7,9.02866
+1,1,8,8.04469
+1,1,9,10.64981
+1,1,10,11.52590
+1,1,11,11.65923
+1,1,12,12.51968
+1,1,13,12.40177
+1,1,14,12.40594
+1,1,15,12.23355
+1,1,16,12.49904
+1,1,17,2.20896</LAD-Profile>
+    <Season-Profile>0.30000,0.30000,0.30000,0.40000,0.70000,1.00000,1.00000,1.00000,0.80000,0.60000,0.30000,0.30000</Season-Profile>
+    <Blossom-Profile>0.00000,0.00000,0.50000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000</Blossom-Profile>
+    <L-SystemBased>0</L-SystemBased>
+  </PLANT3D>
+</ENVI-MET_Datafile>

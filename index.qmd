@@ -9,26 +9,56 @@ twitter-card:
   image: /images/envi_met_title.png
 comments: false
 ---
+---
+title: ""
+format:
+  html:
+    theme: default
+---
 
-This course teaches how to use terrestrial laser scanning (TLS) to model individual trees and their effects on microclimate. You’ll learn how to turn detailed 3D scans into leaf area density (LAD) profiles and use them in ENVI-met for realistic tree simulations.
+<div style="
+  background-image: url('templates/preview-image-mof.png');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+   margin-bottom: 1rem;  /* <-- Abstand nach unten */
 
-What you’ll learn:
-What LAD means and why it matters for tree–climate interaction
+">
 
-- How to process TLS data into vertical tree profiles
+<div style="
+  
+  color: white;
+  font-size: 1.3em;
+  max-width: 50rem;
+  line-height: 1.5;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+ text-shadow: 0 0 8px rgba(0, 0, 0, 1.2);
+">
 
-- How to create 3D tree objects from LAD for use in ENVI-met
+<p><strong>This course explores how trees shape climate – through structure, species, and space. You’ll work with light, data, and form to bring landscapes to life.</strong></p>
 
-- How to choose between simple scaling and light-based LAD models
+<p><strong>What you’ll do:</strong></p>
+<ul>
+  <li>Scan trees and extract their shape</li>
+  <li>Translate structure into leaf density</li>
+  <li>Assign species traits for climate response</li>
+  <li>Convert real places into model domains</li>
+  <li>Compare reality and simulation</li>
+</ul>
+  </div>
+</div>
 
-This course is hands-on, focused, and designed for clear outcomes: understanding tree structure, visualizing it, and using it in a climate model.
-
-  <iframe src="doc/tree_voxel_viewer.html"
-          width="850"
-          height="560"
-          style="border: none; outline: none; display: block;"></iframe>
 
 
+## Commenting on the course pages
 
+This site uses [**utterances**](https://utteranc.es/) for comments via GitHub. To leave a comment, simply **sign in with your GitHub account**. If you don’t have one, you can [create a free account here](https://github.com/signup).
 
-8
+Your comment will be publicly stored and appear directly below. No trackers or third-party cookies are used.
+
+Need help? [What is utterances and how does it work?](https://utteranc.es/)

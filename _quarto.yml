@@ -29,10 +29,17 @@ website:
     style: "docked"
     collapse-level: 1
     contents:
+      - text: "---"    
+      - text: "Models Evaluation"     
+      - text: "---"       
       - doc/evaluation.qmd
+      - text: "---"    
+      - text: "Hands On"     
+      - text: "---"         
+      - doc/fluxes_corrected.qmd   
       - doc/tls_v1_2.qmd
-      - doc/fluxes_corrected.qmd
       - doc/osm2envi.qmd
+      - doc/treespecies.qmd
       - text: "---"
 
 format:
