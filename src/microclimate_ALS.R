@@ -31,7 +31,7 @@ k      <- 0.3                               # Light extinction coefficient for L
 scale_factor <- 1.2                        # Optional scaling factor for LAD values
 crs_code <- 25832                          # EPSG code of target CRS
 output_gpkg <- "output/envimet_tree_points.gpkg"      # Output vector layer with tree positions
-xml_output_file <- "output/als_envimet_trees.pld"      # Output PLANT3D XML file
+xml_output_file <- "output/tls_envimet_trees.pld"      # Output PLANT3D XML file
 species_name <- "Fagus_sylvatica"         # Tree species name used in export
 n_clusters <- 100                          # Number of LAD profile clusters
 
@@ -39,6 +39,7 @@ dir.create("output", showWarnings = FALSE, recursive = TRUE)
 
 # Read and normalize LAS
 las <- readLAS(las_file)
+crs(las) <- "EPSG:25832"
 las <- normalize_height(las, knnidw(k = 6, p = 2))
 las <- filter_poi(las, Z > 0)  # Remove ground points
 

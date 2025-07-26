@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Envi_Met TLS-tree-climate",
     "section": "",
-    "text": "This course explores how trees shape climate – through structure, species, and space. You’ll work with light, data, and form to bring landscapes to life.\n\n\nWhat you’ll do:\n\n\n\nScan trees and extract their shape\n\n\nTranslate structure into leaf density\n\n\nAssign species traits for climate response\n\n\nConvert real places into model domains\n\n\nCompare reality and simulation"
+    "text": "This course explores how trees shape climate – through structure, species, and energy flow. You’ll work with laser scans, land data, and physical models to reveal patterns beneath the canopy.\n\n\nWhat you’ll do:\n\n\n\nEvaluate atmosphere–vegetation models and their structure feedbacks\n\n\nAnalyze surface energy fluxes to understand vertical climate profiles\n\n\nExtract tree structure from TLS and ALS point clouds\n\n\nClassify and correct species distributions\n\n\nTransform OSM maps into simulation-ready domains"
   },
   {
     "objectID": "index.html#commenting-on-the-course-pages",
