@@ -4,7 +4,7 @@ author: "Chris Reudenbach"
 date: "2025-07-16"
 format: html
 execute:
-  eval: false
+  eval: true
 ---
 
 Purpose of Tree Data for ENVI-met Modeling
@@ -40,7 +40,7 @@ To fix this, two critical environment variables need to be explicitly set after 
 
 Example for Linux:
 
-```r
+```{r, echo=TRUE, eval=FALSE}
 otb <- link2GI::linkOTB(searchLocation = "~/apps/OTB-9.1.0-Linux/")
 Sys.setenv(OTB_APPLICATION_PATH = file.path(dirname(as.character(otb$pathOTB)), "lib/otb/applications"))
 Sys.setenv(PATH = paste(otb$pathOTB, Sys.getenv("PATH"), sep = ":"))
@@ -48,7 +48,7 @@ Sys.setenv(PATH = paste(otb$pathOTB, Sys.getenv("PATH"), sep = ":"))
 
 Example for Windows:
 
-```r
+```{r, echo=TRUE, eval=FALSE}
 otb <- link2GI::linkOTB(searchLocation = "C:/OTB-9.1.0-Win64/")
 Sys.setenv(OTB_APPLICATION_PATH = "C:/OTB-9.1.0-Win64/lib/otb/applications")
 Sys.setenv(PATH = paste("C:/OTB-9.1.0-Win64/bin", Sys.getenv("PATH"), sep = ";"))
@@ -62,7 +62,7 @@ Note:
 This workaround is often necessary in portable, containerized, or research setups where full system integration (e.g., PATH exports, registry entries) is not available or not desired. It ensures that `link2GI` can still function as intended by emulating the expected environment internally within R.
 
 
-```{r env-setup}
+```{r, echo=TRUE, eval=FALSE}
 
 # Load libraries
 library(terra)
@@ -81,7 +81,7 @@ Sys.setenv(PATH = paste(otb$pathOTB, Sys.getenv("PATH"), sep = ":"))
 
 ## 2. Parameters and Class Legend
 
-```{r parameters}
+```{r, echo=TRUE, eval=FALSE}
 target_res <- 1
 fn <- "5-25_MOF_rgb"
 epsg <- 25832
@@ -108,7 +108,8 @@ ts <- data.frame(
 
 ## 4. Load and Preprocess Species Classification
 
-```{r read-classification}
+```{r, echo=TRUE, eval=FALSE}
+
 sapflow_species <- readRDS("data/aerial/sfprediction_ffs_5-25_MOF_rgb.rds")
 raster::writeRaster(sapflow_species, "data/aerial/prediction_ffs.tif", overwrite = TRUE)
 sapflow_species <- raster::crop(sapflow_species, sapflow_ext)
@@ -117,7 +118,8 @@ raster::writeRaster(sapflow_species, "data/aerial/prediction_ffs_cut.tif", overw
 
 ## 5. Majority Filtering (OTB Despeckle)
 
-```{r otb-majority}
+```{r, echo=TRUE, eval=FALSE}
+
 cmr <- parseOTBFunction("ClassificationMapRegularization", otb)
 cmr$io.in <- "data/aerial/prediction_ffs.tif"
 cmr$io.out <- "data/aerial/majority_out.tif"
@@ -128,7 +130,7 @@ filter_treespecies <- runOTB(cmr, gili = otb$pathOTB, quiet = FALSE, retRaster =
 
 ## 6. Aggregate to 1 m Resolution
 
-```{r aggregate}
+```{r, echo=TRUE, eval=FALSE}
 r <- rast("data/aerial/majority_out.tif")
 cur_res <- res(r)[1]
 fact <- round(target_res / cur_res)
@@ -140,7 +142,7 @@ writeRaster(r_agg, outfile, overwrite = TRUE)
 
 ## 7. Contextual Correction (Douglas → Beech/Oak)
 
-```{r contextual-replace}
+```{r, echo=TRUE, eval=FALSE}
 replace_douglas_in_buche_eiche <- function(rast_input,
                                            window_size = 5,
                                            douglas_value = 5,
@@ -164,13 +166,18 @@ species_cleaned <- replace_douglas_in_buche_eiche(r_agg, window_size = 5)
 
 
 ## Complete Code
+
 ```{r}
-#| include: false
+
 # Setup: source external script
 source("../doc/treespecies.R")
 ``` 
 
 ```{r}
+#| echo: false
+
+#| message: false
+
 
 
 library(mapview)
@@ -196,7 +203,7 @@ m2 <- mapview(
   terra::crop(filter_treespecies, sapflow_ext),
   col.regions = palette,
   at = ts$ID,
-  fgb = TRUE,
+
   layer.name = "3x3 modal_filt"
 )
 
@@ -212,19 +219,22 @@ m3 <- mapview(
 m4 <- mapview(
   terra::crop(species_cleaned, sapflow_ext),
   col.regions = palette,
-  at = ts$ID,
+
   fgb = TRUE,
   layer.name = "Douglas out 1m"
 )
 
 # Convert to leaflet and apply zoom center
-lm1 <- m1@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm2 <- m2@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm3 <- m3@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm4 <- m4@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm1 <- m1@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm2 <- m2@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm3 <- m3@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm4 <- m4@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
 
 # Synchronize maps side-by-side
-sync(lm1, lm2, lm3, lm4)
+
+out <- sync(lm1, lm2, lm3, lm4)
+
+out
 
 ``` 
 

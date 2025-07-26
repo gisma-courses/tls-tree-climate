@@ -47,7 +47,7 @@
 library(terra)           # raster handling
 library(RColorBrewer)    # color palettes
 library(link2GI)         # OTB integration
-
+library(rprojroot)
 library(tools)           # file name tools
 library(mapview)         # interactive maps
 library(dplyr)           # data manipulation
@@ -248,10 +248,10 @@ m4 <- mapview(
 )
 
 # Convert to leaflet and apply zoom center
-lm1 <- m1@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm2 <- m2@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm3 <- m3@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
-lm4 <- m4@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm1 <- m1@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm2 <- m2@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm3 <- m3@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm4 <- m4@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
 
 # Synchronize maps side-by-side
 sync(lm1, lm2, lm3, lm4)

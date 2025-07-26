@@ -3,10 +3,12 @@
     "index.html": "a596b8ec"
   },
   "templates/allformats-odt-docx-examples.qmd": {
-    "allformats-odt-docx-examples.html": "80215849"
+    "allformats-odt-docx-examples.html": "80215849",
+    "allformats-odt-docx-examples.odt": "56df153c"
   },
   "templates/journals-examples-default.qmd": {
-    "journals-examples-default.html": "f8f625f6"
+    "journals-examples-default.html": "f8f625f6",
+    "journals-examples-default.odt": "28a0c81f"
   },
   "templates/slides-template.qmd": {
     "slides-template.html": "014b984e"
@@ -130,5 +132,14 @@
   },
   "doc/fluxes_corrected.qmd": {
     "fluxes_corrected.html": "b641e331"
+  },
+  "doc/tls_v1_2.qmd": {
+    "tls_v1_2.html": "81417043"
+  },
+  "doc/osm2envi.qmd": {
+    "osm2envi.html": "32736585"
+  },
+  "doc/treespecies.qmd": {
+    "treespecies.html": "71975f78"
   }
 }

@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/script-00-interpolation.html</loc>
+    <lastmod>2024-11-12T06:43:54.994Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/qgis-tutorials.html</loc>
+    <lastmod>2024-12-16T16:45:34.642Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/faq.html</loc>
+    <lastmod>2024-11-12T06:43:54.919Z</lastmod>
+  </url>
+  <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/index.html</loc>
     <lastmod>2025-07-26T14:46:45.782Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/modeling-material.html</loc>
-    <lastmod>2025-01-20T20:13:07.523Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/about.html</loc>
-    <lastmod>2024-11-12T06:43:54.919Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/git-more.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/learnr_app-2.html</loc>
+    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
+    <lastmod>2025-07-26T14:08:39.382Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_predictor_stack_commented.html</loc>
+    <lastmod>2025-07-20T14:53:08.715Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/treespecies.html</loc>
+    <lastmod>2025-07-26T18:56:41.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/evaluation.html</loc>
+    <lastmod>2025-07-26T14:13:11.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/fluxes_corrected.html</loc>
+    <lastmod>2025-07-26T15:59:19.064Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
+    <lastmod>2025-07-26T14:09:59.967Z</lastmod>
   </url>
   <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_1.html</loc>
@@ -25,31 +57,23 @@
     <lastmod>2025-07-20T14:40:50.650Z</lastmod>
   </url>
   <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
+    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
+  </url>
+  <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/slidelist.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/base/about.html</loc>
+    <lastmod>2024-11-12T06:43:54.919Z</lastmod>
   </url>
   <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/base/impressum.html</loc>
     <lastmod>2024-11-12T06:43:54.919Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/evaluation.html</loc>
-    <lastmod>2025-07-26T14:13:11.692Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
-    <lastmod>2025-07-26T14:08:39.382Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
-    <lastmod>2025-07-26T14:09:59.967Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/fluxes_corrected.html</loc>
-    <lastmod>2025-07-26T15:59:19.064Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/treespecies.html</loc>
-    <lastmod>2025-07-26T18:14:02.408Z</lastmod>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/modeling-material.html</loc>
+    <lastmod>2025-01-20T20:13:07.523Z</lastmod>
   </url>
 </urlset>
