@@ -254,5 +254,7 @@ lm3 <- m3@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center
 lm4 <- m4@map %>% leaflet::setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
 
 # Synchronize maps side-by-side
-sync(lm1, lm2, lm3, lm4)
+out= sync(lm1, lm2, lm3, lm4)
+
+out
 

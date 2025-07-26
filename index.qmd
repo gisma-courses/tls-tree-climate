@@ -1,23 +1,17 @@
 ---
 title: ""
-
+format: html
 open-graph:
   description: "Micro-Climate Modeling with Envi_Met "
-  image: /images/envi_met_title.png
+  image: images/envi_met_title.png
 twitter-card:
   description: "Micro-Climate Modeling with Envi_Met"
-  image: /images/envi_met_title.png
+  image: images/envi_met_title.png
 comments: false
----
----
-title: ""
-format:
-  html:
-    theme: default
----
 
+---
 <div style="
-  background-image: url('templates/preview-image-mof.png');
+  background-image: url('../images/mof2.png');
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -25,19 +19,17 @@ format:
   align-items: center;
   justify-content: flex-start;
   padding: 2rem;
-   margin-bottom: 2rem;  /* <-- Abstand nach unten */
-
+  margin-bottom: 2rem;
 ">
 
 <div style="
-  
   color: white;
   font-size: 1.6em;
   max-width: 50rem;
   line-height: 1.5;
   padding: 1.5rem;
   border-radius: 0.5rem;
- text-shadow: 0 0 8px rgba(0, 0, 0, 1.2);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 1.2);
 ">
 
 <p><strong>This course explores how trees shape climate – through structure, species, and energy flow. You’ll work with laser scans, land data, and physical models to reveal patterns beneath the canopy.</strong></p>
@@ -51,8 +43,8 @@ format:
   <li>Transform OSM maps into simulation-ready domains</li>
 </ul>
 
-</div >
-</div >
+</div>
+</div>
 
 ## Commenting on the course pages
 
