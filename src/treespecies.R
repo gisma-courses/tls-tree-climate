@@ -70,8 +70,20 @@ sapflow_ext <- raster::extent(477500, 478218, 5631730, 5632500)  # area of inter
 # === Class ID legend ===
 ts <- data.frame(
   ID = 1:12,
-  value = c("agriculture", "alder", "ash", "beech", "douglas_fir", "larch",
-            "oak", "pastures", "roads", "settlements", "spruce", "water")
+  value = c(
+    "agriculture",
+    "alder",
+    "ash",
+    "beech",
+    "douglas_fir",
+    "larch",
+    "oak",
+    "pastures",
+    "roads",
+    "settlements",
+    "spruce",
+    "water"
+  )
 )
 
 #------------------------------------------------------------------------------
@@ -81,22 +93,29 @@ replace_douglas_in_buche_eiche <- function(rast_input,
                                            window_size = 5,
                                            douglas_value = 5,
                                            target_values = c(4, 7),
-                                           target_res=1.0) {
-  if (!inherits(rast_input, "SpatRaster")) {
-    stop("Input must be a terra::SpatRaster object.")
-  }
-  
-  if (window_size %% 2 == 0) stop("window_size must be odd")
+                                           target_res = 1.0) {
+  if (window_size %% 2 == 0)
+    stop("window_size must be odd")
   
   # Focal window matrix (square)
   w <- matrix(1, nrow = window_size, ncol = window_size)
   
-  # Calculate local modal value (dominant class in window)
-  r_mode <- focal(rast_input, w = w, fun = modal,
-                  na.policy = "omit", na.rm = TRUE,
-                  progress = "text")
+  # Run OTB ClassificationMapRegularization to compute local mode
+  cmr <- parseOTBFunction("ClassificationMapRegularization", otb)
+  cmr$io.in <- sprintf("data/aerial/%s_%sm.tif",
+                       tools::file_path_sans_ext(basename("data/aerial/aggregate.tif")),
+                       target_res)
+  cmr$io.out <- sprintf("data/aerial/%s_%sm.tif",
+                        tools::file_path_sans_ext(basename("data/aerial/aggregate_mode.tif")),
+                        window_size)
+  cmr$ip.radius <- as.character((window_size - 1) / 2)  # for 5x5 window: radius = (5 - 1)/2 = 2
+  cmr$progress <- "true"
   
+  runOTB(cmr, gili = otb$pathOTB, quiet = FALSE)
+
   # Identify Douglas-fir pixels and surrounding Beech/Oak dominance
+  r_mode = rast(cmr$io.out)
+  rast_input = rast(cmr$io.in)
   is_douglas <- rast_input == douglas_value
   is_oak_beech_mode <- r_mode %in% target_values
   replace_mask <- is_douglas & is_oak_beech_mode
@@ -105,9 +124,12 @@ replace_douglas_in_buche_eiche <- function(rast_input,
   r_new <- rast_input
   r_new[replace_mask] <- r_mode[replace_mask]
   
-
-    writeRaster(r_new, sprintf("data/aerial/%s_%sm.tif", "agg_cleand", target_res), overwrite = TRUE)
-
+  # Construct output path 
+  outname <- paste0("data/aerial/",
+                    "agg_cleand_",
+                    as.character(target_res),
+                    "m.tif")
+  writeRaster(r_new, outname,overwrite = TRUE)
   
   return(r_new)
 }
@@ -118,13 +140,21 @@ replace_douglas_in_buche_eiche <- function(rast_input,
 sapflow_species <- readRDS("data/aerial/sfprediction_ffs_5-25_MOF_rgb.rds")
 
 # Write to GeoTIFF for further processing
-raster::writeRaster(sapflow_species, "data/aerial/prediction_ffs.tif",
-                    progress = "text", overwrite = TRUE)
+raster::writeRaster(
+  sapflow_species,
+  "data/aerial/prediction_ffs.tif",
+  progress = "text",
+  overwrite = TRUE
+)
 
 # Crop to sapflow test area
 sapflow_species <- raster::crop(sapflow_species, sapflow_ext)
-raster::writeRaster(sapflow_species, "data/aerial/prediction_ffs_cut.tif",
-                    progress = "text", overwrite = TRUE)
+raster::writeRaster(
+  sapflow_species,
+  "data/aerial/prediction_ffs_cut.tif",
+  progress = "text",
+  overwrite = TRUE
+)
 
 #------------------------------------------------------------------------------
 # STEP 2: Run OTB ClassificationMapRegularization (majority filter)
@@ -135,8 +165,10 @@ cmr$io.out <- "data/aerial/majority_out.tif"
 cmr$progress <- "true"
 cmr$ip.radius <- "1"
 
-filter_treespecies <- runOTB(cmr, gili = otb$pathOTB,
-                             quiet = FALSE, retRaster = TRUE)
+filter_treespecies <- runOTB(cmr,
+                             gili = otb$pathOTB,
+                             quiet = FALSE,
+                             retRaster = TRUE)
 
 #------------------------------------------------------------------------------
 # STEP 3: Aggregate to 1 m resolution using median
@@ -145,9 +177,13 @@ r <- rast("data/aerial/majority_out.tif")
 cur_res <- res(r)[1]
 fact <- round(target_res / cur_res)
 
-if (target_res <= cur_res) stop("Zielauflösung ist kleiner als aktuelle.")
+if (target_res <= cur_res)
+  stop("Zielauflösung ist kleiner als aktuelle.")
 
-r_agg <- aggregate(r, fact = fact, fun = median, na.rm = TRUE)
+r_agg <- aggregate(r,
+                   fact = fact,
+                   fun = median,
+                   na.rm = TRUE)
 
 # Build automatic filename
 outfile <- sprintf("data/aerial/%s_%sm.tif",
@@ -160,24 +196,63 @@ writeRaster(r_agg, outfile, overwrite = TRUE)
 #------------------------------------------------------------------------------
 # STEP 4: Clean Douglas-fir patches contextually
 #------------------------------------------------------------------------------
-  species_cleaned <- replace_douglas_in_buche_eiche(
-    rast_input = r_agg,
-    window_size = 5
-  )
+species_cleaned <- replace_douglas_in_buche_eiche(window_size = 9)
 
 #------------------------------------------------------------------------------
 # STEP 5: Visualize intermediate steps (interactive)
 #------------------------------------------------------------------------------
-# m1 <- mapview(sapflow_species, col.regions = brewer.pal(12, "Paired",),at = ts$ID,
-#               maxpixels = 13821500)
 
-m2 <- mapview(filter_treespecies, col.regions = brewer.pal(12, "Paired"),at = ts$ID,maxpixels = 13821500)
 
-# m3 <- mapview(r_agg, col.regions = brewer.pal(12, "Paired"),at = ts$ID,
-#               maxpixels = 13821500)
+library(mapview)
+library(leafsync)
+library(htmlwidgets)
+library(terra)
+library(RColorBrewer)
 
-m4 <- mapview(species_cleaned, col.regions = brewer.pal(12, "Paired"),at = ts$ID, maxpixels = 13821500)
+# Define common parameters
+palette <- brewer.pal(12, "Paired")
+zoom_center <- list(lng = 8.68443, lat = 50.84089, zoom = 18)
 
-# Combine all visualizations
+# -- Map 1: Raw species classification (0.2 m)
+m1 <- mapview(
+  terra::crop(sapflow_species, sapflow_ext),
+  col.regions = palette,
+  at = ts$ID,
+  layer.name = "Species 0.2m"
+)
 
-m2 + m4
+# -- Map 2: OTB 3×3 modal smoothing
+m2 <- mapview(
+  terra::crop(filter_treespecies, sapflow_ext),
+  col.regions = palette,
+  at = ts$ID,
+  fgb = TRUE,
+  layer.name = "3x3 modal_filt"
+)
+
+# -- Map 3: Aggregated to 1 m resolution
+m3 <- mapview(
+  terra::crop(r_agg, sapflow_ext),
+  col.regions = palette,
+  at = ts$ID,
+  layer.name = "Aggregated 1m"
+)
+
+# -- Map 4: Douglas-fir replaced by contextual rules
+m4 <- mapview(
+  terra::crop(species_cleaned, sapflow_ext),
+  col.regions = palette,
+  at = ts$ID,
+  fgb = TRUE,
+  layer.name = "Douglas out 1m"
+)
+
+# Convert to leaflet and apply zoom center
+lm1 <- m1@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm2 <- m2@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm3 <- m3@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+lm4 <- m4@map %>% setView(zoom_center$lng, zoom_center$lat, zoom_center$zoom)
+
+# Synchronize maps side-by-side
+sync(lm1, lm2, lm3, lm4)
+
