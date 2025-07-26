@@ -14,31 +14,19 @@ comments: false
 
 ---
 
-<div style="
-  color:black;
-  font-size: 1.6em;
-  max-width: 50rem;
-  line-height: 1.5;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+## This course explores how trees shape climate – through structure, species, and energy flow. You’ll work with laser scans, land data, and physical models to reveal patterns beneath the canopy
 
-">
+### What you’ll do:
 
-<p><strong>This course explores how trees shape climate – through structure, species, and energy flow. You’ll work with laser scans, land data, and physical models to reveal patterns beneath the canopy.</strong></p>
-
-<p><strong>What you’ll do:</strong></p>
-<ul>
-  <li>Evaluate atmosphere–vegetation models and their structure feedbacks</li>
-  <li>Analyze surface energy fluxes to understand vertical climate profiles</li>
-  <li>Extract tree structure from TLS and ALS point clouds</li>
-  <li>Classify and correct species distributions</li>
-  <li>Transform OSM maps into simulation-ready domains</li>
-</ul>
-
-</div>
+ -  Evaluate atmosphere–vegetation models and their structure feedbacks
+ -  Analyze surface energy fluxes to understand vertical climate profiles
+ -  Extract tree structure from TLS and ALS point clouds
+ -  Classify and correct species distributions
+ -  Transform OSM maps into simulation-ready domains
 
 
-## Commenting on the course pages
+
+### Commenting on the course pages
 
 This site uses [**utterances**](https://utteranc.es/) for comments via GitHub. To leave a comment, simply **sign in with your GitHub account**. If you don’t have one, you can [create a free account here](https://github.com/signup).
 

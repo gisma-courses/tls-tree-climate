@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "Goals",
     "section": "",
-    "text": "This course explores how trees shape climate – through structure, species, and energy flow. You’ll work with laser scans, land data, and physical models to reveal patterns beneath the canopy.\n\n\nWhat you’ll do:\n\n\n\nEvaluate atmosphere–vegetation models and their structure feedbacks\n\n\nAnalyze surface energy fluxes to understand vertical climate profiles\n\n\nExtract tree structure from TLS and ALS point clouds\n\n\nClassify and correct species distributions\n\n\nTransform OSM maps into simulation-ready domains"
+    "text": "Evaluate atmosphere–vegetation models and their structure feedbacks\nAnalyze surface energy fluxes to understand vertical climate profiles\nExtract tree structure from TLS and ALS point clouds\nClassify and correct species distributions\nTransform OSM maps into simulation-ready domains\n\n\n\n\nThis site uses utterances for comments via GitHub. To leave a comment, simply sign in with your GitHub account. If you don’t have one, you can create a free account here.\nYour comment will be publicly stored and appear directly below. No trackers or third-party cookies are used.\nNeed help? What is utterances and how does it work?"
   },
   {
     "objectID": "index.html#commenting-on-the-course-pages",
@@ -855,5 +855,12 @@
     "title": "Data and Software",
     "section": "Additional data sources",
     "text": "Additional data sources\nYou can find information about the “Zukunftsquartier Hasenkopf” in various places:\n\nCity of Marburg Zukunftsquartier Hasenkopf\nSlides including the winning design\nCitizens’ initiative wirsindhasenkopf Flyer and here “We argue”\nEnvi-met Hasenkopf GIS and Modeldata\nDigital Elevation Model DEM and Digital Surface Model DSM files relevant for Marburg can be downloaded from the GDS website of the Hessian Administration for Land Management and Geoinformation\nFor downloading the OSM data it is recommended to use the OSMDownloader extension to QGIS. It simply provides the ability to draw a rectangle and download the complete and currently available OSM data to a file named hasenkopf.osm.\nIf the data has to be digitised manually, it is advisable to use an up-to-date aerial photograph from Bing or Google. These can be easily integrated via XYZ tiles\nThe planning data for the development and sealing were taken from page 23 of the presentation of the winning design via screenshot."
+  },
+  {
+    "objectID": "index.html#this-course-explores-how-trees-shape-climate-through-structure-species-and-energy-flow.-youll-work-with-laser-scans-land-data-and-physical-models-to-reveal-patterns-beneath-the-canopy",
+    "href": "index.html#this-course-explores-how-trees-shape-climate-through-structure-species-and-energy-flow.-youll-work-with-laser-scans-land-data-and-physical-models-to-reveal-patterns-beneath-the-canopy",
+    "title": "Goals",
+    "section": "",
+    "text": "Evaluate atmosphere–vegetation models and their structure feedbacks\nAnalyze surface energy fluxes to understand vertical climate profiles\nExtract tree structure from TLS and ALS point clouds\nClassify and correct species distributions\nTransform OSM maps into simulation-ready domains\n\n\n\n\nThis site uses utterances for comments via GitHub. To leave a comment, simply sign in with your GitHub account. If you don’t have one, you can create a free account here.\nYour comment will be publicly stored and appear directly below. No trackers or third-party cookies are used.\nNeed help? What is utterances and how does it work?"
   }
 ]
