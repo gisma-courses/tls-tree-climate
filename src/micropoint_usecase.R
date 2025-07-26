@@ -302,7 +302,7 @@ library(knitr)
 # 1. Parameter setzen
 # ------------------------------------------------------------------------------
 
-filepath <- "data/energie_bil_wiese.csv"
+filepath <- "../data/energie_bil_wiese.csv"
 lon <- 8.683241
 lat <- 50.840461
 reqhgt <- 15

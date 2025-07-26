@@ -129,9 +129,10 @@ run_micropoint_comparison <- function(clim_block, vegp, soilp, lat, long) {
 
 library(microclimf)
 library(micropoint)
+library(here)
 
 # Parameter
-filepath <- "data/energie_bil_wiese.csv"
+filepath <- here::here("data", "energie_bil_wiese.csv")
 lon <- 8.77
 lat <- 50.82
 

@@ -63,7 +63,7 @@ library(tidyverse)
 library(lubridate)
 library(units)
 
-energy <- read_csv("../data/energie_bil_wiese.csv") %>%
+energy <- read_csv(here::here("data", "energie_bil_wiese.csv")) %>%
   mutate(datetime = dmy_hm(datetime))
 ```
 
@@ -80,7 +80,7 @@ energy <- energy %>%
     WS_10m = Windspeed_10m
   ) %>%
   mutate(
-    delta_T = Ta_10m - Ta_2m,
+    delta_T = Ta_2m - Ta_10m,
     WS_mean = (WS_2m + WS_10m) / 2,
     month_num = month(datetime),
     month_label = case_when(
@@ -457,19 +457,19 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 ## Export (Optional)
 
 ```{r}
-# write_csv(energy, "../data/processed_energy_fluxes.csv")
+# write_csv(energy, here::here("data", "processed_energy_fluxes.csv"))
 ```
 
 ## Complete Code
 ```{r}
-#| eval: false
 # Setup: source external script
-source("../doc/fluxes_corrected.R")
+source("../src/fluxes_corrected.R")
 ``` 
 
 
 ```{r}
 #| eval: false
+#| include: false
 
 # Load required libraries
 library(tidyverse)   # Core tidyverse packages (readr, dplyr, ggplot2, etc.)
@@ -477,7 +477,7 @@ library(lubridate)   # For working with dates and times
 library(units)       # For physical units (e.g., J/kg/K)
 
 # Load energy flux data and parse datetime column
-energy <- read_csv("../data/energie_bil_wiese.csv") %>%
+energy <- read_csv(here::here("data", "energie_bil_wiese.csv")) %>%
   mutate(datetime = dmy_hm(datetime))  # Convert 'datetime' column from character to POSIXct
 
 ## ----------------------------------------------------------------------
@@ -582,7 +582,7 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 
 ## ----------------------------------------------------------------------
 # Save processed data to CSV
-write_csv(energy, "../data/processed_energy_fluxes.csv")
+write_csv(energy, here::here("data", "processed_energy_fluxes.csv"))
 
 
 ``` 

@@ -15,6 +15,8 @@
 #' 4. Export of clustered ENVIMET_IDs to GIS and XML format
 
 # Load required libraries
+
+library(rprojroot)
 library(lidR)
 library(terra)
 library(dplyr)

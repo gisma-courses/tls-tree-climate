@@ -608,7 +608,7 @@
     "href": "doc/fluxes_corrected.html#load-libraries-and-data",
     "title": "Basic Energy Flux Analysis from Energy Balance Station",
     "section": "Load Libraries and Data",
-    "text": "Load Libraries and Data\n\n\nCode\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(units)\n\nenergy &lt;- read_csv(\"../data/energie_bil_wiese.csv\") %&gt;%\n  mutate(datetime = dmy_hm(datetime))",
+    "text": "Load Libraries and Data\n\n\nCode\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(units)\n\nenergy &lt;- read_csv(here::here(\"data\", \"energie_bil_wiese.csv\")) %&gt;%\n  mutate(datetime = dmy_hm(datetime))",
     "crumbs": [
       "Basic Energy Flux Analysis from Energy Balance Station"
     ]
@@ -618,7 +618,7 @@
     "href": "doc/fluxes_corrected.html#preprocessing",
     "title": "Basic Energy Flux Analysis from Energy Balance Station",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\n\nCode\nenergy &lt;- energy %&gt;%\n  rename(\n    Rn = rad_bil,\n    G = heatflux_soil,\n    Ta_2m = Ta_2m,\n    Ta_10m = Ta_10m,\n    WS_2m = Windspeed_2m,\n    WS_10m = Windspeed_10m\n  ) %&gt;%\n  mutate(\n    delta_T = Ta_10m - Ta_2m,\n    WS_mean = (WS_2m + WS_10m) / 2,\n    month_num = month(datetime),\n    month_label = case_when(\n      month_num == 6 ~ \"June\",\n      month_num == 11 ~ \"November\",\n      TRUE ~ as.character(month(datetime, label = TRUE))\n    )\n  )",
+    "text": "Preprocessing\n\n\nCode\nenergy &lt;- energy %&gt;%\n  rename(\n    Rn = rad_bil,\n    G = heatflux_soil,\n    Ta_2m = Ta_2m,\n    Ta_10m = Ta_10m,\n    WS_2m = Windspeed_2m,\n    WS_10m = Windspeed_10m\n  ) %&gt;%\n  mutate(\n    delta_T = Ta_2m - Ta_10m,\n    WS_mean = (WS_2m + WS_10m) / 2,\n    month_num = month(datetime),\n    month_label = case_when(\n      month_num == 6 ~ \"June\",\n      month_num == 11 ~ \"November\",\n      TRUE ~ as.character(month(datetime, label = TRUE))\n    )\n  )",
     "crumbs": [
       "Basic Energy Flux Analysis from Energy Balance Station"
     ]
@@ -678,7 +678,7 @@
     "href": "doc/fluxes_corrected.html#export-optional",
     "title": "Basic Energy Flux Analysis from Energy Balance Station",
     "section": "Export (Optional)",
-    "text": "Export (Optional)\n\n\nCode\n# write_csv(energy, \"../data/processed_energy_fluxes.csv\")",
+    "text": "Export (Optional)\n\n\nCode\n# write_csv(energy, here::here(\"data\", \"processed_energy_fluxes.csv\"))",
     "crumbs": [
       "Basic Energy Flux Analysis from Energy Balance Station"
     ]
@@ -688,7 +688,7 @@
     "href": "doc/fluxes_corrected.html#complete-code",
     "title": "Basic Energy Flux Analysis from Energy Balance Station",
     "section": "Complete Code",
-    "text": "Complete Code\n\n\nCode\n# Setup: source external script\nsource(\"../doc/fluxes_corrected.R\")\n\n\n\n\nCode\n# Load required libraries\nlibrary(tidyverse)   # Core tidyverse packages (readr, dplyr, ggplot2, etc.)\nlibrary(lubridate)   # For working with dates and times\nlibrary(units)       # For physical units (e.g., J/kg/K)\n\n# Load energy flux data and parse datetime column\nenergy &lt;- read_csv(\"../data/energie_bil_wiese.csv\") %&gt;%\n  mutate(datetime = dmy_hm(datetime))  # Convert 'datetime' column from character to POSIXct\n\n## ----------------------------------------------------------------------\n# Rename and derive key variables from measurements\n\nenergy &lt;- energy %&gt;%\n  rename(\n    Rn = rad_bil,            # Net radiation\n    G = heatflux_soil,       # Soil heat flux\n    Ta_2m = Ta_2m,            # Air temperature at 2 m\n    Ta_10m = Ta_10m,          # Air temperature at 10 m\n    WS_2m = Windspeed_2m,     # Wind speed at 2 m\n    WS_10m = Windspeed_10m    # Wind speed at 10 m\n  ) %&gt;%\n  mutate(\n    delta_T = Ta_10m - Ta_2m,                          # Vertical temperature gradient\n    WS_mean = (WS_2m + WS_10m) / 2,                    # Mean wind speed\n    month_num = month(datetime),                      # Numeric month for logic\n    month_label = case_when(                          # Label month manually for plot filtering\n      month_num == 6 ~ \"June\",\n      month_num == 11 ~ \"November\",\n      TRUE ~ as.character(month(datetime, label = TRUE))\n    )\n  )\n\n## ----------------------------------------------------------------------\n# Define physical constants for sensible heat flux calculation\n\nrho_air &lt;- set_units(1.225, \"kg/m^3\")   # Air density\ncp_air &lt;- set_units(1005, \"J/kg/K\")     # Specific heat capacity of air\nz1 &lt;- 2                                 # Lower measurement height (2 m)\nz2 &lt;- 10                                # Upper measurement height (10 m)\nk &lt;- 0.41                               # von Kármán constant\n\n# Calculate aerodynamic resistance and sensible heat flux (H)\nenergy &lt;- energy %&gt;%\n  mutate(\n    ra = log(z2 / z1) / (k * WS_mean),                     # Aerodynamic resistance [s/m]\n    H = drop_units(rho_air * cp_air * delta_T / ra)       # Sensible heat flux [W/m²]\n  )\n\n## ----------------------------------------------------------------------\n# Estimate latent heat flux (LE) using residual method: LE = Rn - G - H\n\nenergy &lt;- energy %&gt;%\n  mutate(LE = Rn - G - H)\n\n## ----------------------------------------------------------------------\n# Reshape data for plotting: long format for energy balance components\n\nlibrary(ggplot2)\n\nenergy_long &lt;- energy %&gt;%\n  select(datetime, month_label, Rn, G, H, LE) %&gt;%\n  pivot_longer(cols = c(Rn, G, H, LE), names_to = \"flux\", values_to = \"value\")\n\n# Define plotting function for energy fluxes\nplot_fluxes &lt;- function(df, title) {\n  ggplot(df, aes(x = datetime, y = value, color = flux)) +\n    geom_line() +\n    labs(title = title, x = \"Time\", y = \"Flux (W/m²)\") +\n    theme_minimal()\n}\n\n# Plot fluxes for June\nplot_fluxes(filter(energy_long, month_label == \"June\"), \"Energy Fluxes in June\")\n\n## ----------------------------------------------------------------------\n\n# Plot fluxes for November\nplot_fluxes(filter(energy_long, month_label == \"November\"), \"Energy Fluxes in November\")\n\n## ----------------------------------------------------------------------\n# Compute evapotranspiration (ET) from latent heat flux (LE)\n\nlambda &lt;- 2.45e6  # Latent heat of vaporization [J/kg]\nenergy &lt;- energy %&gt;%\n  mutate(\n    ET_mm_day = (LE / lambda) * 86400,                            # Convert LE to mm/day\n    month_label = month(datetime, label = TRUE, abbr = FALSE)     # Full month name\n  )\n\n# Monthly average ET\nmonthly_et &lt;- energy %&gt;%\n  filter(!is.na(ET_mm_day)) %&gt;%\n  group_by(month_label) %&gt;%\n  summarise(\n    mean_ET = mean(ET_mm_day, na.rm = TRUE),\n    .groups = \"drop\"\n  )\n\n# Bar plot: mean ET by month\nggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +\n  geom_col(show.legend = FALSE) +\n  labs(\n    title = \"Mean Daily Evapotranspiration (ET) from Residual Method\",\n    x = \"Month\",\n    y = \"Evapotranspiration (mm/day)\"\n  ) +\n  scale_fill_manual(values = c(\"June\" = \"tomato\", \"November\" = \"turquoise3\")) +\n  theme_minimal()\n\n## ----------------------------------------------------------------------\n# Save processed data to CSV\nwrite_csv(energy, \"../data/processed_energy_fluxes.csv\")",
+    "text": "Complete Code\n\n\nCode\n# Setup: source external script\nsource(\"../src/fluxes_corrected.R\")",
     "crumbs": [
       "Basic Energy Flux Analysis from Energy Balance Station"
     ]
@@ -701,6 +701,96 @@
     "text": "References\n\nFoken, T. (2008). Micrometeorology. Springer.\n\nMonteith, J. L., & Unsworth, M. H. (2013). Principles of Environmental Physics. Academic Press.\n\nAllen, R. G., Pereira, L. S., Raes, D., & Smith, M. (1998). Crop evapotranspiration – FAO Irrigation and Drainage Paper 56.\n\nArya, S. P. (2001). Introduction to Micrometeorology. Academic Press.\n\nOke, T. R. (2002). Boundary Layer Climates. Routledge.",
     "crumbs": [
       "Basic Energy Flux Analysis from Energy Balance Station"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html",
+    "href": "doc/treespecies.html",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "",
+    "text": "Purpose of Tree Data for ENVI-met Modeling This workflow prepares classified tree species data as a basis for generating individual tree objects for use in ENVI-met’s 3DPLANT module. Each tree location is linked to a simplified vertical LAD profile and assigned to a species class (e.g. Fagus sylvatica, Quercus robur, Pseudotsuga menziesii), which defines its interaction with ENVI-met’s radiation and vegetation modules.\nThe underlying classification raster originates from official, state-level aerial RGB orthophotos with a spatial resolution of 0.3 m. These orthophotos provide sufficient detail to allow object-based species classification at the level of individual tree crowns.\nSpecies prediction was performed using a leave-location-out forward feature selection approach implemented via the CAST package in R. This ensures that classification results generalize across spatially distinct regions by avoiding overfitting to local spectral conditions.\nBefore assigning vegetation objects to the ENVI-met model domain, species maps are despeckled, aggregated, and contextually corrected to remove isolated or misclassified tree crowns (e.g. Douglas-fir pixels in beech-dominated stands). This ensures that each synthetic ENVI-met tree is placed in a semantically and structurally consistent vegetation context.",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#setup-and-environment",
+    "href": "doc/treespecies.html#setup-and-environment",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "1. Setup and Environment",
+    "text": "1. Setup and Environment\nManual Setup of OTB Environment for use with link2GI\nThe R package link2GI provides wrapper functions to connect R with external geospatial software like Orfeo Toolbox (OTB), GRASS GIS, and QGIS. The function linkOTB() is used to locate OTB binaries and configure the R session to allow calling OTB applications via command-line interface (CLI) from R.\nHowever, in many modern setups—especially on Linux or in manually installed environments (e.g., extracted zip files)—the required environment variables are not set globally, and linkOTB() alone is not sufficient. This typically leads to errors like:\n\n“Application not found”\n“No XML application descriptors”\n“Could not find CLI tools”\n\nTo fix this, two critical environment variables need to be explicitly set after calling linkOTB():\n\nOTB_APPLICATION_PATH: This must point to the directory lib/otb/applications, where all XML definitions of the OTB applications are stored. These XML files describe how to call each OTB tool from the command line.\nPATH: This must include the directory where OTB binaries like otbcli_BandMath are stored (typically bin/). Without this, system calls from R to OTB will fail.\n\nExample for Linux:\notb &lt;- link2GI::linkOTB(searchLocation = \"~/apps/OTB-9.1.0-Linux/\")\nSys.setenv(OTB_APPLICATION_PATH = file.path(dirname(as.character(otb$pathOTB)), \"lib/otb/applications\"))\nSys.setenv(PATH = paste(otb$pathOTB, Sys.getenv(\"PATH\"), sep = \":\"))\nExample for Windows:\notb &lt;- link2GI::linkOTB(searchLocation = \"C:/OTB-9.1.0-Win64/\")\nSys.setenv(OTB_APPLICATION_PATH = \"C:/OTB-9.1.0-Win64/lib/otb/applications\")\nSys.setenv(PATH = paste(\"C:/OTB-9.1.0-Win64/bin\", Sys.getenv(\"PATH\"), sep = \";\"))\nNote:\n\nOn Windows, use forward slashes / in the path.\nThe PATH separator is ; on Windows and : on Unix-based systems.\n\nThis workaround is often necessary in portable, containerized, or research setups where full system integration (e.g., PATH exports, registry entries) is not available or not desired. It ensures that link2GI can still function as intended by emulating the expected environment internally within R.\n\n# Load libraries\nlibrary(terra)\nlibrary(RColorBrewer)\nlibrary(link2GI)\nlibrary(envimaR)\nlibrary(tools)\nlibrary(mapview)\nlibrary(dplyr)\n\n# Project root and OTB environment\nroot_folder &lt;- rprojroot::find_rstudio_root_file()\notb &lt;- link2GI::linkOTB(searchLocation = \"~/apps/OTB-9.1.0-Linux/\")\nSys.setenv(OTB_APPLICATION_PATH = file.path(dirname(as.character(otb$pathOTB)), \"lib/otb/applications\"))\nSys.setenv(PATH = paste(otb$pathOTB, Sys.getenv(\"PATH\"), sep = \":\"))",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#parameters-and-class-legend",
+    "href": "doc/treespecies.html#parameters-and-class-legend",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "2. Parameters and Class Legend",
+    "text": "2. Parameters and Class Legend\n\ntarget_res &lt;- 1\nfn &lt;- \"5-25_MOF_rgb\"\nepsg &lt;- 25832\nsapflow_ext &lt;- raster::extent(477500, 478218, 5631730, 5632500)\n\nts &lt;- data.frame(\n  ID = 1:12,\n  value = c(\"agriculture\", \"alder\", \"ash\", \"beech\", \"douglas_fir\", \"larch\",\n            \"oak\", \"pastures\", \"roads\", \"settlements\", \"spruce\", \"water\")\n)",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#rationale-why-despeckle-first",
+    "href": "doc/treespecies.html#rationale-why-despeckle-first",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "3. Rationale: Why Despeckle First?",
+    "text": "3. Rationale: Why Despeckle First?\n\n🔍 Why do we despeckle at original resolution before aggregation and contextual filtering?\n\nPreserve spatial detail: High-frequency noise (e.g., misclassified single pixels) must be removed before they get averaged into larger grid cells.\nAvoid error propagation: Aggregating first would carry speckle artifacts into the coarser grid.\nEnable ecologically meaningful correction: Focal filtering (e.g., Douglas-fir to Oak) should be applied on ~1 m resolution where “dominance” of classes has meaning.\nStep order summary:\n\nClassificationMapRegularization: Clean noise at 0.2 m\naggregate(): Smooth to 1 m (e.g., crown scale)\nfocal(): Replace ecologically implausible patches",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#load-and-preprocess-species-classification",
+    "href": "doc/treespecies.html#load-and-preprocess-species-classification",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "4. Load and Preprocess Species Classification",
+    "text": "4. Load and Preprocess Species Classification\n\nsapflow_species &lt;- readRDS(\"data/aerial/sfprediction_ffs_5-25_MOF_rgb.rds\")\nraster::writeRaster(sapflow_species, \"data/aerial/prediction_ffs.tif\", overwrite = TRUE)\nsapflow_species &lt;- raster::crop(sapflow_species, sapflow_ext)\nraster::writeRaster(sapflow_species, \"data/aerial/prediction_ffs_cut.tif\", overwrite = TRUE)",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#majority-filtering-otb-despeckle",
+    "href": "doc/treespecies.html#majority-filtering-otb-despeckle",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "5. Majority Filtering (OTB Despeckle)",
+    "text": "5. Majority Filtering (OTB Despeckle)\n\ncmr &lt;- parseOTBFunction(\"ClassificationMapRegularization\", otb)\ncmr$io.in &lt;- \"data/aerial/prediction_ffs.tif\"\ncmr$io.out &lt;- \"data/aerial/majority_out.tif\"\ncmr$ip.radius &lt;- \"1\"\ncmr$progress &lt;- \"true\"\nfilter_treespecies &lt;- runOTB(cmr, gili = otb$pathOTB, quiet = FALSE, retRaster = TRUE)",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#aggregate-to-1-m-resolution",
+    "href": "doc/treespecies.html#aggregate-to-1-m-resolution",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "6. Aggregate to 1 m Resolution",
+    "text": "6. Aggregate to 1 m Resolution\n\nr &lt;- rast(\"data/aerial/majority_out.tif\")\ncur_res &lt;- res(r)[1]\nfact &lt;- round(target_res / cur_res)\nif (target_res &lt;= cur_res) stop(\"Target resolution is lower than input resolution.\")\nr_agg &lt;- aggregate(r, fact = fact, fun = median, na.rm = TRUE)\noutfile &lt;- sprintf(\"data/aerial/%s_%sm.tif\", tools::file_path_sans_ext(basename(\"data/aerial/aggregate.tif\")), target_res)\nwriteRaster(r_agg, outfile, overwrite = TRUE)",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#contextual-correction-douglas-beechoak",
+    "href": "doc/treespecies.html#contextual-correction-douglas-beechoak",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "7. Contextual Correction (Douglas → Beech/Oak)",
+    "text": "7. Contextual Correction (Douglas → Beech/Oak)\n\nreplace_douglas_in_buche_eiche &lt;- function(rast_input,\n                                           window_size = 5,\n                                           douglas_value = 5,\n                                           target_values = c(4, 7),\n                                           target_res = 1.0) {\n  if (!inherits(rast_input, \"SpatRaster\")) stop(\"Input must be SpatRaster\")\n  if (window_size %% 2 == 0) stop(\"window_size must be odd\")\n  w &lt;- matrix(1, nrow = window_size, ncol = window_size)\n  r_mode &lt;- focal(rast_input, w = w, fun = modal, na.policy = \"omit\", na.rm = TRUE, progress = \"text\")\n  is_douglas &lt;- rast_input == douglas_value\n  is_oak_beech_mode &lt;- r_mode %in% target_values\n  replace_mask &lt;- is_douglas & is_oak_beech_mode\n  r_new &lt;- rast_input\n  r_new[replace_mask] &lt;- r_mode[replace_mask]\n  writeRaster(r_new, sprintf(\"data/aerial/%s_%sm.tif\", \"agg_cleand\", target_res), overwrite = TRUE)\n  return(r_new)\n}\nspecies_cleaned &lt;- replace_douglas_in_buche_eiche(r_agg, window_size = 5)",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
+    ]
+  },
+  {
+    "objectID": "doc/treespecies.html#visualize-results",
+    "href": "doc/treespecies.html#visualize-results",
+    "title": "Tree Species Classification Cleaning with OTB and Terra",
+    "section": "8. Visualize Results",
+    "text": "8. Visualize Results\nmapviewOptions(fgb = FALSE) m1 &lt;- mapview(filter_treespecies, col.regions = brewer.pal(12, “Paired”), at = ts\\(ID)\nm2 &lt;- mapview(species_cleaned, col.regions = brewer.pal(12, \"Paired\"), at = ts\\)ID) m1 + m2",
+    "crumbs": [
+      "Tree Species Classification Cleaning with OTB and Terra"
     ]
   }
 ]

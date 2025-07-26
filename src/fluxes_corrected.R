@@ -4,7 +4,7 @@ library(lubridate)
 library(units)
 library(here)
 library(rprojroot)
-setwd(find_rstudio_root_file())
+
 
 #' Calculate sensible and latent heat fluxes from micrometeorological data
 #'
@@ -83,16 +83,33 @@ calc_fluxes <- function(data,
 
 ## -----------------------------------------------------------------------------
 # Load energy balance data
-data_file <- "../data/energie_bil_wiese.csv"
-energy <- read_csv(../data_file) %>%
+data_file <- here::here("data", "energie_bil_wiese.csv")
+energy <- read_csv(data_file) %>%
   mutate(datetime = dmy_hm(datetime))
 
 ## -----------------------------------------------------------------------------
 # Rename columns and derive additional variables
 ## -------------------------------------------------------------------------------------------------------------------------------------------------
 # Rename columns, correct G sign (soil heat flux), and add derived variables
-energy <- read_csv("../data/energie_bil_wiese.csv") 
-
+energy <- energy %>%
+  rename(
+    Rn = rad_bil,
+    G = heatflux_soil,
+    Ta_2m = Ta_2m,
+    Ta_10m = Ta_10m,
+    WS_2m = Windspeed_2m,
+    WS_10m = Windspeed_10m
+  ) %>%
+  mutate(
+    delta_T = Ta_2m - Ta_10m,
+    WS_mean = (WS_2m + WS_10m) / 2,
+    month_num = month(datetime),
+    month_label = case_when(
+      month_num == 6 ~ "June",
+      month_num == 11 ~ "November",
+      TRUE ~ as.character(month(datetime, label = TRUE))
+    )
+  )
 ## -----------------------------------------------------------------------------
 # Compute energy fluxes using custom function
 energy <- calc_fluxes(energy)
@@ -136,7 +153,7 @@ plot_diagnostics_by_month <- function(df, month_name, output_pdf = NULL) {
   }
 }
 
-pdf("../data/diagnostic_plots.pdf", width = 10, height = 6)
+pdf(here::here("data", "plots.pdf"), width = 10, height = 6)
 plot_diagnostics_by_month(energy, "June")
 plot_diagnostics_by_month(energy, "November")
 dev.off()
@@ -176,12 +193,9 @@ ggplot(monthly_et, aes(x = month_label, y = mean_ET, fill = month_label)) +
 
 ## -----------------------------------------------------------------------------
 # Export processed data
-write_csv(energy, "../data/processed_energy_fluxes.csv")
+write_csv(energy, here::here("data", "e-fluxes.csv"))
 
-# Ergebnis speichern
-write_csv(energy, "../data/processed_energy_fluxes.csv")
-print(plot_fluxes(filter(energy_long, month_label == "June"), "Energy Fluxes in June"))
-print(plot_fluxes(filter(energy_long, month_label == "November"), "Energy Fluxes in November"))
+
 plot_diagnostics_by_month(energy, "June")
 plot_diagnostics_by_month(energy, "November")
 
