@@ -47,7 +47,7 @@
 library(terra)           # raster handling
 library(RColorBrewer)    # color palettes
 library(link2GI)         # OTB integration
-library(envimaR)         # environment management
+
 library(tools)           # file name tools
 library(mapview)         # interactive maps
 library(dplyr)           # data manipulation

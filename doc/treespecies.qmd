@@ -68,7 +68,6 @@ This workaround is often necessary in portable, containerized, or research setup
 library(terra)
 library(RColorBrewer)
 library(link2GI)
-library(envimaR)
 library(tools)
 library(mapview)
 library(dplyr)
@@ -162,10 +161,10 @@ replace_douglas_in_buche_eiche <- function(rast_input,
 species_cleaned <- replace_douglas_in_buche_eiche(r_agg, window_size = 5)
 ```
 
-## 8. Visualize Results
 
-```{r visualize, eval=interactive()}
-mapviewOptions(fgb = FALSE)
-m1 <- mapview(filter_treespecies, col.regions = brewer.pal(12, "Paired"), at = ts$ID)
-m2 <- mapview(species_cleaned, col.regions = brewer.pal(12, "Paired"), at = ts$ID)
-m1 + m2
+
+## Complete Code
+```{r}
+# Setup: source external script
+source("../doc/treespecies.R")
+``` 

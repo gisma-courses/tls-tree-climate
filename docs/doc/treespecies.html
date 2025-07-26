@@ -104,35 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../css/styles.css">
 <meta property="og:title" content="Tree Species Classification Cleaning with OTB and Terra – Envi_Met TLS-tree-climate">
@@ -239,7 +210,7 @@ window.Quarto = {
   <li><a href="#majority-filtering-otb-despeckle" id="toc-majority-filtering-otb-despeckle" class="nav-link" data-scroll-target="#majority-filtering-otb-despeckle">5. Majority Filtering (OTB Despeckle)</a></li>
   <li><a href="#aggregate-to-1-m-resolution" id="toc-aggregate-to-1-m-resolution" class="nav-link" data-scroll-target="#aggregate-to-1-m-resolution">6. Aggregate to 1 m Resolution</a></li>
   <li><a href="#contextual-correction-douglas-beechoak" id="toc-contextual-correction-douglas-beechoak" class="nav-link" data-scroll-target="#contextual-correction-douglas-beechoak">7. Contextual Correction (Douglas → Beech/Oak)</a></li>
-  <li><a href="#visualize-results" id="toc-visualize-results" class="nav-link" data-scroll-target="#visualize-results">8. Visualize Results</a></li>
+  <li><a href="#complete-code" id="toc-complete-code" class="nav-link" data-scroll-target="#complete-code">Complete Code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/treespecies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -315,16 +286,15 @@ window.Quarto = {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(link2GI)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(envimaR)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tools)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Project root and OTB environment</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>root_folder <span class="ot">&lt;-</span> rprojroot<span class="sc">::</span><span class="fu">find_rstudio_root_file</span>()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>otb <span class="ot">&lt;-</span> link2GI<span class="sc">::</span><span class="fu">linkOTB</span>(<span class="at">searchLocation =</span> <span class="st">"~/apps/OTB-9.1.0-Linux/"</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">OTB_APPLICATION_PATH =</span> <span class="fu">file.path</span>(<span class="fu">dirname</span>(<span class="fu">as.character</span>(otb<span class="sc">$</span>pathOTB)), <span class="st">"lib/otb/applications"</span>))</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">PATH =</span> <span class="fu">paste</span>(otb<span class="sc">$</span>pathOTB, <span class="fu">Sys.getenv</span>(<span class="st">"PATH"</span>), <span class="at">sep =</span> <span class="st">":"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tools)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Project root and OTB environment</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>root_folder <span class="ot">&lt;-</span> rprojroot<span class="sc">::</span><span class="fu">find_rstudio_root_file</span>()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>otb <span class="ot">&lt;-</span> link2GI<span class="sc">::</span><span class="fu">linkOTB</span>(<span class="at">searchLocation =</span> <span class="st">"~/apps/OTB-9.1.0-Linux/"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">OTB_APPLICATION_PATH =</span> <span class="fu">file.path</span>(<span class="fu">dirname</span>(<span class="fu">as.character</span>(otb<span class="sc">$</span>pathOTB)), <span class="st">"lib/otb/applications"</span>))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">PATH =</span> <span class="fu">paste</span>(otb<span class="sc">$</span>pathOTB, <span class="fu">Sys.getenv</span>(<span class="st">"PATH"</span>), <span class="at">sep =</span> <span class="st">":"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="parameters-and-class-legend" class="level2">
@@ -414,10 +384,12 @@ window.Quarto = {
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>species_cleaned <span class="ot">&lt;-</span> <span class="fu">replace_douglas_in_buche_eiche</span>(r_agg, <span class="at">window_size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="visualize-results" class="level2">
-<h2 class="anchored" data-anchor-id="visualize-results">8. Visualize Results</h2>
-<p>mapviewOptions(fgb = FALSE) m1 &lt;- mapview(filter_treespecies, col.regions = brewer.pal(12, “Paired”), at = ts<span class="math inline">\(ID)
-m2 &lt;- mapview(species_cleaned, col.regions = brewer.pal(12, "Paired"), at = ts\)</span>ID) m1 + m2</p>
+<section id="complete-code" class="level2">
+<h2 class="anchored" data-anchor-id="complete-code">Complete Code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: source external script</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../doc/treespecies.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
