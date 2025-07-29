@@ -1,0 +1,118 @@
+---
+title: "Function Reference: LAD and ALS Processing"
+format: html
+editor: visual
+jupyter: false
+---
+
+## Overview
+
+This document provides a detailed explanation of the core functions used in the ENVI-met 3DPLANT ALS pipeline. These functions handle voxelization, LAD conversion, trait computation, clustering, and export preparation.
+
+Each function is explained with:
+
+- Description and purpose
+- Inputs and outputs
+- Detailed internal logic
+- Usage examples (if applicable)
+
+
+## `preprocess_voxels()`
+
+```r
+#' Preprocess ALS point cloud into voxel grid
+#'
+#' @param las_norm Normalized LAS object
+#' @param res_xy Horizontal resolution (in meters)
+#' @param res_z Vertical resolution (in meters)
+#'
+#' @return A list of voxel information used for LAD calculation
+```
+
+This function converts a normalized ALS point cloud into a structured voxel representation. Each voxel counts the number of returns in a fixed 3D grid.
+
+Internally uses `grid_metrics()` with `z`-based slicing to accumulate point counts.
+
+
+## `convert_to_LAD_beer()`
+
+```r
+#' Convert voxel pulse counts to LAD using Beer–Lambert Law
+#'
+#' @param df Data frame containing voxel counts per vertical bin (e.g. "layer_1", ..., "layer_n")
+#' @param grainsize Vertical voxel height (in meters)
+#' @param k Extinction coefficient (default 0.3–0.5)
+#' @param scale_factor Optional scaling multiplier
+#' @param lad_max Optional upper LAD threshold
+#' @param lad_min Optional lower LAD threshold
+#' @param keep_pulses Whether to retain original pulse columns
+#'
+#' @return Data frame with LAD values by voxel column
+```
+
+### Explanation
+
+This function applies the Beer–Lambert law to pulse return counts to estimate LAD per voxel. The formula is:
+
+$$
+\text{LAD}_i = -\frac{\ln(1 - \frac{N_i}{N_{max}})}{k \cdot \Delta z}
+$$
+
+- $N_i$: Number of pulses in voxel $i$
+- $N_{max}$: Maximum number of pulses in that column
+- $k$: Extinction coefficient
+- $\Delta z$: Voxel height
+
+The result is a per-voxel LAD profile suitable for vertical vegetation structure modeling.
+
+
+## `compute_traits_from_lad()`
+
+```r
+#' Compute plant traits from LAD profile
+#'
+#' @param lad_df Data frame with LAD profile (long format)
+#' @param res_z Voxel height (in meters)
+#'
+#' @return Data frame with structural traits per ENVIMET_ID
+```
+
+Computes key biophysical traits needed by ENVI-met 3DPLANT:
+
+- LAI (Leaf Area Index)
+- Max LAD
+- Crown Height
+- Total Height
+- Roughness Length
+- Leaf Thickness (from species table)
+- LAD Cutoff (default: inferred)
+
+These are required for synthetic plant representation in `.pld` files.
+
+
+## `export_lad_to_envimet_p3d()`
+
+```r
+#' Export clustered LAD profiles to ENVI-met PLANT3D XML
+#'
+#' @param lad_df LAD profile in long format with traits and species info
+#' @param file_out Path to output `.pld` file
+#' @param res_z Vertical resolution (meters)
+#' @param trait_df Optional trait table to override defaults
+```
+
+Generates a PLANT3D-compliant `.pld` file with:
+
+- `<plant>` entries for each cluster (with `<LAD>` series)
+- Metadata including `LAI`, `MaxLAD`, `RoughnessLength`, etc.
+- `<plantclass>` label and species name
+
+Each vertical LAD profile is saved per ENVIMET_ID for use in simulation.
+
+---
+
+Let me know if you'd like to:
+- Include example plots
+- Add function internals (e.g., how LAD cutoff is inferred)
+- Integrate this into your main `.qmd` pipeline tutorial
+- Export to PDF or GitHub Pages

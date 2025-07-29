@@ -1,0 +1,181 @@
+---
+title: "UPDATE ENVI-met 3DPLANT Tutorial from ALS Data"
+format: html
+---
+
+## Introduction
+
+This tutorial guides you through the complete workflow to derive vegetation structure information from Airborne Laser Scanning (ALS) data and export it into a format compatible with ENVI-met’s 3DPLANT system.
+
+We cover:
+
+-   Merging and preprocessing ALS point clouds
+-   Generating digital terrain and surface models
+-   Voxelizing ALS data and calculating Leaf Area Density (LAD)
+-   Deriving ecological and structural metrics
+-   Clustering tree profiles into generalized types
+-   Exporting synthetic 3D tree definitions (.pld XML) and their locations (.gpkg)
+
+## 1. Setup and Configuration
+
+We begin by loading all required libraries and defining key input/output paths and parameters.
+
+``` r
+# Load necessary R packages
+library(lidR)       # for LiDAR handling
+library(terra)      # for raster operations
+library(dplyr)      # data wrangling
+library(tidyr)      # reshaping
+library(sf)         # spatial data (simple features)
+library(here)       # file path handling
+library(XML)        # export to ENVI-met XML
+library(clusternomics) # clustering
+...
+```
+
+We also define which species classes are considered valid and load a species raster map for later assignment.
+
+## 2. ALS Preprocessing and Normalization
+
+First, the LAS tiles are merged and their heights normalized using a DEM derived from the ground classification.
+
+``` r
+las_fn <- merge_las_tiles(...)  # Merges all LAS tiles into one
+las <- readLAS(las_fn)
+las <- classify_ground(las, csf(...))  # Adaptive Cloth Simulation Filter
+...
+```
+
+The point cloud is then normalized to height above ground using `normalize_height()`.
+
+## 3. Terrain and Canopy Metrics
+
+We generate various raster layers:
+
+-   **DEM** – Digital Elevation Model
+-   **DSM** – Digital Surface Model (top of canopy)
+-   **CHM** – Canopy Height Model (DSM – DEM)
+-   **Slope**, **Aspect**, and **TPI** – Topographic descriptors
+
+These are later used to enrich each voxel with its spatial context.
+
+``` r
+slope <- terrain(dem, "slope")
+CHM <- DSM - DEM
+...
+```
+
+## 4. Voxelization and LAD Calculation
+
+The normalized ALS cloud is converted to voxels and LAD profiles are derived using a Beer–Lambert approach:
+
+``` r
+voxels <- preprocess_voxels(las_norm, res_xy, res_z)
+lad_df <- convert_to_LAD_beer(voxels, grainsize = res_z, k = 0.3)
+```
+
+**Explanation**: The Beer–Lambert law models LAD from voxel pulse counts as an exponential decay of light through vegetation. Each voxel contributes to the vertical profile based on its pulse return density and assumed extinction coefficient.
+
+### ⚙️ Advanced Implementation Details
+
+This pipeline uses a highly optimized voxel engine that pre-aggregates point returns into vertical bins based on user-defined voxel height (`res_z`).
+
+The `convert_to_LAD_beer()` function applies:
+
+-   **Normalization** by the maximum point count per column (to estimate occlusion probability)
+
+-   **Beer–Lambert transformation**:
+
+    $$\text{LAD}_i = -\frac{\ln(1 - \frac{N_i}{N_{\max}})}{k \cdot \Delta z}$$
+
+    Where:
+
+    -   $N_i$ = point returns in voxel $i$
+    -   $N_{\max}$ = max returns in vertical column
+    -   $k$ = extinction coefficient (typically 0.3–0.5)
+    -   $\Delta z$ = voxel height (e.g. 2 m)
+
+-   **Clipping to physical LAD limits**: optional thresholds (e.g., LAD_min = 0.05, LAD_max = 3.0)
+
+-   **Optional scaling**: using a correction factor (`scale_factor`) for vegetation type
+
+This approach is robust across canopy densities and avoids bias from heterogeneous ALS sampling.
+
+## 5. Spatial Enrichment
+
+Each voxel column is enriched with values from the terrain metrics (elevation, slope, CHM, etc.) and species raster via buffered spatial extraction using the `exactextractr` package.
+
+``` r
+lad_df$elev <- exact_extract(dem, st_buffer(...))
+...
+```
+
+**Note**: We use small buffers to ensure overlap with raster cells, especially for coarse resolutions or near-boundary voxels.
+
+## 6. Structural and Ecological Metrics
+
+From the LAD profiles, we derive additional vegetation structure descriptors:
+
+-   **LAD_mean / LAD_max** – Central tendency
+-   **Skewness / Kurtosis** – Shape of vertical distribution
+-   **Entropy** – Evenness / complexity of LAD
+-   **Canopy Cover**, **Gap Fraction** – Occupancy of upper and lower canopy
+-   **Vertical Evenness** – Shannon diversity of vertical distribution
+
+``` r
+lad_df$LAD_mean <- matrixStats::rowMeans2(lad_matrix, na.rm = TRUE)
+...
+```
+
+**Interpretation**: These metrics help characterize different plant types and are key inputs to the clustering process.
+
+## 7. Clustering and Profile Aggregation
+
+We sample the LAD space, reduce dimensionality via Principal Component Analysis (PCA), and use NbClust to find the optimal number of clusters. These clusters represent generalized tree types for ENVI-met.
+
+``` r
+pca_res <- prcomp(sample_data, scale. = TRUE)
+nb <- NbClust(...)
+km <- KMeans_arma(...)
+```
+
+### 🔍 PCA Concept and Purpose
+
+PCA transforms the original high-dimensional LAD profile into a set of orthogonal axes (principal components) that capture the greatest variance in the data. This has several advantages:
+
+-   **Noise reduction**: Removes minor variance and unstable features
+-   **Interpretability**: Principal axes often reflect dominant structural traits
+-   **Efficiency**: Downsamples high-dimensional LAD vectors to fewer axes (e.g., 5–10 PCs)
+-   **Clustering stability**: Improves separation of groups in Euclidean space
+
+We determine the number of components by examining explained variance and selecting a cutoff (e.g., 80%). NbClust is then applied to the PCA-reduced data to identify the optimal number of vegetation types (clusters).
+
+## 8. Trait Assignment and XML Export
+
+For each cluster, we assign:
+
+-   **Species name** via majority vote
+-   **LeafThickness** via lookup table
+-   **LAI**, **Crown height**, **Max LAD**, **Roughness length** via structural stats
+
+Then export to `.pld` (ENVI-met XML format):
+
+``` r
+export_lad_to_envimet_p3d(lad_df, file_out = ..., trait_df = ...)
+```
+
+**Note**: Ensure that ENVIMET_ID is uniquely assigned and used for mapping in both XML and spatial files.
+
+## 9. Export Tree Locations
+
+The x/y locations of all LAD columns are exported to a GeoPackage with their cluster ID (`ENVIMET_ID`) for domain placement in ENVI-met.
+
+``` r
+st_write(sf_points, output_gpkg)
+```
+
+**Tip**: These point geometries can be directly imported into ENVI-met Spaces or Generator.
+
+## Summary and Recommendations
+
+This pipeline generates highly realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles. The final `.pld` and `.gpkg` can be directly used for the QGIS ENVI-met plugin.

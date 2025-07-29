@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Frequently asked Questions – Envi_Met TLS-tree-climate</title>
+<title>Function Reference: LAD and ALS Processing – Envi_Met TLS-tree-climate</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -66,30 +100,43 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<style>
 
-      .quarto-title-block .quarto-title-banner h1,
-      .quarto-title-block .quarto-title-banner h2,
-      .quarto-title-block .quarto-title-banner h3,
-      .quarto-title-block .quarto-title-banner h4,
-      .quarto-title-block .quarto-title-banner h5,
-      .quarto-title-block .quarto-title-banner h6
-      {
-        color: black;
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-
-      .quarto-title-block .quarto-title-banner {
-        color: black;
-background-image: url(../images/envi_met_title.png);
-background-size: cover;
-      }
-</style>
-
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../css/styles.css">
-<meta property="og:title" content="Frequently asked Questions – Envi_Met TLS-tree-climate">
+<meta property="og:title" content="Function Reference: LAD and ALS Processing – Envi_Met TLS-tree-climate">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Envi_Met TLS-tree-climate">
-<meta name="twitter:title" content="Frequently asked Questions – Envi_Met TLS-tree-climate">
+<meta name="twitter:title" content="Function Reference: LAD and ALS Processing – Envi_Met TLS-tree-climate">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@gisma">
 <meta name="twitter:card" content="summary">
 </head>
@@ -97,7 +144,7 @@ background-size: cover;
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -120,29 +167,13 @@ background-size: cover;
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Frequently asked Questions</h1>
+          <h1 class="quarto-secondary-nav-title">Function Reference: LAD and ALS Processing</h1>
         </a>     
     </div>
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Frequently asked Questions</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -201,55 +232,127 @@ background-size: cover;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#make-sense-topic" id="toc-make-sense-topic" class="nav-link active" data-scroll-target="#make-sense-topic">Make sense topic</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#preprocess_voxels" id="toc-preprocess_voxels" class="nav-link" data-scroll-target="#preprocess_voxels"><code>preprocess_voxels()</code></a></li>
+  <li><a href="#convert_to_lad_beer" id="toc-convert_to_lad_beer" class="nav-link" data-scroll-target="#convert_to_lad_beer"><code>convert_to_LAD_beer()</code></a>
+  <ul class="collapse">
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
+  </ul></li>
+  <li><a href="#compute_traits_from_lad" id="toc-compute_traits_from_lad" class="nav-link" data-scroll-target="#compute_traits_from_lad"><code>compute_traits_from_lad()</code></a></li>
+  <li><a href="#export_lad_to_envimet_p3d" id="toc-export_lad_to_envimet_p3d" class="nav-link" data-scroll-target="#export_lad_to_envimet_p3d"><code>export_lad_to_envimet_p3d()</code></a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/base/faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/new_utils.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Function Reference: LAD and ALS Processing</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="make-sense-topic" class="level2">
-<h2 class="anchored" data-anchor-id="make-sense-topic">Make sense topic</h2>
-<div class="callout callout-style-simple callout-warning no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>This is a senseless question to meet a meaningfull answer</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>This is a meaningful answer to a senseless question</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Learn More…
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This is a even <strong>more</strong> meaningful answer to a senseless question</p>
-</div>
-</div>
-</div>
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This document provides a detailed explanation of the core functions used in the ENVI-met 3DPLANT ALS pipeline. These functions handle voxelization, LAD conversion, trait computation, clustering, and export preparation.</p>
+<p>Each function is explained with:</p>
+<ul>
+<li>Description and purpose</li>
+<li>Inputs and outputs</li>
+<li>Detailed internal logic</li>
+<li>Usage examples (if applicable)</li>
+</ul>
+</section>
+<section id="preprocess_voxels" class="level2">
+<h2 class="anchored" data-anchor-id="preprocess_voxels"><code>preprocess_voxels()</code></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Preprocess ALS point cloud into voxel grid</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param las_norm Normalized LAS object</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param res_xy Horizontal resolution (in meters)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param res_z Vertical resolution (in meters)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A list of voxel information used for LAD calculation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This function converts a normalized ALS point cloud into a structured voxel representation. Each voxel counts the number of returns in a fixed 3D grid.</p>
+<p>Internally uses <code>grid_metrics()</code> with <code>z</code>-based slicing to accumulate point counts.</p>
+</section>
+<section id="convert_to_lad_beer" class="level2">
+<h2 class="anchored" data-anchor-id="convert_to_lad_beer"><code>convert_to_LAD_beer()</code></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Convert voxel pulse counts to LAD using Beer–Lambert Law</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param df Data frame containing voxel counts per vertical bin (e.g. "layer_1", ..., "layer_n")</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param grainsize Vertical voxel height (in meters)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param k Extinction coefficient (default 0.3–0.5)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param scale_factor Optional scaling multiplier</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param lad_max Optional upper LAD threshold</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param lad_min Optional lower LAD threshold</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param keep_pulses Whether to retain original pulse columns</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Data frame with LAD values by voxel column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<p>This function applies the Beer–Lambert law to pulse return counts to estimate LAD per voxel. The formula is:</p>
+<p><span class="math display">\[
+\text{LAD}_i = -\frac{\ln(1 - \frac{N_i}{N_{max}})}{k \cdot \Delta z}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(N_i\)</span>: Number of pulses in voxel <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(N_{max}\)</span>: Maximum number of pulses in that column</li>
+<li><span class="math inline">\(k\)</span>: Extinction coefficient</li>
+<li><span class="math inline">\(\Delta z\)</span>: Voxel height</li>
+</ul>
+<p>The result is a per-voxel LAD profile suitable for vertical vegetation structure modeling.</p>
+</section>
+</section>
+<section id="compute_traits_from_lad" class="level2">
+<h2 class="anchored" data-anchor-id="compute_traits_from_lad"><code>compute_traits_from_lad()</code></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Compute plant traits from LAD profile</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param lad_df Data frame with LAD profile (long format)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param res_z Voxel height (in meters)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Data frame with structural traits per ENVIMET_ID</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Computes key biophysical traits needed by ENVI-met 3DPLANT:</p>
+<ul>
+<li>LAI (Leaf Area Index)</li>
+<li>Max LAD</li>
+<li>Crown Height</li>
+<li>Total Height</li>
+<li>Roughness Length</li>
+<li>Leaf Thickness (from species table)</li>
+<li>LAD Cutoff (default: inferred)</li>
+</ul>
+<p>These are required for synthetic plant representation in <code>.pld</code> files.</p>
+</section>
+<section id="export_lad_to_envimet_p3d" class="level2">
+<h2 class="anchored" data-anchor-id="export_lad_to_envimet_p3d"><code>export_lad_to_envimet_p3d()</code></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Export clustered LAD profiles to ENVI-met PLANT3D XML</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param lad_df LAD profile in long format with traits and species info</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param file_out Path to output `.pld` file</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param res_z Vertical resolution (meters)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param trait_df Optional trait table to override defaults</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Generates a PLANT3D-compliant <code>.pld</code> file with:</p>
+<ul>
+<li><code>&lt;plant&gt;</code> entries for each cluster (with <code>&lt;LAD&gt;</code> series)</li>
+<li>Metadata including <code>LAI</code>, <code>MaxLAD</code>, <code>RoughnessLength</code>, etc.</li>
+<li><code>&lt;plantclass&gt;</code> label and species name</li>
+</ul>
+<p>Each vertical LAD profile is saved per ENVIMET_ID for use in simulation.</p>
+<hr>
+<p>Let me know if you’d like to: - Include example plots - Add function internals (e.g., how LAD cutoff is inferred) - Integrate this into your main <code>.qmd</code> pipeline tutorial - Export to PDF or GitHub Pages</p>
 
 
 </section>
@@ -833,7 +936,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>TLS-tree-climate (2025)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/base/faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/new_utils.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

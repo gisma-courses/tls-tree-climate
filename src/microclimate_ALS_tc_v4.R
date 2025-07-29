@@ -151,7 +151,7 @@ gc()
 
 # === ⬛ STAGE: Combine data for clustering ===
 lad_matrix <- lad_df %>%
-  select(starts_with("lad_pulses_"), starts_with("LAD_"), elev, slope, aspect, TPI, CHM) %>%
+  select(starts_with("lad_pulses_"), starts_with("LAD_"),LAD_skewness,LAD_kurtosis,LAD_CV ,LAD_entropy , Vertical_Evenness) %>%
   as.matrix()
 rownames(lad_matrix) <- paste(lad_df$X, lad_df$Y, sep = "_")
 
@@ -188,6 +188,13 @@ sample_data_pca <- pca_res$x[, 1:pc_info$n_pcs]
 nb <- NbClust(sample_data_pca, distance = "euclidean", min.nc = 2, max.nc = 30, method = "kmeans")
 optimal_k <- as.integer(nb$Best.nc[1])
 
+cat("📊 Summary of Clustering Evaluation\n\n")
+
+# Best number of clusters
+cat("🔢 Best number of clusters (Best.nc):", nb$Best.nc, "\n\n")
+
+
+
         # --- Bereinige ungültige Zeilen für Clustering ---
         valid_rows <- apply(lad_pulses, 1, function(x) all(is.finite(x) & !is.na(x)))
         lad_pulses <- lad_pulses[valid_rows, ]
@@ -217,7 +224,7 @@ optimal_k <- as.integer(nb$Best.nc[1])
           k = 0.5,               # Extinktionskoeffizient (typisch 0.3–0.5)
           scale_factor = 1.2,    # optional, empirisch
           lad_max = 3.0,         # realistische Obergrenze für LAD (z. B. 3 m²/m³)
-          lad_min = 0.05,        # untere Schranke, optional
+          lad_min = 0.00,        # untere Schranke, optional
           keep_pulses = FALSE    # Originaldaten entfernen
         )
         
@@ -326,3 +333,5 @@ optimal_k <- as.integer(nb$Best.nc[1])
             labs(title = "Spatial distribution of LAD clusters") +
             theme_minimal()
         }
+
+        
