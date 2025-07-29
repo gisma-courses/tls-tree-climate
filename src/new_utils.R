@@ -545,7 +545,7 @@ preprocess_voxels <- function(normlas, res_xy = 2, res_z = 2, zmax = 40) {
 #'
 #' @export
 convert_to_LAD_beer <- function(df, grainsize = 2, k = 0.3, scale_factor = 1.2,
-                                lad_max = 2.5, lad_min = 0.05, keep_pulses = FALSE) {
+                                lad_max = 2.5, lad_min = 0.000, keep_pulses = FALSE) {
 
   df_lad <- as.data.frame(df)
   # Find all columns containing vertical pulse count data

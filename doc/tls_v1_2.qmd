@@ -9,6 +9,7 @@ format:
     number-sections: false
     math: mathjax
 execute:
+  eval: false
   echo: true
   warning: false
   message: false
@@ -127,8 +128,9 @@ library(here)
 library(XML)
 library(stats)
 library(tibble)
+library(data.table)
 library(rprojroot)
-source("../src/tile_merge_laz.R")
+
 zmax <- 40  
 grain.size <- 1  
 project_root <- here::here()  
@@ -144,10 +146,11 @@ lad_method <- "beer"  # Set to "linear" or "beer"
 k_extinction <- 0.25
 
 
-las_file <- here("data/ALS/tiles")  # Path to ALS point cloud file 
 output_voxels <- file.path(project_root, "data/TLS/LAD_voxDF.rds")  
 output_array <- file.path(project_root, "data/TLS/lad_array_m2m3.rds")  
 output_profile_plot <- file.path(project_root, "data/TLS/lad_vertical_profile.pdf")  
+output_envimet_tls_3d <- file.path(project_root, "data/envimet/tls_envimet_trees.pld")  
+output_envimet_als_3d <- file.path(project_root, "data/envimet/als_envimet_trees.pld")  
 
 
 ```
@@ -167,13 +170,7 @@ This gives a spatially distributed LAD profile suitable for further analysis or 
 ```{r}
 library(terra)
 
- las_fn = merge_las_tiles(
-    tile_dir = las_file,
-    output_file = "data/ALS/merged_output.las",
-    chunk_size = 10000,
-    workers = 6
-  )
- las=lidR::readLAS("../data/ALS/merged_output.las")
+ las=lidR::readLAS("../data/TLS/tree_08.laz")
 
   las@data$Z <- las@data$Z - min(las@data$Z, na.rm = TRUE)  
   maxZ <- min(floor(max(las@data$Z, na.rm = TRUE)), zmax)  
@@ -484,6 +481,9 @@ For 3D vegetation parameterization in ENVI-met 5.8+, the raster stack enables pr
 
 The raster stack also supports canopy clustering and prototyping. It allows classification of structural types, simplification of complex vegetation, and the creation of representative profiles for simulation.
 
+#### Visualization
+
+
 ```{r}
 library(terra)
 # In SpatRasterStack umwandeln
@@ -497,93 +497,12 @@ plot(lad_raster)
 
 In a more 3D version it looks like below.
 
-```{r}
-# #| eval: false
-# #| include: false
-# library(terra)
-# library(rgl)
-# 
-# # Threshold value for LAD
-# threshold <- 0.1 # change as needed
-# 
-# # Step 1: Convert raster to voxel data frame
-# rast_cube <- lad_raster  # your raster stack
-# voxel_df <- as.data.frame(rast_cube, xy = TRUE, na.rm = TRUE)
-# names(voxel_df) <- c("x", "y", paste0("z", seq_len(nlyr(rast_cube))))
-# 
-# # Step 2: Reshape to long format
-# voxel_long <- reshape(
-#   voxel_df,
-#   direction = "long",
-#   varying = paste0("z", seq_len(nlyr(rast_cube))),
-#   v.names = "val",
-#   timevar = "z",
-#   times = seq_len(nlyr(rast_cube))
-# )
-# 
-# # Step 3: Clean up and filter by threshold
-# voxel_long <- voxel_long[!is.na(voxel_long$val) & voxel_long$val > threshold, ]
-# voxel_long$z <- as.numeric(voxel_long$z)
-# 
-# # Step 4: Normalize colors
-# colors <- terrain.colors(100)[cut(voxel_long$val, breaks = 100)]
-# 
-# # Step 5: Draw voxel cubes
-# open3d(useNULL = TRUE)
-# for (i in seq_len(nrow(voxel_long))) {
-#   shade3d(
-#     translate3d(cube3d(scale = 1), 
-#                 voxel_long$x[i], 
-#                 voxel_long$y[i], 
-#                 voxel_long$z[i]),
-#     color = colors[i],
-#     alpha = 0.8
-#   )
-# }
-# 
-# # Step 6: Render in browser
-# # Determine the bounds of your voxel space
-# xlim <- range(voxel_long$x)
-# ylim <- range(voxel_long$y)
-# zlim <- range(voxel_long$z)
-# 
-# # Draw bounding box
-# lines3d(rbind(
-#   c(xlim[1], ylim[1], zlim[1]),
-#   c(xlim[2], ylim[1], zlim[1]),
-#   c(xlim[2], ylim[2], zlim[1]),
-#   c(xlim[1], ylim[2], zlim[1]),
-#   c(xlim[1], ylim[1], zlim[1])
-# ), col = "black", lwd = 2)
-# 
-# lines3d(rbind(
-#   c(xlim[1], ylim[1], zlim[2]),
-#   c(xlim[2], ylim[1], zlim[2]),
-#   c(xlim[2], ylim[2], zlim[2]),
-#   c(xlim[1], ylim[2], zlim[2]),
-#   c(xlim[1], ylim[1], zlim[2])
-# ), col = "black", lwd = 2)
-# 
-# for (i in 1:4) {
-#   lines3d(
-#     rbind(
-#       c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[1]),
-#       c(xlim[c(1,2,2,1)][i], ylim[c(1,1,2,2)][i], zlim[2])
-#     ), col = "black", lwd = 2
-#   )
-# }
-# 
-# # Optional: Add coordinate axes
-# axes3d(edges = c("x--", "y--", "z--"), col = "gray40")
-# title3d(xlab = "X", ylab = "Y", zlab = "Z")
-# widget <- rglwidget()
-# htmlwidgets::saveWidget(widget, "tree_voxel_viewer.html", selfcontained = TRUE)
-```
 
-#### Visualization
+<iframe width="100%" height="600" src="tree:voxel_viewer.html" frameborder="0"> </iframe>
 
-##### **LAD Profile Visualizations from TLS Data**
 
+
+##### LAD Profile Visualizations from TLS Data
 
 
 The `plot_lad_profiles()` function visualizes vertical *leaf area density* (LAD) profiles derived from voxelized TLS (terrestrial laser scanning) data. LAD represents leaf surface area per unit volume (m²/m³). The function provides three main plot styles:
@@ -804,9 +723,13 @@ rasterImage(legend_img,
 # --- Visualize LAD profiles -------------------------------------------------
 
 ```
+
 :::
 
+#### Plot the profiles
+
 ```{r}
+
 # Option 1: Profile in each column
 plot_lad_profiles(lad_df, plotstyle = "each_median")
 
@@ -818,6 +741,25 @@ plot_lad_profiles(lad_df, plotstyle = "single_profile", single_coords = c(57.5, 
 
 
 ```
+::: {.callout-tip title="Interactive Pipe" appearance="minimal" collapse="true"}
+
+```r
+# Example: Run pipeline if script is sourced interactively
+if (interactive()) {
+  message("Running full voxelization pipeline...")
+  las <- lidR::readLAS("data/ALS/merged_output.las")
+  las@data$Z <- las@data$Z - min(las@data$Z, na.rm = TRUE)
+  zmax <- 30  # example value, ensure it's defined
+  maxZ <- min(floor(max(las@data$Z, na.rm = TRUE)), zmax)
+  las@data$Z[las@data$Z > maxZ] <- maxZ
+  
+  vox_out <- preprocess_voxels(las, grain.size = 1, maxP = zmax)
+  message("Done.")
+}
+``` 
+
+::: {.callout-tip title="View Code" appearance="minimal" collapse="true"}
+
 
 ## ENVI-met 3D Tree Export 
 
@@ -861,7 +803,8 @@ These computed values are essential for correctly normalization and locating the
 | `Depth  <- if (is.null(Depth)) dataJ else Depth` | Uses the number of j-cells if Depth is not provided | Automatically estimates tree depth from voxel spread in y-direction |
 | `Height <- zlayers * cellsize` | Converts number of vertical layers to metric height using cellsize | Computes physical tree height in meters for ENVI-met |
 
-``` r
+
+``` {r}
 # 1. Remove NA values from the LAD column
 lad_df <- lad_df[!is.na(lad_df$LAD_median), ]
 
@@ -886,7 +829,7 @@ zlayers <- max(lad_df$k) # Number of vertical layers (z-direction)
 
 ## Transmittance and Albedo
 
-``` r
+``` {r}
 Albedo = 0.18
 Transmittance = 0.3
 ```
@@ -970,6 +913,32 @@ Use `L-SystemBased = 1` if:
 
     -   You already provide a **dense voxel-based LAD** (from TLS or similar)
     -   You want **strict control** over the 3D structure via LAD profile only
+    
+```{r}
+# --- Export final profile as Envi-met PLANT3D tree --------------------------
+export_lad_to_envimetp3d(
+  lad_df = lad_df,
+  ID = "120312",
+  Description = "Fagus sylvatica TLS",
+  AlternativeName = "Fagus sylvatica",
+  Albedo = 0.17,
+  Width = NULL,              # auto-detected
+  Depth = NULL,              # auto-detected
+  RootDiameter = 5.0,
+  cellsize = 1,
+  Transmittance = 0.3,
+  SeasonProfile = c(0.3, 0.3, 0.4, 0.6, 0.9, 1, 1, 1, 0.7, 0.4, 0.3, 0.3),
+  BlossomProfile = c(0, 0, 0.7, 0.1, 0, 0, 0, 0, 0, 0, 0, 0),
+  LSystem = TRUE,
+  scale_factor = 3,
+  file_out = output_envimet_tls_3d
+)
+rstudioapi::navigateToFile(output_envimet_tls_3d)
+
+```
+
+
+
 
 ### Import TLS-based `.pld` into ENVI-met via Albero Clipboard
 
@@ -1018,199 +987,6 @@ Use `L-SystemBased = 1` if:
 This workflow offers a robust and accessible approach for analyzing vegetation structure and generating model-ready LAD profiles from TLS data. It is especially useful for **relative comparisons and ecological modeling**, but is **not intended for absolute LAD quantification without additional calibration**.
 
 
-
-# ENVI-met Pseudo-3DPLANT Profile Generation from ALS Data
-
-For a realitic sourounding we need voxelized ALS (Airborne Laser Scanning) data which needs to be usable as ENVI-met compatible 3DPLANT profiles. It includes LAD (Leaf Area Density) computation, profile clustering, and export to both GIS and XML formats for ENVI-met integration.
-
-To provide a realistic but computationally tractable vegetation structure, we apply a **pseudo-3D columnar tree approach**: each voxel column of ALS returns is interpreted as a simplified vertical tree profile. These profiles are clustered to reduce complexity, then exported as ENVI-met 3DPLANT objects.
-
-## Why ALS Requires a Specific LAD Approach
-
-Unlike TLS (Terrestrial Laser Scanning), which scans from the bottom-up and suffers from occlusion in upper layers, ALS samples vegetation top-down. This means:
-
-- **ALS oversamples upper canopy layers**
-- **ALS undersamples lower canopy due to occlusion**
-
-To correct for this sampling bias, we estimate LAD using a modified form of Beer's Law, based on the *normalized proportion of hits* per voxel layer. The key difference lies in the way "gap probability" is estimated: rather than tracking cumulative occlusion, ALS uses the **maximum return count per column** as a proxy for full canopy closure.
-
-## LAD Estimation Using Beer's Law
-
-We model LAD using:
-
-$$
-LAD = -\frac{\ln(1 - p)}{k \cdot dz}
-$$
-
-Where:
-- \( p \) is the normalized proportion of hits per voxel column (\( 0 < p < 1 \))
-- \( k \) is the light extinction coefficient
-- \( dz \) is the vertical resolution (voxel height)
-
-In our script, we set:
-- \( k = 0.3 \) (typical value)
-- LAD values are scaled using a multiplicative factor (default 1.2)
-
-### TLS Variant of LAD
-
-In TLS-based LAD estimation, we assume that the LiDAR sensor is located near ground level and that returns are accumulated from bottom to top. In this setup, each voxel's return count \( N_i \) is interpreted as contributing to the cumulative **transmittance** through the canopy.
-
-The Beer–Lambert law is applied as:
-
-$$
-\text{LAD}_i = -\frac{\ln\left(1 - \frac{N_i}{N_{\max}}\right)}{k \cdot \Delta z}
-$$
-
-Here:
-- \( N_i \): number of returns in voxel layer \( i \)
-- \( N_{\max} \): maximum number of returns in any voxel in the column (used to normalize return density)
-- \( \Delta z \): voxel height
-- \( k \): extinction coefficient
-
-#### Physical Interpretation
-
-The ratio \( \frac{N_i}{N_{\max}} \) estimates the **fraction of light intercepted** at layer \( i \), assuming the densest layer represents near-total occlusion. Thus, the term \( 1 - \frac{N_i}{N_{\max}} \) represents the **gap fraction** — i.e., the **probability that a beam of light traveling *from the ground upward* has not yet been occluded by vegetation up to that layer**.
-
-This interpretation fits the TLS scanning geometry, where lower layers are sampled first and occlusion increases with height.
-
-### ALS Variant Used Here
-
-We assume that the highest return count in the column corresponds to full canopy closure (i.e., near-zero gap fraction). This allows us to use the maximum as a local normalization factor:
-
-- \( p_i = \frac{N_i}{N_{\max}} \)
-- \( LAD_i = -\ln(1 - p_i) / (k \cdot dz) \)
-
-This **does not model occlusion directly**, but gives a consistent LAD profile for column-wise clustering.
-
-## Full Workflow: Voxelization to ENVI-met 3D Trees
-
-### Normalize ALS Height and Filter Ground
-
-```r
-las <- readLAS(las_file)
-las <- normalize_height(las, knnidw(k = 6, p = 2))
-las <- filter_poi(las, Z > 0)
-```
-
-### Voxelize ALS Point Cloud
-
-```r
-voxels <- voxel_metrics(las, ~length(Z), res = res_xy, dz = res_z)
-```
-
-### Convert Voxel Counts to LAD using ALS-based Beer's Law
-
-```r
-lad_df <- convert_voxel_lad_long(voxels, res_z = res_z, k = k, scale_factor = scale_factor)
-```
-
-### Cluster Similar LAD Profiles
-
-We reduce the number of ENVI-met profiles by grouping similar LAD profiles using k-means clustering. LAD profiles are pivoted to a wide matrix (z-layers as columns):
-
-```r
-lad_df$xy_key <- paste(lad_df$x, lad_df$y)
-lad_matrix <- lad_df %>% 
-  tidyr::pivot_wider(names_from = z, values_from = lad, values_fill = 0) %>%
-  column_to_rownames("xy_key") %>%
-  as.matrix()
-clustering <- kmeans(lad_matrix, centers = n_clusters, nstart = 10)
-lad_df$cluster <- clustering$cluster[match(lad_df$xy_key, rownames(lad_matrix))]
-```
-
-### Assign 6-Character ENVIMET_IDs
-
-Each LAD cluster is assigned a unique identifier that begins with "S" and uses base36 encoding (0–9, A–Z):
-
-```r
-int_to_base36 <- function(n, width = 5) {
-  chars <- c(0:9, LETTERS)
-  base <- length(chars)
-  result <- character()
-  while (n > 0) {
-    result <- c(chars[(n %% base) + 1], result)
-    n <- n %/% base
-  }
-  result <- paste(result, collapse = "")
-  padded <- sprintf(paste0("%0", width, "s"), result)
-  paste0("S", substr(gsub(" ", "0", padded), 1, width))
-}
-```
-
-### Export Point Locations as GIS Layer
-
-Each unique LAD column becomes a point in a GeoPackage, tagged with its ENVIMET_ID.
-
-```r
-sf_points <- st_as_sf(point_df, coords = c("x", "y"), crs = crs_code)
-st_write(sf_points, output_gpkg, delete_layer = TRUE)
-```
-
-### Export Clustered LAD Profiles as ENVI-met 3DPLANT XML
-
-The LAD profile per cluster is exported to a `.pld` file using XML.
-
-```r
-export_lad_to_envimet3d(lad_df, file_out = xml_output_file)
-```
-
-## Concept of Pseudo-3D Tree Columns
-
-Each clustered LAD profile is interpreted as a **pseudo-3D vegetation column**. These are not derived from segmented individual trees but represent aggregated vertical structure typical for a 2 × 2 m area.
-
-This approach provides a balance between realism and simplicity:
-
-- It allows **realistic vertical vegetation profiles** from ALS
-- Reduces complexity through **clustering**
-- Provides **efficient integration into ENVI-met** via both:
-  - GIS point layers with `ENVIMET_ID`
-  - XML-based 3DPLANT definitions
-
-Pseudo-3D trees enable **realistic microclimate domains** with vegetation heterogeneity without requiring full 3D reconstruction.
-
-## TLS vs ALS LAD Computation Summary
-
-| Aspect              | TLS                                 | ALS                               |
-|---------------------|--------------------------------------|-----------------------------------|
-| View Direction      | Bottom-up                           | Top-down                          |
-| Occlusion Bias      | Undersamples upper canopy           | Undersamples lower canopy         |
-| LAD Estimation      | Cumulative bottom-up (Beer)         | Normalized per column (max count) |
-| Typical Use Case    | Detailed single tree analysis       | Large-area structure sampling     |
-
-## Conclusion and Limitations
-
-This pipeline offers an efficient method to integrate voxelized ALS data into ENVI-met's 3DPLANT framework by:
-
-- Estimating LAD profiles via a Beer–Lambert-based approximation
-- Clustering voxel columns into representative pseudo-3D vegetation types
-- Exporting both point geometries and XML-based plant profiles
-
-**Advantages:**
-- Scalable to large ALS datasets
-- Preserves key structural heterogeneity
-- Compatible with ENVI-met simulation domains
-
-**Limitations:**
-- Assumes that the maximum voxel return represents full canopy cover, which may not hold in sparse stands
-- LAD estimation is empirical; it does not model true light attenuation or occlusion
-- The pseudo-3D approach does not represent individual trees or crown geometry
-- Clustering may smooth out fine-scale vertical variability
-
-Future improvements could include stratified LAD normalization, occlusion-aware corrections, or hybrid ALS-TLS fusion for enhanced realism.
-
-## References
-
-- Béland, M., et al. (2014). *Remote Sensing of Environment*
-- Calders, K., et al. (2015). *Methods in Ecology and Evolution*
-- Jupp, D. L. B., et al. (2009). *Remote Sensing of Environment*
-
-## Script Reference
-
-```r
-source("src/microclimate_ALS.R")
-```
-
-This source contains the complete processing workflow from voxel metrics to XML generation.
 
 ## References
 
