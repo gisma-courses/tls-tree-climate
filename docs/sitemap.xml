@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/new_utils.html</loc>
-    <lastmod>2025-07-29T10:15:14.132Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
-    <lastmod>2025-07-26T14:09:59.967Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
-    <lastmod>2025-07-29T13:31:09.198Z</lastmod>
-  </url>
-  <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/modeling/script-00-interpolation.html</loc>
     <lastmod>2024-11-12T06:43:54.994Z</lastmod>
   </url>
@@ -25,47 +13,67 @@
     <lastmod>2024-11-12T06:43:54.919Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/slidelist.html</loc>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/index.html</loc>
+    <lastmod>2025-07-26T19:55:00.165Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/git-more.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
-    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/helper_functions.html</loc>
-    <lastmod>2025-07-20T14:40:50.650Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_predictor_stack_commented.html</loc>
-    <lastmod>2025-07-20T14:53:08.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/treespecies.html</loc>
-    <lastmod>2025-07-29T12:44:58.694Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/templates/journals-examples-default.html</loc>
-    <lastmod>2025-07-29T12:52:24.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/p3D.html</loc>
-    <lastmod>2025-07-27T07:58:29.262Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_3.html</loc>
-    <lastmod>2025-07-29T12:24:55.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_ALS_tc_v4.html</loc>
-    <lastmod>2025-07-29T11:37:53.148Z</lastmod>
   </url>
   <url>
     <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/learnr_app-2.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
   </url>
   <url>
-    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/git-more.html</loc>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_ALS_tc_v4.html</loc>
+    <lastmod>2025-07-29T11:37:53.148Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/microclimate_predictor_stack_commented.html</loc>
+    <lastmod>2025-07-20T14:53:08.715Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_3.html</loc>
+    <lastmod>2025-07-29T12:24:55.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/treespecies.html</loc>
+    <lastmod>2025-07-29T12:44:58.694Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/evaluation.html</loc>
+    <lastmod>2025-07-26T14:13:11.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/p3D.html</loc>
+    <lastmod>2025-07-27T07:58:29.262Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/fluxes_corrected.html</loc>
+    <lastmod>2025-07-26T15:59:19.064Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/osm2envi.html</loc>
+    <lastmod>2025-07-26T14:09:59.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/new_utils.html</loc>
+    <lastmod>2025-07-29T10:15:14.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/tls_v1_2.html</loc>
+    <lastmod>2025-07-29T13:31:09.198Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/doc/helper_functions.html</loc>
+    <lastmod>2025-07-20T14:40:50.650Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/en-git-more.html</loc>
+    <lastmod>2024-11-12T06:43:54.918Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gisma-courses.github.io/TLS-tree-climate/assessment/slidelist.html</loc>
     <lastmod>2024-11-12T06:43:54.918Z</lastmod>
   </url>
   <url>
