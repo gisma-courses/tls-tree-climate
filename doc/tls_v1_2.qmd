@@ -9,7 +9,6 @@ format:
     number-sections: false
     math: mathjax
 execute:
-  eval: false
   echo: true
   warning: false
   message: false
@@ -819,7 +818,7 @@ z_map <- setNames(seq_along(sort(unique(lad_df$Height_bin))), sort(unique(lad_df
 lad_df$k <- z_map[as.character(lad_df$Height_bin)]
 
 # 4. Scale LAD values, e.g. to get from 0.02 to more realistic values such as 0.5–1.5
-lad_df$lad_value <- round(lad_df$LAD_median * scale_factor, 5)
+lad_df$lad_value <- round(lad_df$LAD_median * 1.2, 5)
 
 # 5. Calculate the maximum dimensions of the grid (for XML specifications)
 dataI <- max(lad_df$i) # Width in cells (x-direction)
@@ -914,9 +913,9 @@ Use `L-SystemBased = 1` if:
     -   You already provide a **dense voxel-based LAD** (from TLS or similar)
     -   You want **strict control** over the 3D structure via LAD profile only
     
-```{r}
+```r
 # --- Export final profile as Envi-met PLANT3D tree --------------------------
-export_lad_to_envimetp3d(
+export_lad_to_envimet_p3d(
   lad_df = lad_df,
   ID = "120312",
   Description = "Fagus sylvatica TLS",
@@ -933,7 +932,7 @@ export_lad_to_envimetp3d(
   scale_factor = 3,
   file_out = output_envimet_tls_3d
 )
-rstudioapi::navigateToFile(output_envimet_tls_3d)
+#rstudioapi::navigateToFile(output_envimet_tls_3d)
 
 ```
 

@@ -3,8 +3,7 @@ title: "Tree Species Classification Cleaning with OTB and Terra"
 author: "Chris Reudenbach"
 date: "2025-07-16"
 format: html
-execute:
-  eval: false
+
 ---
 
 Purpose of Tree Data for ENVI-met Modeling
