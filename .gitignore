@@ -4,3 +4,7 @@
 .Ruserdata
 
 /.quarto/
+data/ALS/las_mof.las
+data/ALS/las_mof.las
+tiles/tile_01.las
+data/ALS/output_cropped.laz
