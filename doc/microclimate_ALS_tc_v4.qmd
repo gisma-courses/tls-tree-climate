@@ -179,3 +179,32 @@ st_write(sf_points, output_gpkg)
 ## Summary and Recommendations
 
 This pipeline generates highly realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles. The final `.pld` and `.gpkg` can be directly used for the QGIS ENVI-met plugin.
+
+## Source Code
+
+::: {.callout-tip collapse="true"}
+
+## Functions from `new_utils.R`
+
+```{r echo=FALSE, results='asis'}
+code <- readLines("../src/new_utils.R")
+cat("```r\n", paste(code, collapse = "\n"), "\n```")
+```
+
+[Download new_utils.R](src/new_utils.R)
+
+
+
+## Main pipeline from `microclimate_ALS_tc_v4.R`
+
+```{r echo=FALSE, results='asis'}
+code <- readLines("../src/microclimate_ALS_tc_v4.R")
+cat("```r\n", paste(code, collapse = "\n"), "\n```")
+```
+
+[Download microclimate_ALS_tc_v4.R](src/microclimate_ALS_tc_v4.R)
+
+
+
+:::
+

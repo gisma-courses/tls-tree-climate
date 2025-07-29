@@ -1,211 +1,404 @@
-#' --- ENVI-met 3DPLANT column generator from voxelized ALS data ---
-#'
-#' @author Chris Reudenbach
-#'
-#' This script performs the full pipeline from voxelization of ALS data to the export
-#' of ENVI-met compatible 3DPLANT profiles. It includes LAD computation, clustering
-#' of similar profiles, and export of:
-#' - Point geometries with shared ENVIMET_IDs
-#' - XML-based 3D plant profile database (.pld)
+        #' --- ENVI-met 3DPLANT column generator from voxelized ALS data ---
+        #'
+        #' @author Chris Reudenbach
+        #'
+        #' This script performs the full pipeline from voxelization of ALS data to the export
+        #' of ENVI-met compatible 3DPLANT profiles. It includes LAD computation, clustering
+        #' of similar profiles, and export of:
+        #' - Point geometries with shared ENVIMET_IDs
+        #' - XML-based 3D plant profile database (.pld)
+        
+        # Load required libraries
+        library(lidR)
+        library(terra)
+        library(dplyr)
+        library(tidyr)
+        library(sf)
+        library(here)
+        library(XML)
+        library(stats)
+        library(tibble)
+        library(rprojroot)
+        library(tools)
+        library(RANN)
+        library(clusternomics)
+        library(e1071)
+        library(entropy)
+        library(NbClust)  # newly added for automatic cluster estimation
+        
+        # Parameters
+        # Lookup-Tabelle der Klassen
+        ts <- data.frame(
+          ID = 1:12,
+          value = c(
+            "agriculture", "alder", "ash", "beech", "douglas_fir",
+            "larch", "oak", "pastures", "roads", "settlements",
+            "spruce", "water"
+          )
+        )
+        # Definiere gültige Baumarten
+        valid_species <- c("alder", "ash", "beech", "douglas_fir", "larch", "oak", "spruce")
+        
+        # Erstelle Vektor gültiger Klassen-IDs
+        valid_ids <- ts$ID[ts$value %in% valid_species]
+        
+        visualize=FALSE
+        las_file <- here("data/ALS/tiles/")
+        res_xy <- 2
+        res_z  <- 2
+        k      <- 0.3
+        scale_factor <- 1.2
+        crs_code <- 25832
+        output_gpkg <- "data/envimet/envimet_p3dtree_points.gpkg"
+        xml_output_file <- "data/envimet/als_envimet_trees.pld"
+        # Tree species raster (classified&cleaned)
+        # source("src/treespecies.R")
+        species_raster <- rast(treespecies_fn) # Tree species raster (classified)
+        
+        
+        # Create output directory if necessary
+        dir.create("data/output", showWarnings = FALSE, recursive = TRUE)
+        
+        source("src/new_utils.R")
+       
+        ############################################
+        
+        #--------------------
 
-# Load required libraries
-library(lidR)
-library(terra)
-library(dplyr)
-library(sf)
-library(here)
-library(XML)
-library(stats)
-library(tibble)
-library(rprojroot)
-#source("src/treespecies.R")
-# Parameters
-las_file <- here("data/ALS/tiles/")  # Path to ALS point cloud file
-res_xy <- 1                                # Horizontal resolution of voxels (meters)
-res_z  <- 1                                # Vertical resolution of voxels (meters)
-k      <- 0.3                               # Light extinction coefficient for LAD
-scale_factor <- 1.2                        # Optional scaling factor for LAD values
-crs_code <- 25832                          # EPSG code of target CRS
-output_gpkg <- "data/envimet/envimet_p3dtree_points.gpkg"      # Output vector layer with tree positions
-xml_output_file <- "data/envimet/als_envimet_trees.pld"      # Output PLANT3D XML file
-species_raster <- rast(sprintf("data/aerial/%s_%sm.tif", "agg_cleand", res_xy)) # Tree species raster (classified)
-n_clusters <- 100                          # Number of LAD profile clusters
-
-dir.create("output", showWarnings = FALSE, recursive = TRUE)
-
-# Read and normalize LAS
-las=merge_las_tiles(
-  tile_dir = las_file,
-  output_file = "data/ALS/merged_output.laz",
-  chunk_size = 10000,
-  workers = 6
-)
-
-
-crs(las) <- "EPSG:25832"
-# Crop LAS file to extent
-#las_cropped <- clip_rectangle(las,sapflow_ext@xmin, sapflow_ext@xmax, sapflow_ext@ymin, sapflow_ext@ymax)
-
-# Write to file
-#writeLAS(las_cropped, "data/ALS/output_cropped.laz")
-#las <- readLAS("data/ALS/output_cropped.laz")
-las <- normalize_height(las, knnidw(k = 6, p = 2))
-las <- filter_poi(las, Z > 0)  # Remove ground points
-
-# Voxelize point cloud (counts per voxel)
-voxels <- voxel_metrics(las, ~length(Z), res = res_xy, dz = res_z)
-
-# Convert voxel metrics to LAD profiles per column
-convert_voxel_lad_long <- function(df, res_z = 2, k = 0.3, scale_factor = 1.2) {
-  if (!all(c("X", "Y", "Z", "V1") %in% names(df))) stop("Missing required columns (X, Y, Z, V1)")
-  df$xy_id <- paste(df$X, df$Y, sep = "_")
-  df_split <- split(df, df$xy_id)
-  lad_df_list <- lapply(df_split, function(group) {
-    max_p <- max(group$V1, na.rm = TRUE)
-    rel_p <- pmin(pmax(group$V1 / max_p, 1e-5), 0.9999)
-    lad <- -log(1 - rel_p) / (k * res_z)
-    lad <- lad * scale_factor
-    data.frame(x = group$X, y = group$Y, z = group$Z, lad = lad)
-  })
-  do.call(rbind, lad_df_list)
-}
-
-# Compute LAD values
-lad_df <- convert_voxel_lad_long(voxels, res_z = res_z, k = k, scale_factor = scale_factor)
-
-# Extract species at LAD profile positions
-species_at_xy <- extract(species_raster, lad_df[, c("x", "y")])
-lad_df$species_class <- species_at_xy[, 2]  # second column contains raster values
-
-
-
-# Prepare clustering
-lad_df$xy_key <- paste(lad_df$x, lad_df$y)
-lad_matrix <- lad_df %>% 
-  tidyr::pivot_wider(names_from = z, values_from = lad, values_fill = 0) %>%
-  column_to_rownames("xy_key") %>%
-  as.matrix()
-
-# Cluster LAD profiles using k-means
-clustering <- kmeans(lad_matrix, centers = n_clusters, nstart = 100)
-lad_df$cluster <- clustering$cluster[match(lad_df$xy_key, rownames(lad_matrix))]
-
-# Convert integer cluster to 6-character alphanumeric ENVIMET ID
-int_to_base36 <- function(n, width = 5) {
-  chars <- c(0:9, LETTERS)
-  base <- length(chars)
-  result <- character()
-  while (n > 0) {
-    result <- c(chars[(n %% base) + 1], result)
-    n <- n %/% base
-  }
-  result <- paste(result, collapse = "")
-  padded <- sprintf(paste0("%0", width, "s"), result)
-  paste0("S", substr(gsub(" ", "0", padded), 1, width))
-}
-
-# Assign ENVIMET_IDs per cluster
-cluster_ids <- unique(lad_df$cluster)
-cluster_mapping <- data.frame(
-  cluster = cluster_ids,
-  ENVIMET_ID = sapply(cluster_ids, int_to_base36)
-)
-lad_df <- left_join(lad_df, cluster_mapping, by = "cluster")
-
-# Export point layer with one record per LAD profile
-point_df <- lad_df[!duplicated(lad_df$xy_key), c("x", "y", "ENVIMET_ID")]
-sf_points <- st_as_sf(point_df, coords = c("x", "y"), crs = crs_code)
-st_write(sf_points, output_gpkg, delete_layer = TRUE)
-
-# Export LAD profiles to XML
-export_lad_to_envimet3d <- function(lad_df, file_out = "tls_envimet_tree.pld") {
-  SeasonProfile = c(0.3, 0.3, 0.3, 0.4, 0.7, 1, 1, 1, 0.8, 0.6, 0.3, 0.3)
-  BlossomProfile = c(0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-  
-  lad_df <- lad_df[!is.na(lad_df$lad), ]
-  lad_df$i <- as.integer(factor(lad_df$x))
-  lad_df$j <- as.integer(factor(lad_df$y))
-  z_map <- setNames(seq_along(sort(unique(lad_df$z))), sort(unique(lad_df$z)))
-  lad_df$k <- z_map[as.character(lad_df$z)]
-  lad_df$lad_value <- round(lad_df$lad * scale_factor, 5)
-  
-  tree_ids <- unique(lad_df$ENVIMET_ID)
-  now <- format(Sys.time(), "%Y-%m-%dT%H:%M:%S")
-  root <- newXMLNode("ENVI-MET_Datafile")
-  header_node <- newXMLNode("Header")
-  addChildren(header_node, newXMLNode("filetype", "DATA"))
-  addChildren(header_node, newXMLNode("version", "1"))
-  addChildren(header_node, newXMLNode("revisiondate", now))
-  addChildren(header_node, newXMLNode("remark", "Clustered TLS-based trees"))
-  addChildren(header_node, newXMLNode("fileInfo", "Clustered LAD Trees"))
-  addChildren(header_node, newXMLNode("checksum", "32767"))
-  addChildren(header_node, newXMLNode("encryptionlevel", "1699612"))
-  addChildren(root, header_node)
-  
-  for (id in tree_ids) {
-    tree_df <- lad_df[lad_df$ENVIMET_ID == id, ]
-    profile <- tree_df %>% group_by(z = k) %>% summarise(lad_value = mean(lad_value, na.rm = TRUE))
-    zlayers <- max(profile$z)
-    dataI <- 1
-    dataJ <- 1
-    Height <- zlayers * res_z
-    
-    # default physiology values (Fagus sylvatica)
-    name <- "Fagus sylvatica"; albedo <- 0.18; trans <- 0.30; root_d <- 4.5; leaf_type <- 1
-    
-    if (!all(is.na(tree_df$species_class))) {
-      class_val <- na.omit(unique(tree_df$species_class))[1]
-      if (class_val == 2) { name <- "Alnus glutinosa"; albedo <- 0.18; trans <- 0.35; root_d <- 3.5; leaf_type <- 1 }
-      else if (class_val == 3) { name <- "Fraxinus excelsior"; albedo <- 0.19; trans <- 0.38; root_d <- 4.0; leaf_type <- 1 }
-      else if (class_val == 4) { name <- "Fagus sylvatica"; albedo <- 0.18; trans <- 0.30; root_d <- 4.5; leaf_type <- 1 }
-      else if (class_val == 5) { name <- "Pseudotsuga menziesii"; albedo <- 0.20; trans <- 0.18; root_d <- 4.2; leaf_type <- 2 }
-      else if (class_val == 6) { name <- "Larix decidua"; albedo <- 0.23; trans <- 0.25; root_d <- 4.0; leaf_type <- 2 }
-      else if (class_val == 7) { name <- "Quercus robur"; albedo <- 0.20; trans <- 0.35; root_d <- 5.0; leaf_type <- 1 }
-      else if (class_val == 11) { name <- "Picea abies"; albedo <- 0.22; trans <- 0.15; root_d <- 3.0; leaf_type <- 2 }
-    }
-    
-    plant_node <- newXMLNode("PLANT3D")
-    addChildren(plant_node, newXMLNode("ID", id))
-    addChildren(plant_node, newXMLNode("Description", "Clustered TLS Tree"))
-    addChildren(plant_node, newXMLNode("AlternativeName", name))
-    addChildren(plant_node, newXMLNode("Planttype", "0"))
-    addChildren(plant_node, newXMLNode("Leaftype", as.character(leaf_type)))
-    addChildren(plant_node, newXMLNode("Albedo", sprintf("%.5f", albedo)))
-    addChildren(plant_node, newXMLNode("Eps", "0.96000"))
-    addChildren(plant_node, newXMLNode("Transmittance", sprintf("%.5f", trans)))
-    addChildren(plant_node, newXMLNode("Height", sprintf("%.5f", Height)))
-    addChildren(plant_node, newXMLNode("Width", sprintf("%.5f", 1)))
-    addChildren(plant_node, newXMLNode("Depth", sprintf("%.5f", 1)))
-    addChildren(plant_node, newXMLNode("RootDiameter", sprintf("%.5f", root_d)))
-    addChildren(plant_node, newXMLNode("cellsize", sprintf("%.5f", res_z)))
-    addChildren(plant_node, newXMLNode("xy_cells", dataI))
-    addChildren(plant_node, newXMLNode("z_cells", zlayers))
-    addChildren(plant_node, newXMLNode("scalefactor", "1.00000"))
-    
-    lad_lines <- apply(profile, 1, function(r) {
-      sprintf("%d,%d,%d,%.5f", 1, 1, r[1], r[2])
-    })
-    lad_node <- newXMLNode("LAD-Profile",
-                           attrs = c(type = "sparematrix-3D",
-                                     dataI = dataI,
-                                     dataJ = dataJ,
-                                     zlayers = zlayers,
-                                     defaultValue = "0.00000"),
-                           .children = paste(lad_lines, collapse = "\n"))
-    addChildren(plant_node, lad_node)
-    addChildren(plant_node, newXMLNode("Season-Profile",
-                                       paste(sprintf("%.5f", SeasonProfile), collapse = ",")))
-    addChildren(plant_node, newXMLNode("Blossom-Profile",
-                                       paste(sprintf("%.5f", BlossomProfile), collapse = ",")))
-    
-    addChildren(plant_node, newXMLNode("L-SystemBased", "0"))
-    
-    addChildren(root, plant_node)
-  }
-  
-  saveXML(root, file = file_out, indent = TRUE, encoding = "UTF-8")
-  message("✔ Envi-met PLANT3D (.pld) written to: ", normalizePath(file_out))
-}
-
-# Run export
-export_lad_to_envimet3d(lad_df, file_out = xml_output_file)
+        # Read and normalize LAS
+        las_fn=merge_las_tiles(
+          tile_dir = las_file,
+          output_file = "data/ALS/merged_output.laz",
+          chunk_size = 10000,
+          workers = 6
+        )
+        las=lidR::readLAS(las_fn)
+        crs(las) <- "EPSG:25832"
+        
+        # Crop LAS file to extent (optional xhunking for github)
+        #las_cropped <- clip_rectangle(las,sapflow_ext@xmin, sapflow_ext@xmax, sapflow_ext@ymin, sapflow_ext@ymax)
+        # Write to file
+        #writeLAS(las_cropped, "data/ALS/output_cropped.laz")
+        #las <- readLAS("data/ALS/output_cropped.laz")
+        
+        
+        #------------------------------------------------------------------------------
+        # Description: Applies CSF ground classification with adaptive parameters
+        #              based on CHM rugosity from a single LAS file
+        #------------------------------------------------------------------------------
+        # === Parameters ===
+       ## output_path <- "data/ALS/csf.las"   # Pfad zur Ausgabedatei
+        
+        # === Step 1: Preliminary CHM for Rugosity Estimation ===
+        # (non-normalized, quick canopy height approximation)
+        chm_pre <- rasterize_canopy(las, res = res_xy, algorithm = pitfree(thresholds = c(0, 1, 3, 6, 9, 12, 16)))
+        
+        # === Step 2: Estimate Rugosity to Guide CSF Parameters ===
+        rugosity <- terra::focal(chm_pre, w = matrix(1, 3, 3), fun = sd, na.rm = TRUE)
+        mean_rug <- global(rugosity, fun = "mean", na.rm = TRUE)[[1]]
+        message(sprintf("Mean CHM rugosity: %.3f", mean_rug))
+        
+        # === Step 3: Choose Adaptive CSF Parameters ===
+        csf_params <- if (mean_rug > 1) {
+          message("Detected complex/dense canopy – using fine CSF settings")
+          csf(cloth_resolution = 0.5, rigidness = 2, class_threshold = 0.4, iterations = 800)
+        } else {
+          message("Detected open canopy – using coarse CSF settings")
+          csf(cloth_resolution = 1.5, rigidness = 4, class_threshold = 0.6, iterations = 300)
+        }
+        
+        # === Step 4: Classify Ground Using Selected CSF ===
+        las <- classify_ground(las, csf_params)
+        
+        # === Step 5: Create DEM from Classified Ground Points ===
+        dem_algo <- eval(parse(text = recommend_dem_interpolation(las, res = res_xy)))
+        dem <- rasterize_terrain(las, res = res_xy, algorithm = dem_algo)
+        
+        # === Step 6: Normalize Heights Using DEM ===
+        # This sets Z = canopy height above ground
+        las_norm <- normalize_height(las, algorithm = knnidw(k = 6L, p = 2))
+        
+        # === Step 7: CHM from Normalized Point Cloud ===
+        pit_algo <- pitfree(thresholds = c(0, 1, 3, 6, 9, 12, 16))
+        chm <- rasterize_canopy(las_norm, res = res_xy, algorithm = pit_algo, pkg = "terra")
+        
+        # === Step 8: DSM from First Returns (Optional) ===
+        dsm <- rasterize_canopy(las, res = res_xy, algorithm = p2r(), pkg = "terra")
+        
+        # === Step 9: Terrain Derivatives from DEM ===
+        slope  <- terrain(dem, "slope", unit = "radians")
+        aspect <- terrain(dem, "aspect", unit = "degrees")
+        
+        # === Step 10: TPI from DSM (Smoothed and Binarized) ===
+        TPI <- terrain(dsm, "TPI")
+        TPI <- terra::focal(TPI, w = matrix(1, 3, 3), fun = mean, na.rm = TRUE)
+        TPI[TPI < 0] <- -1
+        TPI[TPI > 0] <- 1
+        
+        # --- Stack ---
+        topo <- c(dem, dsm, chm, slope, aspect, TPI)
+        names(topo) <- c("dem", "dsm", "chm", "slope", "aspect", "TPI")
+        
+        # --- Save ---
+        out_file <- "data/ALS/topo_stack.tif"
+        terra::writeRaster(topo, out_file, overwrite = TRUE)
+        
+        # --- Optional Plot ---
+        plot(topo)
+ 
+        #############################################
+        
+        # --- Apply original wide-pulse voxel processing and LAD conversion ---
+        voxels <- preprocess_voxels(las_norm, res_xy = res_xy, res_z = res_z)
+        lad_df <- convert_to_LAD_beer(voxels, grainsize = res_z, k = k, scale_factor = scale_factor)
+        
+        # --- Add topographic indices prior to clustering ---
+        dem <- rast("data/ALS/topo_stack.tif")[["dem"]]
+        dsm <- rast("data/ALS/topo_stack.tif")[["dsm"]]
+        
+        # Erzeuge ein sf-Objekt aus lad_df
+        sf_lad <- st_as_sf(as.data.frame(lad_df), coords = c("X", "Y"), crs = crs_code)
+        
+        # Füge topografische Daten direkt über sf hinzu
+        lad_df$elev  <- terra::extract(dem, sf_lad)[,2]
+        lad_df$slope <- terra::extract(terrain(dem, "slope"), sf_lad)[,2]
+        lad_df$aspect<- terra::extract(terrain(dem, "aspect"), sf_lad)[,2]
+        lad_df$TPI   <- terra::extract(terrain(dsm, "TPI"), sf_lad)[,2]
+        lad_df$CHM   <- terra::extract(dsm - dem, sf_lad)[,2]
+        lad_df$species_class <- terra::extract(species_raster, sf_lad)[,2]
+        
+        
+        mapviewlad_df = as.data.frame(lad_df)
+        # --- Compute structural indices prior to clustering ---
+        lad_matrix <- lad_df %>%
+          dplyr::select(starts_with("pulses_")) %>%
+          as.matrix()
+        rownames(lad_matrix) <- paste(lad_df$X, lad_df$Y, sep = "_")
+        
+        lad_df$LAD_mean       <- rowMeans(lad_matrix, na.rm = TRUE)
+        lad_df$LAD_max        <- apply(lad_matrix, 1, max, na.rm = TRUE)
+        lad_df$LAD_height_max <- apply(lad_matrix, 1, which.max) * res_z
+        lad_df$LAD_skewness   <- apply(lad_matrix, 1, skewness)
+        lad_df$LAD_kurtosis   <- apply(lad_matrix, 1, kurtosis)
+        lad_df$LAD_entropy    <- apply(lad_matrix, 1, entropy)
+        
+        
+        # --- Additional ecological indices ---
+        # Define vertical voxel indices
+        n_layers <- ncol(lad_matrix)
+        top_third <- seq(ceiling(2 * n_layers / 3), n_layers)
+        
+        # Gap fraction: Anteil leerer Voxel in Säule
+        lad_df$Gap_Fraction <- rowMeans(lad_matrix == 0, na.rm = TRUE)
+        
+        # Canopy cover in upper third
+        lad_df$Canopy_Cover_Top <- rowMeans(lad_matrix[, top_third] > 0, na.rm = TRUE)
+        
+        # LAD coefficient of variation
+        lad_df$LAD_CV <- apply(lad_matrix, 1, function(x) sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE))
+        
+        # Optional: vertical evenness via normalized entropy
+        norm_LAD <- lad_matrix / rowSums(lad_matrix, na.rm = TRUE)
+        lad_df$Vertical_Evenness <- apply(norm_LAD, 1, function(p) {
+          p <- p[p > 0]
+          -sum(p * log(p)) / log(length(p))
+        })
+        # --- Combine LAD profile, structural indices, eco indices and topo features for clustering ---
+        lad_matrix <- lad_df %>%
+          dplyr::select(starts_with("lad_"), starts_with("LAD_"), Gap_Fraction, Canopy_Cover_Top, LAD_CV, Vertical_Evenness, elev, slope, aspect, TPI, CHM) %>%
+          as.matrix()
+        
+        # --- Combine LAD profile, structural indices, and topo features for clustering ---
+        lad_matrix <- lad_df %>%
+          dplyr::select(starts_with("pulses_"), starts_with("LAD_"), elev, slope, aspect, TPI, CHM) %>%
+          as.matrix()
+        rownames(lad_matrix) <- paste(lad_df$X, lad_df$Y, sep = "_")
+        
+        
+        
+        
+        
+        # --- Filter nach gültigen Baumarten-IDs ---
+        valid_idx <- lad_df$species_class %in% valid_ids
+        lad_df <- lad_df[valid_idx, ]
+        lad_matrix <- lad_matrix[valid_idx, ]
+        
+        # --- Nur Pulse-Spalten extrahieren ---
+        pulse_cols <- grep("^pulses_", colnames(lad_matrix), value = TRUE)
+        lad_pulses <- lad_matrix[, pulse_cols]
+        
+        # --- Sampling für Clusterzahlbestimmung ---
+        set.seed(42)
+        sample_idx <- sample(1:nrow(lad_pulses), floor(nrow(lad_pulses) * 0.01))
+        sample_data <- lad_pulses[sample_idx, ]
+        
+        cat("Sample size before NA filtering:", nrow(sample_data), "rows and", ncol(sample_data), "columns\n")
+        
+        # Bereinige Sample-Daten
+        na_threshold <- 0.2
+        keep_cols <- which(colMeans(is.na(sample_data)) <= na_threshold)
+        sample_data <- sample_data[, keep_cols]
+        
+        variances <- apply(sample_data, 2, var, na.rm = TRUE)
+        sample_data <- sample_data[, variances > 1e-10]
+        
+        sample_data <- na.omit(sample_data)
+        cat("Sample size after cleaning:", nrow(sample_data), "rows and", ncol(sample_data), "columns\n")
+        
+        # --- PCA aufbereiten ---
+        pca_res <- prcomp(sample_data, scale. = TRUE)
+        
+        # --- Kriterien auswerten und empfohlene Anzahl PCs bestimmen ---
+        pc_info <- suggest_n_pcs(pca_res, variance_cutoff = 0.8)
+        
+        # --- Reduziertes PCA-Dataset erzeugen ---
+        sample_data_pca <- pca_res$x[, 1:pc_info$n_pcs]
+        
+        # --- Clusteranzahl bestimmen ---
+        nb <- NbClust::NbClust(
+          sample_data_pca,
+          distance = "euclidean",
+          min.nc = 2,
+          max.nc = 30,
+          method = "kmeans"
+        )
+        optimal_k <- as.integer(nb$Best.nc[1])
+          
+        # --- Bereinige ungültige Zeilen für Clustering ---
+        valid_rows <- apply(lad_pulses, 1, function(x) all(is.finite(x) & !is.na(x)))
+        lad_pulses <- lad_pulses[valid_rows, ]
+        lad_df <- lad_df[valid_rows, ]
+        
+        # --- Clustering der LAD-Pulse-Daten ---
+        km_arma <- KMeans_arma(
+          lad_pulses,
+          clusters = optimal_k,
+          n_iter = 100,
+          seed_mode = "random_subset"
+        )
+        
+        # --- Cluster-Ergebnisse in lad_df schreiben ---
+        lad_df$cluster <- as.integer(predict_KMeans(lad_pulses, km_arma))
+        
+        lad_df$cluster
+        
+        # --- Mittelung der LAD-Profile pro Cluster zu synthetischen Profilen ---
+        cluster_profiles <- lad_df %>%
+          group_by(cluster) %>%
+          summarise(across(starts_with("pulses_"), mean, na.rm = TRUE)) %>%
+          arrange(cluster)
+        
+        cluster_profiles_lad <- convert_to_LAD_beer(
+          df = cluster_profiles,
+          grainsize = res_z,     # z. B. 2 m
+          k = 0.5,               # Extinktionskoeffizient (typisch 0.3–0.5)
+          scale_factor = 1.2,    # optional, empirisch
+          lad_max = 3.0,         # realistische Obergrenze für LAD (z. B. 3 m²/m³)
+          lad_min = 0.05,        # untere Schranke, optional
+          keep_pulses = FALSE    # Originaldaten entfernen
+        )
+        
+        
+        # --- Long-Format für LAD-Profile ---
+        # --- Long-Format für LAD-Profile ---
+        lad_profiles_long <- cluster_profiles_lad %>%
+          pivot_longer(
+            cols = starts_with("lad_pulses_"),
+            names_to = "layer",
+            values_to = "lad"
+          ) %>%
+          mutate(
+            z = as.integer(gsub("lad_pulses_|_.*", "", layer)) * res_z,
+            ENVIMET_ID = cluster
+          ) %>%
+          select(ENVIMET_ID, cluster, z, lad)
+        
+        cluster_ids <- sort(unique(lad_profiles_long$cluster))
+        cluster_mapping <- data.frame(
+          cluster = cluster_ids,
+          ENVIMET_ID = sapply(cluster_ids, int_to_base36)
+        )
+        
+        # --- Mapping-Tabellen vorbereiten ---
+        species_mapping <- tibble::tibble(
+          species_class = c(1, 2, 3, 4, 5, 6, 7),
+          species_name = c("Acer pseudoplatanus", "Betula pendula", "Fagus sylvatica",
+                           "Picea abies", "Pinus sylvestris", "Quercus robur", "Tilia cordata")
+        )
+        
+        leaf_thickness_lookup <- tibble::tibble(
+          species_name = c("Fagus sylvatica", "Quercus robur", "Acer pseudoplatanus",
+                           "Pinus sylvestris", "Picea abies", "Betula pendula", "Tilia cordata"),
+          LeafThickness = c(0.0025, 0.0025, 0.0022, 0.0015, 0.0016, 0.0021, 0.0023)
+        )
+        
+        # --- Cluster-IDs generieren (z. B. S00001 ...) ---
+        cluster_mapping <- lad_profiles_long %>%
+          distinct(cluster) %>%
+          mutate(ENVIMET_ID = paste0("S", formatC(cluster, width = 5, flag = "0")))
+        
+        # --- Voting-basierte Artzuweisung (häufigste Art pro Cluster) ---
+        cluster_species <- lad_df %>%
+          group_by(cluster, species_class) %>%
+          summarise(n = n(), .groups = "drop") %>%
+          group_by(cluster) %>%
+          slice_max(n, with_ties = FALSE) %>%
+          ungroup()
+        
+        # --- lad_profiles_long neu aufbauen und sauber joinen ---
+        lad_profiles_long <- lad_profiles_long %>%
+          select(cluster, z, lad) %>%
+          left_join(cluster_species, by = "cluster") %>%
+          left_join(species_mapping, by = "species_class") %>%
+          left_join(leaf_thickness_lookup, by = "species_name") %>%
+          left_join(cluster_mapping, by = "cluster")
+        
+        # --- Optional: Validierung ---
+        stopifnot(!any(is.na(lad_profiles_long$species_class)))
+        stopifnot(!any(is.na(lad_profiles_long$species_name)))
+        stopifnot(!any(is.na(lad_profiles_long$LeafThickness)))
+        stopifnot(!any(is.na(lad_profiles_long$ENVIMET_ID)))
+        
+        cluster_heights <- lad_df %>%
+          group_by(cluster) %>%
+          summarise(Height_CHM = mean(CHM, na.rm = TRUE), .groups = "drop")
+        lad_profiles_long <- lad_profiles_long %>%
+          left_join(cluster_heights, by = "cluster")
+        
+        # --- Traits berechnen ---
+        plant_traits <- compute_traits_from_lad(
+          lad_df = lad_profiles_long,
+          res_z = res_z
+        )
+        
+        
+        plant_traits <-plant_traits %>%
+          filter(!is.na(LAI), !is.na(MaxLAD))
+        
+        valid_ids <- plant_traits$ENVIMET_ID
+        lad_profiles_long <- lad_profiles_long %>%
+          filter(ENVIMET_ID %in% valid_ids)
+        
+        # --- ENVI-met 3DPLANT-Datei exportieren ---
+        export_lad_to_envimet_p3d(
+          lad_df = lad_profiles_long,
+          file_out = "data/envimet/envimet_pseudo3Dtree.pld",
+          res_z = res_z,
+          trait_df = plant_traits
+        )
+        
+        # --- Export GPKG with positions and ENVIMET_IDs ---
+        point_df <- lad_df[!duplicated(paste0(lad_df$X, "_", lad_df$Y)), c("X", "Y", "ENVIMET_ID.x", "species_class", "cluster")]
+        sf_points <- st_as_sf(point_df, coords = c("X", "Y"), crs = crs_code)
+        st_write(sf_points, output_gpkg, delete_layer = TRUE)
+        
+        # --- Plot spatial distribution of clusters (optional diagnostics) ---
+        if (visualize) {
+          library(ggplot2)
+          ggplot(lad_df, aes(x = X, y = Y, color = as.factor(cluster))) +
+            geom_point(size = 0.8) +
+            coord_equal() +
+            scale_color_viridis_d(name = "Cluster") +
+            labs(title = "Spatial distribution of LAD clusters") +
+            theme_minimal()
+        }
