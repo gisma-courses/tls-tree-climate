@@ -14,7 +14,7 @@ execute:
   message: false
 ---
 
----
+
 
 ::: {layout-ncol="2"}
 ![Tree No. 8 original not projected TLS Data](tls_tree8.gif){width="400"}
@@ -494,10 +494,6 @@ plot(lad_raster)
 
 ```
 
-In a more 3D version it looks like below.
-
-
-<iframe width="100%" height="600" src="tree:voxel_viewer.html" frameborder="0"> </iframe>
 
 
 
@@ -914,6 +910,8 @@ Use `L-SystemBased = 1` if:
     -   You want **strict control** over the 3D structure via LAD profile only
     
 ```r
+#| eval: false
+
 # --- Export final profile as Envi-met PLANT3D tree --------------------------
 export_lad_to_envimet_p3d(
   lad_df = lad_df,
@@ -932,6 +930,7 @@ export_lad_to_envimet_p3d(
   scale_factor = 3,
   file_out = output_envimet_tls_3d
 )
+
 #rstudioapi::navigateToFile(output_envimet_tls_3d)
 
 ```

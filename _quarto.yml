@@ -1,7 +1,6 @@
 project: 
   type: website
   output-dir: docs
-
 website:
   bread-crumbs: false
   open-graph: true
