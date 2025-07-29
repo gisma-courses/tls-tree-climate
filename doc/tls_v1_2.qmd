@@ -83,45 +83,52 @@ What happens in the script?
 
 To use this ENVI-met tree modeling workflow in R, follow these steps to load and initialize the project correctly:
 
-Project Setup: Loading the R Project and Environment
-Download the project from next.hessenbox
-https://gds.hessen.de/INTERSHOP/web/WFS/HLBG-Geodaten-Site/de_DE/-/EUR/ViewDownloadcenter-Start
-##### Download and Unzip the Project Archive
+## Clone GitHub Repo in RStudio
 
--  
+### Option 1: RStudio GUI
 
--   Unzip the folder to your desired location.
+1. Go to File → New Project → Version Control → Git
+2. Enter the repository URL:  
+   https://github.com/gisma-courses/tls-tree-climate.git
+3. Choose a project directory and name
+4. Click Create Project
 
--   The folder should contain at least:
+---
 
-    -   An `*.Rproj` file (e.g. `envimet_tree_workflow.Rproj`)
-    -   A `data/` folder with input files like `tree_08.las`
-    -   One or more `R/` scripts
+### Option 2: Terminal
 
-##### Open the Project in RStudio
+    git clone https://github.com/gisma-courses/tls-tree-climate.git
 
--   Go to **File → Open Project**
--   Select the `*.Rproj` file (e.g. `microclimate_TLS.Rproj`)
--   This ensures that the project directory is treated as the root for all file paths.
+Then open the cloned folder in RStudio (via `.Rproj` file or "Open Project").
+
+---
+
+Note: Make sure Git is installed and configured in  
+RStudio → Tools → Global Options → Git/SVN
+
 
 > The use of the `{here}` package depends on having a valid RStudio project. Without this, file paths may not resolve correctly.
 
 ##### Data Input Parameters and Paths
 
 ::: {.callout-tip appearance="minimal"}
-The input data set tree_08.las is a cleaned terrestrial laser scan of a single, isolated tree. All surrounding vegetation and ground points have been removed, so the file contains only the tree’s structure—trunk, branches, and foliage. Stored in standard LAS format, it provides high-resolution 3D point data suitable for voxelization, LAD calculation, or input into microclimate and radiative models. This detailed structural data is essential for generating true 3D tree entities in ENVI-met; without it, only simplified vegetation (SimplePlants) can be used.
+The input data set is a cleaned terrestrial laser scan of a single, isolated tree. All surrounding vegetation and ground points have been removed, so the file contains only the tree’s structure—trunk, branches, and foliage. Stored in standard LAS format, it provides high-resolution 3D point data suitable for voxelization, LAD calculation, or input into microclimate and radiative models. This detailed structural data is essential for generating true 3D tree entities in ENVI-met; without it, only simplified vegetation (SimplePlants) can be used.
 :::
 
 Set global parameters for the workflow, such as file paths, voxel resolution, and maximum LAD value for normalization.
 
 ```{r setup}
 
-library(terra)
 library(lidR)
+library(terra)
+library(dplyr)
 library(sf)
 library(here)
-library(data.table)
-
+library(XML)
+library(stats)
+library(tibble)
+library(rprojroot)
+source("../src/tile_merge_laz.R")
 zmax <- 40  
 grain.size <- 1  
 project_root <- here::here()  
@@ -137,10 +144,12 @@ lad_method <- "beer"  # Set to "linear" or "beer"
 k_extinction <- 0.25
 
 
-las_file <- file.path(project_root, "data/TLS/tree_08.laz")  
+las_file <- here("data/ALS/tiles")  # Path to ALS point cloud file 
 output_voxels <- file.path(project_root, "data/TLS/LAD_voxDF.rds")  
 output_array <- file.path(project_root, "data/TLS/lad_array_m2m3.rds")  
 output_profile_plot <- file.path(project_root, "data/TLS/lad_vertical_profile.pdf")  
+
+
 ```
 
 ### Voxelization of TLS data
@@ -158,7 +167,14 @@ This gives a spatially distributed LAD profile suitable for further analysis or 
 ```{r}
 library(terra)
 
- las <- lidR::readLAS(las_file)  # Read the LAS/LAZ file (point cloud data)
+ las_fn = merge_las_tiles(
+    tile_dir = las_file,
+    output_file = "data/ALS/merged_output.las",
+    chunk_size = 10000,
+    workers = 6
+  )
+ las=lidR::readLAS("../data/ALS/merged_output.las")
+
   las@data$Z <- las@data$Z - min(las@data$Z, na.rm = TRUE)  
   maxZ <- min(floor(max(las@data$Z, na.rm = TRUE)), zmax)  
   las@data$Z[las@data$Z > maxZ] <- maxZ  
