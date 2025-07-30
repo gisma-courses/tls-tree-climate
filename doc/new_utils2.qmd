@@ -68,7 +68,7 @@ Assesses uniformity of vertical LAD distribution.
 
 ## Kurtosis & Skewness
 
-For LAD vector \$x\$:
+For LAD vector $x$:
 
 * **Skewness**:
 
@@ -185,30 +185,6 @@ Extracts topographic values to LAD points via buffered zonal statistics
 * ENVI-met 3DPLANT format documentation
 
 ---
-
-# Weak Points
-
-| Component               | Issue                                                                 |
-| ----------------------- | --------------------------------------------------------------------- |
-| `preprocess_voxels()`   | Assumes normalized input; no fallback or validation                   |
-| `convert_to_LAD_beer()` | Max normalization sensitive to outliers, bias in sparse canopies      |
-| Trait mapping           | `LeafThickness` hard-coded; no fallback if species unknown            |
-| Memory                  | `lad_matrix`, `NbClust`, full CHM are RAM-intensive steps             |
-| XML export              | `.pld` profiles rely on rigid class–species mapping, not trait-driven |
-| ID generation           | No collision protection in `int_to_base36()` if reused across domains |
-
----
-
-# Conclusion
-
-This ALS-to-ENVI-met 3D pipeline provides a high-resolution, structurally rich modeling input for urban and ecological microclimate simulation. Advanced users may consider:
-
-* Replacing max-based LAD normalization with transmittance calibration
-* Incorporating TLS-derived QSM traits
-* Using functional trait databases for `LeafThickness` and roughness
-* Validating `.pld` export by reverse simulation
-
-The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.
 
 # Appendix: Additional Metrics
 

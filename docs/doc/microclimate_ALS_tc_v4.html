@@ -262,7 +262,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#trait-assignment-and-xml-export" id="toc-trait-assignment-and-xml-export" class="nav-link" data-scroll-target="#trait-assignment-and-xml-export">Trait Assignment and XML Export</a></li>
   <li><a href="#export-tree-locations" id="toc-export-tree-locations" class="nav-link" data-scroll-target="#export-tree-locations">Export Tree Locations</a></li>
-  <li><a href="#summary-and-recommendations" id="toc-summary-and-recommendations" class="nav-link" data-scroll-target="#summary-and-recommendations">Summary and Recommendations</a></li>
+  <li><a href="#weak-points" id="toc-weak-points" class="nav-link" data-scroll-target="#weak-points">Weak Points</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source Code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/microclimate_ALS_tc_v4.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -463,9 +464,58 @@ window.Quarto = {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(sf_points, output_gpkg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Tip</strong>: These point geometries can be directly imported into ENVI-met Spaces or Generator.</p>
 </section>
-<section id="summary-and-recommendations" class="level2">
-<h2 class="anchored" data-anchor-id="summary-and-recommendations">Summary and Recommendations</h2>
-<p>This pipeline generates highly realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles. The final <code>.pld</code> and <code>.gpkg</code> can be directly used for the QGIS ENVI-met plugin.</p>
+<section id="weak-points" class="level1">
+<h1>Weak Points</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>preprocess_voxels()</code></td>
+<td>Assumes normalized input; no fallback or validation</td>
+</tr>
+<tr class="even">
+<td><code>convert_to_LAD_beer()</code></td>
+<td>Max normalization sensitive to outliers, bias in sparse canopies</td>
+</tr>
+<tr class="odd">
+<td>Trait mapping</td>
+<td><code>LeafThickness</code> hard-coded; no fallback if species unknown</td>
+</tr>
+<tr class="even">
+<td>Memory</td>
+<td><code>lad_matrix</code>, <code>NbClust</code>, full CHM are RAM-intensive steps</td>
+</tr>
+<tr class="odd">
+<td>XML export</td>
+<td><code>.pld</code> profiles rely on rigid class–species mapping, not trait-driven</td>
+</tr>
+<tr class="even">
+<td>ID generation</td>
+<td>No collision protection in <code>int_to_base36()</code> if reused across domains</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This pipeline generates realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles i.e.&nbsp;the structural types. The final <code>.pld</code> and <code>.gpkg</code> can be directly used for the QGIS ENVI-met plugin.:</p>
+<ul>
+<li>Replacing max-based LAD normalization with transmittance calibration</li>
+<li>Incorporating TLS-derived QSM traits</li>
+<li>Using functional trait databases for <code>LeafThickness</code> and roughness</li>
+<li>Validating <code>.pld</code> export by reverse simulation</li>
+</ul>
+<p>The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.</p>
 </section>
 <section id="source-code" class="level1">
 <h1>Source Code</h1>

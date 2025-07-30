@@ -200,9 +200,32 @@ st_write(sf_points, output_gpkg)
 
 **Tip**: These point geometries can be directly imported into ENVI-met Spaces or Generator.
 
-## Summary and Recommendations
+# Weak Points
 
-This pipeline generates highly realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles. The final `.pld` and `.gpkg` can be directly used for the QGIS ENVI-met plugin.
+| Component               | Issue                                                                 |
+| ----------------------- | --------------------------------------------------------------------- |
+| `preprocess_voxels()`   | Assumes normalized input; no fallback or validation                   |
+| `convert_to_LAD_beer()` | Max normalization sensitive to outliers, bias in sparse canopies      |
+| Trait mapping           | `LeafThickness` hard-coded; no fallback if species unknown            |
+| Memory                  | `lad_matrix`, `NbClust`, full CHM are RAM-intensive steps             |
+| XML export              | `.pld` profiles rely on rigid class–species mapping, not trait-driven |
+| ID generation           | No collision protection in `int_to_base36()` if reused across domains |
+
+---
+
+# Conclusion
+
+This pipeline generates realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles i.e. the structural types. The final `.pld` and `.gpkg` can be directly used for the QGIS ENVI-met plugin.:
+
+* Replacing max-based LAD normalization with transmittance calibration
+* Incorporating TLS-derived QSM traits
+* Using functional trait databases for `LeafThickness` and roughness
+* Validating `.pld` export by reverse simulation
+
+The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.
+
+
+
 
 # Source Code
 

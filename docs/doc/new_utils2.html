@@ -273,8 +273,6 @@ window.Quarto = {
   <li><a href="#export" id="toc-export" class="nav-link" data-scroll-target="#export">7. Export</a></li>
   </ul></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
-  <li><a href="#weak-points" id="toc-weak-points" class="nav-link" data-scroll-target="#weak-points">Weak Points</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#appendix-additional-metrics" id="toc-appendix-additional-metrics" class="nav-link" data-scroll-target="#appendix-additional-metrics">Appendix: Additional Metrics</a>
   <ul class="collapse">
   <li><a href="#gap-fraction" id="toc-gap-fraction" class="nav-link" data-scroll-target="#gap-fraction">Gap Fraction</a></li>
@@ -365,7 +363,7 @@ H^* = \frac{H}{\log(n)}
 </section>
 <section id="kurtosis-skewness" class="level2">
 <h2 class="anchored" data-anchor-id="kurtosis-skewness">Kurtosis &amp; Skewness</h2>
-<p>For LAD vector $x$:</p>
+<p>For LAD vector <span class="math inline">\(x\)</span>:</p>
 <ul>
 <li><strong>Skewness</strong>:</li>
 </ul>
@@ -483,59 +481,6 @@ CHM = DSM - DEM
 <li>ENVI-met 3DPLANT format documentation</li>
 </ul>
 <hr>
-</section>
-<section id="weak-points" class="level1">
-<h1>Weak Points</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Issue</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>preprocess_voxels()</code></td>
-<td>Assumes normalized input; no fallback or validation</td>
-</tr>
-<tr class="even">
-<td><code>convert_to_LAD_beer()</code></td>
-<td>Max normalization sensitive to outliers, bias in sparse canopies</td>
-</tr>
-<tr class="odd">
-<td>Trait mapping</td>
-<td><code>LeafThickness</code> hard-coded; no fallback if species unknown</td>
-</tr>
-<tr class="even">
-<td>Memory</td>
-<td><code>lad_matrix</code>, <code>NbClust</code>, full CHM are RAM-intensive steps</td>
-</tr>
-<tr class="odd">
-<td>XML export</td>
-<td><code>.pld</code> profiles rely on rigid class–species mapping, not trait-driven</td>
-</tr>
-<tr class="even">
-<td>ID generation</td>
-<td>No collision protection in <code>int_to_base36()</code> if reused across domains</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This ALS-to-ENVI-met 3D pipeline provides a high-resolution, structurally rich modeling input for urban and ecological microclimate simulation. Advanced users may consider:</p>
-<ul>
-<li>Replacing max-based LAD normalization with transmittance calibration</li>
-<li>Incorporating TLS-derived QSM traits</li>
-<li>Using functional trait databases for <code>LeafThickness</code> and roughness</li>
-<li>Validating <code>.pld</code> export by reverse simulation</li>
-</ul>
-<p>The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.</p>
 </section>
 <section id="appendix-additional-metrics" class="level1">
 <h1>Appendix: Additional Metrics</h1>
