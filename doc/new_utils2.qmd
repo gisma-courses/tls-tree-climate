@@ -15,16 +15,6 @@ This tutorial provides an advanced and reproducible workflow to generate **ENVI-
 
 ---
 
-# Prerequisites
-
-Install required packages:
-
-```r
-install.packages(c("lidR", "terra", "sf", "dplyr", "tidyr", "cluster", "XML", "NbClust", "clusternomics", "e1071", "entropy", "ClusterR", "here", "exactextractr", "matrixStats"))
-```
-
----
-
 
 # Theory and Formula Reference
 
