@@ -224,7 +224,7 @@
     "href": "doc/new_utils2.html#pca-component-selection",
     "title": "Function & Workflow Reference: LAD and ALS Processing",
     "section": "PCA Component Selection",
-    "text": "PCA Component Selection\n\\(\\lambda\\_i\\) (lambda) refers in PCA to the eigenvalue of a principal component, i.e., the amount of variance that component explains.\n\nCumulative Variance\n\\[\n\\sum_{i=1}^k \\frac{\\lambda_i}{\\sum_j \\lambda_j} \\geq \\text{cutoff}\n\\]\n\n\nKaiser Criterion\nKeep \\(\\lambda\\_i &gt; 1\\)\n\n\nElbow Method\nFind \\(i\\) where:\n\\[\n\\Delta \\lambda_i = \\lambda_{i} - \\lambda_{i+1}\\text{ is minimal}\n\\]",
+    "text": "PCA Component Selection\n\\(\\lambda\\) (lambda) refers in PCA to the eigenvalue of a principal component, i.e. the amount of variance that component explains. λᵢ is then eigenvalue of the \\(i\\)-th principal component in PCA and represents how much variance that component explains. Larger λᵢ indicate more informative components.\n\nCumulative Variance\n\\[\n\\sum_{i=1}^k \\frac{\\lambda_i}{\\sum_j \\lambda_j} \\geq \\text{cutoff}\n\\]\n\n\nKaiser Criterion\nKeep \\(\\lambda\\_i &gt; 1\\)\n\n\nElbow Method\nFind \\(i\\) where:\n\\[\n\\Delta \\lambda_i = \\lambda_{i} - \\lambda_{i+1}\\text{ is minimal}\n\\]",
     "crumbs": [
       "Function & Workflow Reference: LAD and ALS Processing"
     ]
