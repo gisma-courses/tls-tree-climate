@@ -38,7 +38,7 @@ website:
       - doc/fluxes_corrected.qmd   
       - doc/tls_v1_2.qmd
       - doc/microclimate_ALS_tc_v4.qmd
-      - doc/new_utils.qmd
+      - doc/new_utils2.qmd
       - doc/osm2envi.qmd
       - doc/treespecies.qmd
       - text: "---"

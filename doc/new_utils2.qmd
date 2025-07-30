@@ -1,0 +1,257 @@
+---
+title: "Function & Workflow Reference: LAD and ALS Processing"
+author: "Chris Reudenbach"
+date: "2025-07-29"
+format:
+  html:
+    toc: true
+    code-fold: true
+    number-sections: false
+---
+
+# Introduction
+
+This tutorial provides an advanced and reproducible workflow to generate **ENVI-met 3DPLANT** vegetation objects from **Airborne Laser Scanning (ALS)** data using voxel-based LAD profiles and species classification. It leverages expert functions with embedded documentation and explains the theory behind each computational step.
+
+---
+
+# Prerequisites
+
+Install required packages:
+
+```r
+install.packages(c("lidR", "terra", "sf", "dplyr", "tidyr", "cluster", "XML", "NbClust", "clusternomics", "e1071", "entropy", "ClusterR", "here", "exactextractr", "matrixStats"))
+```
+
+---
+
+# Workflow Overview
+
+```{mermaid}
+flowchart TD
+  A[LAS tiles] --> B[Merge + Normalize]
+  B --> C[DEM, CHM, DSM]
+  C --> D[Topographic indices]
+  B --> E[Voxelize + LAD via Beer–Lambert]
+  D --> F[Add species + topography to LAD]
+  E --> F
+  F --> G[PCA + NbClust]
+  G --> H[KMeans clustering]
+  H --> I[Aggregate profiles]
+  I --> J[Compute traits]
+  J --> K[Export .pld XML]
+  J --> L[Export GPKG positions]
+```
+
+---
+
+# Theory and Formula Reference
+
+## Beer–Lambert Law for LAD
+
+$$
+LAD = -\frac{\ln(1 - p)}{k \cdot \Delta z}
+$$
+
+Where:
+
+* \$p\$ is the normalized proportion of pulses (relative to max column density)
+* \$k\$ is the extinction coefficient (typically 0.3–0.5)
+* \$\Delta z\$ is the vertical slice height (e.g., 2 m)
+
+This models beam extinction through foliage as a function of vertical occlusion.
+
+## LAI (Leaf Area Index)
+
+$$
+LAI = \sum_{i=1}^{n} LAD_i \cdot \Delta z
+$$
+
+The vertical integral of LAD, optionally clipped at 95th percentile for stability.
+
+## Vertical Entropy (Evenness)
+
+Given vertical slice fractions \$p\_i\$ (LAD share per layer):
+
+$$
+H = -\sum_{i=1}^{n} p_i \log(p_i) \quad\text{(Shannon)}
+$$
+
+Normalized:
+
+$$
+H^* = \frac{H}{\log(n)}
+$$
+
+Assesses uniformity of vertical LAD distribution.
+
+## Kurtosis & Skewness
+
+For LAD vector \$x\$:
+
+* **Skewness**:
+
+$$
+\gamma_1 = \frac{E[(x - \mu)^3]}{\sigma^3}
+$$
+
+* **Kurtosis**:
+
+$$
+\gamma_2 = \frac{E[(x - \mu)^4]}{\sigma^4} - 3
+$$
+
+## Canopy Height (CHM)
+
+From DSM and DTM:
+
+$$
+CHM = DSM - DEM
+$$
+
+Used to estimate maximum vegetation height per voxel column.
+
+## PCA Component Selection
+
+### Cumulative Variance
+
+$$
+\sum_{i=1}^k \frac{\lambda_i}{\sum_j \lambda_j} \geq \text{cutoff}
+$$
+
+### Kaiser Criterion
+
+Keep \$\lambda\_i > 1\$
+
+### Elbow Method
+
+Find \$i\$ where:
+
+$$
+\Delta \lambda_i = \lambda_{i} - \lambda_{i+1}\text{ is minimal}
+$$
+
+---
+
+# Function Library Documentation (Embedded in Code)
+
+The function file `new_utils.R` includes:
+
+* `preprocess_voxels()`
+* `convert_to_LAD_beer()`
+* `suggest_n_pcs()`
+* `compute_traits_from_lad()`
+* `export_lad_to_envimet_p3d()`
+* Additional helpers: `pointsByZSlice()`, `int_to_base36()`, `recommend_dem_interpolation()`
+
+Each includes inline documentation with assumptions, references, and formulas where relevant.
+
+# Control Script Stages
+
+### 1. Merge + Normalize
+
+```r
+las_fn <- merge_las_tiles(...)
+las <- readLAS(las_fn)
+las <- classify_ground(las, csf_params)
+dem <- rasterize_terrain(las, ...)
+las_norm <- normalize_height(las, ...)
+```
+
+### 2. Generate Topography
+
+Includes slope, aspect, terrain position index (TPI)
+
+### 3. Voxelization + LAD
+
+```r
+voxels <- preprocess_voxels(las_norm, ...)
+lad_df <- convert_to_LAD_beer(voxels, ...)
+```
+
+### 4. Add Topo + Species
+
+Extracts topographic values to LAD points via buffered zonal statistics
+
+### 5. Metrics + Clustering
+
+* Computes LAD entropy, kurtosis, skewness, vertical evenness
+* Filters LAD matrix
+* Runs PCA and selects `k` using `NbClust`
+* Clusters using `ClusterR::KMeans_arma`
+
+### 6. Profiles + Traits
+
+* Aggregates LAD by cluster
+* Recomputes LAD
+* Converts to long format for `.pld` export
+
+### 7. Export
+
+* Traits via `compute_traits_from_lad()`
+* XML via `export_lad_to_envimet_p3d()`
+* Spatial GPKG point layer for linking `.pld` to grid
+
+---
+
+# Sources
+
+* Jolliffe (2002): *Principal Component Analysis*. Springer.
+* Kaiser (1960): Educational and Psychological Measurement
+* Cattell (1966): Multivariate Behavioral Research
+* Zhang et al. (2016): CSF LiDAR ground filtering, Remote Sensing
+* Chen et al. (2024): Roughness-based DEM interpolation, ISPRS
+* ENVI-met 3DPLANT format documentation
+
+---
+
+# Weak Points
+
+| Component               | Issue                                                                 |
+| ----------------------- | --------------------------------------------------------------------- |
+| `preprocess_voxels()`   | Assumes normalized input; no fallback or validation                   |
+| `convert_to_LAD_beer()` | Max normalization sensitive to outliers, bias in sparse canopies      |
+| Trait mapping           | `LeafThickness` hard-coded; no fallback if species unknown            |
+| Memory                  | `lad_matrix`, `NbClust`, full CHM are RAM-intensive steps             |
+| XML export              | `.pld` profiles rely on rigid class–species mapping, not trait-driven |
+| ID generation           | No collision protection in `int_to_base36()` if reused across domains |
+
+---
+
+# Conclusion
+
+This ALS-to-ENVI-met 3D pipeline provides a high-resolution, structurally rich modeling input for urban and ecological microclimate simulation. Advanced users may consider:
+
+* Replacing max-based LAD normalization with transmittance calibration
+* Incorporating TLS-derived QSM traits
+* Using functional trait databases for `LeafThickness` and roughness
+* Validating `.pld` export by reverse simulation
+
+The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.
+
+# Appendix: Additional Metrics
+
+### Gap Fraction
+
+$$
+GF = \frac{n_{\text{empty}}}{n_{\text{total}}}
+$$
+
+Where empty = layers with LAD = 0.
+
+### Canopy Cover in Top Third
+
+$$
+CC_{top} = \frac{\sum_{i = 2n/3}^n \mathbb{1}_{LAD_i > 0}}{n/3}
+$$
+
+Assesses vertical canopy compactness in the upper crown.
+
+### LAD Coefficient of Variation
+
+$$
+CV = \frac{\sigma_{LAD}}{\mu_{LAD}}
+$$
+
+Useful for structure-based clustering.
+

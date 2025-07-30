@@ -1,6 +1,12 @@
 ---
-title: "UPDATE ENVI-met 3DPLANT Tutorial from ALS Data"
-format: html
+title: "ENVI-met 3DPLANTs from ALS Data"
+author: "Chris Reudenbach"
+date: "2025-07-29"
+format:
+  html:
+    toc: true
+    code-fold: true
+    number-sections: false
 ---
 
 ## Introduction
