@@ -174,7 +174,7 @@
     "href": "doc/new_utils2.html#beerlambert-law-for-lad",
     "title": "Function & Workflow Reference: LAD and ALS Processing",
     "section": "Beer–Lambert Law for LAD",
-    "text": "Beer–Lambert Law for LAD\n\\[\nLAD = -\\frac{\\ln(1 - p)}{k \\cdot \\Delta z}\n\\]\nWhere:\n\n$p$ is the normalized proportion of pulses (relative to max column density)\n$k$ is the extinction coefficient (typically 0.3–0.5)\n$z$ is the vertical slice height (e.g., 2 m)\n\nThis models beam extinction through foliage as a function of vertical occlusion.",
+    "text": "Beer–Lambert Law for LAD\n\\[\nLAD = -\\frac{\\ln(1 - p)}{k \\cdot \\Delta z}\n\\]\nWhere:\n\n\\(p\\) is the normalized proportion of pulses (relative to max column density)\n\\(k\\) is the extinction coefficient (typically 0.3–0.5)\n\\(\\Delta z\\) is the vertical slice height (e.g., 2 m)\n\nThis models beam extinction through foliage as a function of vertical occlusion.",
     "crumbs": [
       "Function & Workflow Reference: LAD and ALS Processing"
     ]
@@ -194,7 +194,7 @@
     "href": "doc/new_utils2.html#vertical-entropy-evenness",
     "title": "Function & Workflow Reference: LAD and ALS Processing",
     "section": "Vertical Entropy (Evenness)",
-    "text": "Vertical Entropy (Evenness)\nGiven vertical slice fractions $p_i$ (LAD share per layer):\n\\[\nH = -\\sum_{i=1}^{n} p_i \\log(p_i) \\quad\\text{(Shannon)}\n\\]\nNormalized:\n\\[\nH^* = \\frac{H}{\\log(n)}\n\\]\nAssesses uniformity of vertical LAD distribution.",
+    "text": "Vertical Entropy (Evenness)\nGiven vertical slice fractions \\(p\\_i\\) (LAD share per layer):\n\\[\nH = -\\sum_{i=1}^{n} p_i \\log(p_i) \\quad\\text{(Shannon)}\n\\]\nNormalized:\n\\[\nH^* = \\frac{H}{\\log(n)}\n\\]\nAssesses uniformity of vertical LAD distribution.",
     "crumbs": [
       "Function & Workflow Reference: LAD and ALS Processing"
     ]
@@ -224,7 +224,7 @@
     "href": "doc/new_utils2.html#pca-component-selection",
     "title": "Function & Workflow Reference: LAD and ALS Processing",
     "section": "PCA Component Selection",
-    "text": "PCA Component Selection\n\nCumulative Variance\n\\[\n\\sum_{i=1}^k \\frac{\\lambda_i}{\\sum_j \\lambda_j} \\geq \\text{cutoff}\n\\]\n\n\nKaiser Criterion\nKeep $_i &gt; 1$\n\n\nElbow Method\nFind $i$ where:\n\\[\n\\Delta \\lambda_i = \\lambda_{i} - \\lambda_{i+1}\\text{ is minimal}\n\\]",
+    "text": "PCA Component Selection\n\nCumulative Variance\n\\[\n\\sum_{i=1}^k \\frac{\\lambda_i}{\\sum_j \\lambda_j} \\geq \\text{cutoff}\n\\]\n\n\nKaiser Criterion\nKeep \\(\\lambda\\_i &gt; 1\\)\n\n\nElbow Method\nFind \\(i\\) where:\n\\[\n\\Delta \\lambda_i = \\lambda_{i} - \\lambda_{i+1}\\text{ is minimal}\n\\]",
     "crumbs": [
       "Function & Workflow Reference: LAD and ALS Processing"
     ]

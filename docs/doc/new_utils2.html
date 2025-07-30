@@ -338,9 +338,9 @@ LAD = -\frac{\ln(1 - p)}{k \cdot \Delta z}
 \]</span></p>
 <p>Where:</p>
 <ul>
-<li>$p$ is the normalized proportion of pulses (relative to max column density)</li>
-<li>$k$ is the extinction coefficient (typically 0.3–0.5)</li>
-<li>$z$ is the vertical slice height (e.g., 2 m)</li>
+<li><span class="math inline">\(p\)</span> is the normalized proportion of pulses (relative to max column density)</li>
+<li><span class="math inline">\(k\)</span> is the extinction coefficient (typically 0.3–0.5)</li>
+<li><span class="math inline">\(\Delta z\)</span> is the vertical slice height (e.g., 2 m)</li>
 </ul>
 <p>This models beam extinction through foliage as a function of vertical occlusion.</p>
 </section>
@@ -353,7 +353,7 @@ LAI = \sum_{i=1}^{n} LAD_i \cdot \Delta z
 </section>
 <section id="vertical-entropy-evenness" class="level2">
 <h2 class="anchored" data-anchor-id="vertical-entropy-evenness">Vertical Entropy (Evenness)</h2>
-<p>Given vertical slice fractions $p_i$ (LAD share per layer):</p>
+<p>Given vertical slice fractions <span class="math inline">\(p\_i\)</span> (LAD share per layer):</p>
 <p><span class="math display">\[
 H = -\sum_{i=1}^{n} p_i \log(p_i) \quad\text{(Shannon)}
 \]</span></p>
@@ -397,11 +397,11 @@ CHM = DSM - DEM
 </section>
 <section id="kaiser-criterion" class="level3">
 <h3 class="anchored" data-anchor-id="kaiser-criterion">Kaiser Criterion</h3>
-<p>Keep $_i &gt; 1$</p>
+<p>Keep <span class="math inline">\(\lambda\_i &gt; 1\)</span></p>
 </section>
 <section id="elbow-method" class="level3">
 <h3 class="anchored" data-anchor-id="elbow-method">Elbow Method</h3>
-<p>Find $i$ where:</p>
+<p>Find <span class="math inline">\(i\)</span> where:</p>
 <p><span class="math display">\[
 \Delta \lambda_i = \lambda_{i} - \lambda_{i+1}\text{ is minimal}
 \]</span></p>

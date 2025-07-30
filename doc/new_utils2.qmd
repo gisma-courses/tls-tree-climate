@@ -36,9 +36,9 @@ $$
 
 Where:
 
-* \$p\$ is the normalized proportion of pulses (relative to max column density)
-* \$k\$ is the extinction coefficient (typically 0.3–0.5)
-* \$\Delta z\$ is the vertical slice height (e.g., 2 m)
+* $p$ is the normalized proportion of pulses (relative to max column density)
+* $k$ is the extinction coefficient (typically 0.3–0.5)
+* $\Delta z$ is the vertical slice height (e.g., 2 m)
 
 This models beam extinction through foliage as a function of vertical occlusion.
 
@@ -52,7 +52,7 @@ The vertical integral of LAD, optionally clipped at 95th percentile for stabilit
 
 ## Vertical Entropy (Evenness)
 
-Given vertical slice fractions \$p\_i\$ (LAD share per layer):
+Given vertical slice fractions $p\_i$ (LAD share per layer):
 
 $$
 H = -\sum_{i=1}^{n} p_i \log(p_i) \quad\text{(Shannon)}
@@ -102,11 +102,11 @@ $$
 
 ### Kaiser Criterion
 
-Keep \$\lambda\_i > 1\$
+Keep $\lambda\_i > 1$
 
 ### Elbow Method
 
-Find \$i\$ where:
+Find $i$ where:
 
 $$
 \Delta \lambda_i = \lambda_{i} - \lambda_{i+1}\text{ is minimal}
