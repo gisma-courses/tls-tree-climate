@@ -25,25 +25,6 @@ install.packages(c("lidR", "terra", "sf", "dplyr", "tidyr", "cluster", "XML", "N
 
 ---
 
-# Workflow Overview
-
-```{mermaid}
-flowchart TD
-  A[LAS tiles] --> B[Merge + Normalize]
-  B --> C[DEM, CHM, DSM]
-  C --> D[Topographic indices]
-  B --> E[Voxelize + LAD via Beer–Lambert]
-  D --> F[Add species + topography to LAD]
-  E --> F
-  F --> G[PCA + NbClust]
-  G --> H[KMeans clustering]
-  H --> I[Aggregate profiles]
-  I --> J[Compute traits]
-  J --> K[Export .pld XML]
-  J --> L[Export GPKG positions]
-```
-
----
 
 # Theory and Formula Reference
 

@@ -104,9 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -250,7 +247,6 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview">Workflow Overview</a></li>
   <li><a href="#theory-and-formula-reference" id="toc-theory-and-formula-reference" class="nav-link" data-scroll-target="#theory-and-formula-reference">Theory and Formula Reference</a>
   <ul class="collapse">
   <li><a href="#beerlambert-law-for-lad" id="toc-beerlambert-law-for-lad" class="nav-link" data-scroll-target="#beerlambert-law-for-lad">Beer–Lambert Law for LAD</a></li>
@@ -331,34 +327,6 @@ window.Quarto = {
 <h1>Prerequisites</h1>
 <p>Install required packages:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"lidR"</span>, <span class="st">"terra"</span>, <span class="st">"sf"</span>, <span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>, <span class="st">"cluster"</span>, <span class="st">"XML"</span>, <span class="st">"NbClust"</span>, <span class="st">"clusternomics"</span>, <span class="st">"e1071"</span>, <span class="st">"entropy"</span>, <span class="st">"ClusterR"</span>, <span class="st">"here"</span>, <span class="st">"exactextractr"</span>, <span class="st">"matrixStats"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="workflow-overview" class="level1">
-<h1>Workflow Overview</h1>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-  A[LAS tiles] --&gt; B[Merge + Normalize]
-  B --&gt; C[DEM, CHM, DSM]
-  C --&gt; D[Topographic indices]
-  B --&gt; E[Voxelize + LAD via Beer–Lambert]
-  D --&gt; F[Add species + topography to LAD]
-  E --&gt; F
-  F --&gt; G[PCA + NbClust]
-  G --&gt; H[KMeans clustering]
-  H --&gt; I[Aggregate profiles]
-  I --&gt; J[Compute traits]
-  J --&gt; K[Export .pld XML]
-  J --&gt; L[Export GPKG positions]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 <hr>
 </section>
 <section id="theory-and-formula-reference" class="level1">

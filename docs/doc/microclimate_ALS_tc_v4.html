@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -246,21 +249,19 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#setup-and-configuration" id="toc-setup-and-configuration" class="nav-link" data-scroll-target="#setup-and-configuration">1. Setup and Configuration</a></li>
-  <li><a href="#als-preprocessing-and-normalization" id="toc-als-preprocessing-and-normalization" class="nav-link" data-scroll-target="#als-preprocessing-and-normalization">2. ALS Preprocessing and Normalization</a></li>
-  <li><a href="#terrain-and-canopy-metrics" id="toc-terrain-and-canopy-metrics" class="nav-link" data-scroll-target="#terrain-and-canopy-metrics">3. Terrain and Canopy Metrics</a></li>
-  <li><a href="#voxelization-and-lad-calculation" id="toc-voxelization-and-lad-calculation" class="nav-link" data-scroll-target="#voxelization-and-lad-calculation">4. Voxelization and LAD Calculation</a>
+  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview">Workflow Overview</a>
   <ul class="collapse">
-  <li><a href="#advanced-implementation-details" id="toc-advanced-implementation-details" class="nav-link" data-scroll-target="#advanced-implementation-details">⚙️ Advanced Implementation Details</a></li>
+  <li><a href="#setup-and-configuration" id="toc-setup-and-configuration" class="nav-link" data-scroll-target="#setup-and-configuration">Setup and Configuration</a></li>
+  <li><a href="#als-preprocessing-and-normalization" id="toc-als-preprocessing-and-normalization" class="nav-link" data-scroll-target="#als-preprocessing-and-normalization">ALS Preprocessing and Normalization</a></li>
+  <li><a href="#terrain-and-canopy-metrics" id="toc-terrain-and-canopy-metrics" class="nav-link" data-scroll-target="#terrain-and-canopy-metrics">Terrain and Canopy Metrics</a></li>
+  <li><a href="#voxelization-and-lad-calculation" id="toc-voxelization-and-lad-calculation" class="nav-link" data-scroll-target="#voxelization-and-lad-calculation">Voxelization and LAD Calculation</a></li>
   </ul></li>
-  <li><a href="#spatial-enrichment" id="toc-spatial-enrichment" class="nav-link" data-scroll-target="#spatial-enrichment">5. Spatial Enrichment</a></li>
-  <li><a href="#structural-and-ecological-metrics" id="toc-structural-and-ecological-metrics" class="nav-link" data-scroll-target="#structural-and-ecological-metrics">6. Structural and Ecological Metrics</a></li>
-  <li><a href="#clustering-and-profile-aggregation" id="toc-clustering-and-profile-aggregation" class="nav-link" data-scroll-target="#clustering-and-profile-aggregation">7. Clustering and Profile Aggregation</a>
+  <li><a href="#structural-and-ecological-metrics" id="toc-structural-and-ecological-metrics" class="nav-link" data-scroll-target="#structural-and-ecological-metrics">Structural and Ecological Metrics</a>
   <ul class="collapse">
-  <li><a href="#pca-concept-and-purpose" id="toc-pca-concept-and-purpose" class="nav-link" data-scroll-target="#pca-concept-and-purpose">🔍 PCA Concept and Purpose</a></li>
+  <li><a href="#clustering-and-profile-aggregation" id="toc-clustering-and-profile-aggregation" class="nav-link" data-scroll-target="#clustering-and-profile-aggregation">Clustering and Profile Aggregation</a></li>
   </ul></li>
-  <li><a href="#trait-assignment-and-xml-export" id="toc-trait-assignment-and-xml-export" class="nav-link" data-scroll-target="#trait-assignment-and-xml-export">8. Trait Assignment and XML Export</a></li>
-  <li><a href="#export-tree-locations" id="toc-export-tree-locations" class="nav-link" data-scroll-target="#export-tree-locations">9. Export Tree Locations</a></li>
+  <li><a href="#trait-assignment-and-xml-export" id="toc-trait-assignment-and-xml-export" class="nav-link" data-scroll-target="#trait-assignment-and-xml-export">Trait Assignment and XML Export</a></li>
+  <li><a href="#export-tree-locations" id="toc-export-tree-locations" class="nav-link" data-scroll-target="#export-tree-locations">Export Tree Locations</a></li>
   <li><a href="#summary-and-recommendations" id="toc-summary-and-recommendations" class="nav-link" data-scroll-target="#summary-and-recommendations">Summary and Recommendations</a></li>
   <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source Code</a></li>
   </ul>
@@ -313,8 +314,34 @@ window.Quarto = {
 <li>Exporting synthetic 3D tree definitions (.pld XML) and their locations (.gpkg)</li>
 </ul>
 </section>
-<section id="setup-and-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="setup-and-configuration">1. Setup and Configuration</h2>
+<section id="workflow-overview" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-overview">Workflow Overview</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[LAS tiles] --&gt; B[Merge + Normalize]
+  B --&gt; C[DEM, CHM, DSM]
+  C --&gt; D[Topographic indices]
+  B --&gt; E[Voxelize + LAD via Beer–Lambert]
+  D --&gt; F[Add species + topography to LAD]
+  E --&gt; F
+  F --&gt; G[PCA + NbClust]
+  G --&gt; H[KMeans clustering]
+  H --&gt; I[Aggregate profiles]
+  I --&gt; J[Compute traits]
+  J --&gt; K[Export .pld XML]
+  J --&gt; L[Export GPKG positions]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="setup-and-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="setup-and-configuration">Setup and Configuration</h3>
 <p>We begin by loading all required libraries and defining key input/output paths and parameters.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary R packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lidR)       <span class="co"># for LiDAR handling</span></span>
@@ -328,8 +355,8 @@ window.Quarto = {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We also define which species classes are considered valid and load a species raster map for later assignment.</p>
 </section>
-<section id="als-preprocessing-and-normalization" class="level2">
-<h2 class="anchored" data-anchor-id="als-preprocessing-and-normalization">2. ALS Preprocessing and Normalization</h2>
+<section id="als-preprocessing-and-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="als-preprocessing-and-normalization">ALS Preprocessing and Normalization</h3>
 <p>First, the LAS tiles are merged and their heights normalized using a DEM derived from the ground classification.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>las_fn <span class="ot">&lt;-</span> <span class="fu">merge_las_tiles</span>(...)  <span class="co"># Merges all LAS tiles into one</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>las <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(las_fn)</span>
@@ -337,8 +364,8 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The point cloud is then normalized to height above ground using <code>normalize_height()</code>.</p>
 </section>
-<section id="terrain-and-canopy-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="terrain-and-canopy-metrics">3. Terrain and Canopy Metrics</h2>
+<section id="terrain-and-canopy-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="terrain-and-canopy-metrics">Terrain and Canopy Metrics</h3>
 <p>We generate various raster layers:</p>
 <ul>
 <li><strong>DEM</strong> – Digital Elevation Model</li>
@@ -351,14 +378,14 @@ window.Quarto = {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>CHM <span class="ot">&lt;-</span> DSM <span class="sc">-</span> DEM</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="voxelization-and-lad-calculation" class="level2">
-<h2 class="anchored" data-anchor-id="voxelization-and-lad-calculation">4. Voxelization and LAD Calculation</h2>
+<section id="voxelization-and-lad-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="voxelization-and-lad-calculation">Voxelization and LAD Calculation</h3>
 <p>The normalized ALS cloud is converted to voxels and LAD profiles are derived using a Beer–Lambert approach:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>voxels <span class="ot">&lt;-</span> <span class="fu">preprocess_voxels</span>(las_norm, res_xy, res_z)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lad_df <span class="ot">&lt;-</span> <span class="fu">convert_to_LAD_beer</span>(voxels, <span class="at">grainsize =</span> res_z, <span class="at">k =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Explanation</strong>: The Beer–Lambert law models LAD from voxel pulse counts as an exponential decay of light through vegetation. Each voxel contributes to the vertical profile based on its pulse return density and assumed extinction coefficient.</p>
-<section id="advanced-implementation-details" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-implementation-details">⚙️ Advanced Implementation Details</h3>
+<section id="advanced-implementation-details" class="level4">
+<h4 class="anchored" data-anchor-id="advanced-implementation-details">Advanced Implementation Details</h4>
 <p>This pipeline uses a highly optimized voxel engine that pre-aggregates point returns into vertical bins based on user-defined voxel height (<code>res_z</code>).</p>
 <p>The <code>convert_to_LAD_beer()</code> function applies:</p>
 <ul>
@@ -377,16 +404,17 @@ window.Quarto = {
 </ul>
 <p>This approach is robust across canopy densities and avoids bias from heterogeneous ALS sampling.</p>
 </section>
-</section>
-<section id="spatial-enrichment" class="level2">
-<h2 class="anchored" data-anchor-id="spatial-enrichment">5. Spatial Enrichment</h2>
+<section id="spatial-enrichment" class="level4">
+<h4 class="anchored" data-anchor-id="spatial-enrichment">Spatial Enrichment</h4>
 <p>Each voxel column is enriched with values from the terrain metrics (elevation, slope, CHM, etc.) and species raster via buffered spatial extraction using the <code>exactextractr</code> package.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lad_df<span class="sc">$</span>elev <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(dem, <span class="fu">st_buffer</span>(...))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Note</strong>: We use small buffers to ensure overlap with raster cells, especially for coarse resolutions or near-boundary voxels.</p>
 </section>
+</section>
+</section>
 <section id="structural-and-ecological-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="structural-and-ecological-metrics">6. Structural and Ecological Metrics</h2>
+<h2 class="anchored" data-anchor-id="structural-and-ecological-metrics">Structural and Ecological Metrics</h2>
 <p>From the LAD profiles, we derive additional vegetation structure descriptors:</p>
 <ul>
 <li><strong>LAD_mean / LAD_max</strong> – Central tendency</li>
@@ -398,15 +426,14 @@ window.Quarto = {
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lad_df<span class="sc">$</span>LAD_mean <span class="ot">&lt;-</span> matrixStats<span class="sc">::</span><span class="fu">rowMeans2</span>(lad_matrix, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Interpretation</strong>: These metrics help characterize different plant types and are key inputs to the clustering process.</p>
-</section>
-<section id="clustering-and-profile-aggregation" class="level2">
-<h2 class="anchored" data-anchor-id="clustering-and-profile-aggregation">7. Clustering and Profile Aggregation</h2>
+<section id="clustering-and-profile-aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="clustering-and-profile-aggregation">Clustering and Profile Aggregation</h3>
 <p>We sample the LAD space, reduce dimensionality via Principal Component Analysis (PCA), and use NbClust to find the optimal number of clusters. These clusters represent generalized tree types for ENVI-met.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pca_res <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(sample_data, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> <span class="fu">NbClust</span>(...)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">KMeans_arma</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="pca-concept-and-purpose" class="level3">
-<h3 class="anchored" data-anchor-id="pca-concept-and-purpose">🔍 PCA Concept and Purpose</h3>
+<section id="pca-concept-and-purpose" class="level4">
+<h4 class="anchored" data-anchor-id="pca-concept-and-purpose">PCA Concept and Purpose</h4>
 <p>PCA transforms the original high-dimensional LAD profile into a set of orthogonal axes (principal components) that capture the greatest variance in the data. This has several advantages:</p>
 <ul>
 <li><strong>Noise reduction</strong>: Removes minor variance and unstable features</li>
@@ -417,8 +444,9 @@ window.Quarto = {
 <p>We determine the number of components by examining explained variance and selecting a cutoff (e.g., 80%). NbClust is then applied to the PCA-reduced data to identify the optimal number of vegetation types (clusters).</p>
 </section>
 </section>
+</section>
 <section id="trait-assignment-and-xml-export" class="level2">
-<h2 class="anchored" data-anchor-id="trait-assignment-and-xml-export">8. Trait Assignment and XML Export</h2>
+<h2 class="anchored" data-anchor-id="trait-assignment-and-xml-export">Trait Assignment and XML Export</h2>
 <p>For each cluster, we assign:</p>
 <ul>
 <li><strong>Species name</strong> via majority vote</li>
@@ -430,7 +458,7 @@ window.Quarto = {
 <p><strong>Note</strong>: Ensure that ENVIMET_ID is uniquely assigned and used for mapping in both XML and spatial files.</p>
 </section>
 <section id="export-tree-locations" class="level2">
-<h2 class="anchored" data-anchor-id="export-tree-locations">9. Export Tree Locations</h2>
+<h2 class="anchored" data-anchor-id="export-tree-locations">Export Tree Locations</h2>
 <p>The x/y locations of all LAD columns are exported to a GeoPackage with their cluster ID (<code>ENVIMET_ID</code>) for domain placement in ENVI-met.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(sf_points, output_gpkg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Tip</strong>: These point geometries can be directly imported into ENVI-met Spaces or Generator.</p>
@@ -439,8 +467,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="summary-and-recommendations">Summary and Recommendations</h2>
 <p>This pipeline generates highly realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles. The final <code>.pld</code> and <code>.gpkg</code> can be directly used for the QGIS ENVI-met plugin.</p>
 </section>
-<section id="source-code" class="level2">
-<h2 class="anchored" data-anchor-id="source-code">Source Code</h2>
+<section id="source-code" class="level1">
+<h1>Source Code</h1>
 <div class="callout callout-style-default callout-tip callout-titled" title="Source Code">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
