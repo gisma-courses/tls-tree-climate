@@ -218,16 +218,7 @@ cat("🔢 Best number of clusters (Best.nc):", nb$Best.nc, "\n\n")
           summarise(across(starts_with("lad_"), mean, na.rm = TRUE)) %>%
           arrange(cluster)
         
-        cluster_profiles_lad <- convert_to_LAD_beer(
-          df = cluster_profiles,
-          grainsize = res_z,     # z. B. 2 m
-          k = 0.5,               # Extinktionskoeffizient (typisch 0.3–0.5)
-          scale_factor = 1.2,    # optional, empirisch
-          lad_max = 3.0,         # realistische Obergrenze für LAD (z. B. 3 m²/m³)
-          lad_min = 0.00,        # untere Schranke, optional
-          keep_pulses = FALSE    # Originaldaten entfernen
-        )
-        
+
         
         # --- Long-Format für LAD-Profile ---
         # --- Long-Format für LAD-Profile ---
