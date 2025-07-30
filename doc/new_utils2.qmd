@@ -84,7 +84,7 @@ Used to estimate maximum vegetation height per voxel column.
 
 ## PCA Component Selection
 
-$\lambda\_i > 1$ (lambda) refers in PCA to the **eigenvalue** of a principal component, i.e., the amount of variance that component explains.
+$\lambda\_i$ (lambda) refers in PCA to the **eigenvalue** of a principal component, i.e., the amount of variance that component explains.
 
 ### Cumulative Variance
 
