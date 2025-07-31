@@ -559,12 +559,13 @@ convert_to_LAD_beer <- function(df, grainsize = 2, k = 0.3, scale_factor = 1.2,
     # Normalize pulse density per column (relative to max)
     p_rel <- df_lad[[col]] / max(df_lad[[col]], na.rm = TRUE)
     
-    # Avoid values of 0 or 1 that would break log(1 - p)
-    p_rel[p_rel >= 1] <- 0.9999
-    p_rel[p_rel <= 0] <- 1e-5
+    # # Avoid values of 0 or 1 that would break log(1 - p)
+    # p_rel[p_rel >= 1] <- 0.9999
+    # p_rel[p_rel <= 0] <- 1e-5
     
     # Apply Beer–Lambert transformation to estimate LAD
-    lad_vals <- -log(1 - p_rel) / (k * grainsize)
+    #lad_vals <- -log1p(1 - p_rel) / (k * grainsize)
+    lad_vals <- -log1p(-p_rel) / (k * grainsize)
     
     # Apply empirical scale factor to adjust LAD magnitude
     lad_vals <- lad_vals * scale_factor
@@ -1085,3 +1086,197 @@ suggest_n_pcs <- function(pca_obj, variance_cutoff = 0.8, plot = TRUE) {
   ))
 }
 
+#' Export ENVI-met 3DPLANT XML from enriched LAD profile dataframe
+#'
+#' This function prepares and exports an ENVI-met compatible 3DPLANT (.pld) XML file
+#' using a fully enriched `lad_df_cleaned` dataframe, containing LAD profiles, traits,
+#' and metadata for each ENVIMET_ID.
+#'
+#' @param lad_df_cleaned A data.frame containing voxelized LAD data and associated plant traits.
+#'   Must contain: `ENVIMET_ID`, `cluster`, `z`, `lad`, `species_class`, `species_name`,
+#'   `LeafThickness`, `Height_CHM`, `Vertical_Evenness`, `Entropy`, `RoughnessLength`,
+#'   `LAI`, `MaxLAD`, `CrownHeight`, `Height`, `LADcutoff`, `plantclass`.
+#' @param file_out Path to output `.pld` file.
+#' @param res_z Vertical voxel resolution in meters (e.g. 2).
+#'
+#' @return Invisible `TRUE` if export succeeds, otherwise stops with an error.
+#' @export
+#'
+#' @examples
+#' export_envimet_pld_from_lad_clean(
+#'   lad_df_cleaned = lad_profiles_long,
+#'   file_out = "data/envimet/envimet_pseudo3Dtree.pld",
+#'   res_z = 2
+#' )
+export_envimet_pld_from_lad_clean <- function(lad_df_cleaned, file_out, res_z) {
+  
+  # --- Validation of required columns ---
+  required_cols <- c(
+    "ENVIMET_ID", "cluster", "z", "lad",
+    "species_class", "species_name", "LeafThickness",
+    "Height_CHM", "Vertical_Evenness", "Entropy",
+    "RoughnessLength", "LAI", "MaxLAD",
+    "CrownHeight", "Height", "LADcutoff", "plantclass"
+  )
+  
+  missing <- setdiff(required_cols, colnames(lad_df_cleaned))
+  if (length(missing) > 0) {
+    stop("Missing columns in lad_df_cleaned: ", paste(missing, collapse = ", "))
+  }
+  
+  # --- Ensure required columns are complete ---
+  stopifnot(!any(is.na(lad_df_cleaned$ENVIMET_ID)))
+  stopifnot(!any(is.na(lad_df_cleaned$lad)))
+  stopifnot(!any(is.na(lad_df_cleaned$species_name)))
+  stopifnot(!any(is.na(lad_df_cleaned$LeafThickness)))
+  
+  # --- Extract trait table (one row per plant ID) ---
+  trait_df <- lad_df_cleaned %>%
+    group_by(ENVIMET_ID) %>%
+    summarise(
+      LAI = mean(LAI, na.rm = TRUE),
+      MaxLAD = max(MaxLAD, na.rm = TRUE),
+      CrownHeight = mean(CrownHeight, na.rm = TRUE),
+      Height = mean(Height, na.rm = TRUE),
+      RoughnessLength = mean(RoughnessLength, na.rm = TRUE),
+      LeafThickness = mean(LeafThickness, na.rm = TRUE),
+      LADcutoff = mean(LADcutoff, na.rm = TRUE),
+      plantclass = first(plantclass),
+      species_class = first(species_class),
+      species_name = first(species_name),
+      Entropy = mean(Entropy, na.rm = TRUE),
+      Vertical_Evenness = mean(Vertical_Evenness, na.rm = TRUE),
+      Height_CHM = mean(Height_CHM, na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    filter(!is.na(LAI), !is.na(MaxLAD))
+  
+  # --- Filter valid LAD entries ---
+  valid_ids <- trait_df$ENVIMET_ID
+  lad_profiles_filtered <- lad_df_cleaned %>%
+    filter(ENVIMET_ID %in% valid_ids)
+  
+  # --- Export via custom XML function ---
+  export_lad_to_envimet_p3d(
+    lad_df = lad_profiles_filtered,
+    file_out = file_out,
+    res_z = res_z,
+    trait_df = trait_df
+  )
+  
+  invisible(TRUE)
+}
+
+#' Export ENVI-met and microclimf LAD Profiles from Clustered Data
+#'
+#' These functions aggregate a cleaned LAD dataset (lad_df_clean) by cluster,
+#' compute synthetic profiles, and export them for use in ENVI-met and microclimf.
+#'
+#' @param lad_df_clean Data frame with full LAD profile, coordinates, traits, and cluster ID.
+#' @param res_z Vertical voxel resolution (numeric).
+#' @param out_dir Output directory where .gpkg and .pld files will be written.
+#' @export
+export_envimet_profiles <- function(lad_df_clean, res_z, out_dir = "data/envimet") {
+  dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+  
+  # --- Mittelung der LAD-Profile nach Cluster ---
+  cluster_profiles <- lad_df_clean %>%
+    group_by(cluster) %>%
+    summarise(across(starts_with("lad_pulses_"), ~mean(.x, na.rm = TRUE)), .groups = "drop") %>%
+    arrange(cluster)
+  
+  # --- Long-Format ---
+  lad_profiles_long <- cluster_profiles %>%
+    pivot_longer(cols = starts_with("lad_pulses_"),
+                 names_to = "layer", values_to = "lad") %>%
+    mutate(z = as.integer(gsub("lad_pulses_|_.*", "", layer)) * res_z,
+           ENVIMET_ID = paste0("S", formatC(cluster, width = 5, flag = "0"))) %>%
+    select(ENVIMET_ID, cluster, z, lad)
+  
+  # --- Art und Traits ---
+  cluster_traits <- lad_df_clean %>%
+    group_by(cluster, species_class) %>%
+    summarise(n = n(), .groups = "drop") %>%
+    group_by(cluster) %>%
+    slice_max(n, with_ties = FALSE) %>%
+    ungroup()
+  
+  species_mapping <- tibble::tibble(
+    species_class = c(1, 2, 3, 4, 5, 6, 7),
+    species_name = c("Acer pseudoplatanus", "Betula pendula", "Fagus sylvatica",
+                     "Picea abies", "Pinus sylvestris", "Quercus robur", "Tilia cordata")
+  )
+  
+  leaf_thickness_lookup <- tibble::tibble(
+    species_name = c("Fagus sylvatica", "Quercus robur", "Acer pseudoplatanus",
+                     "Pinus sylvestris", "Picea abies", "Betula pendula", "Tilia cordata"),
+    LeafThickness = c(0.0025, 0.0025, 0.0022, 0.0015, 0.0016, 0.0021, 0.0023)
+  )
+  
+  cluster_heights <- lad_df_clean %>%
+    group_by(cluster) %>%
+    summarise(Height = mean(CHM, na.rm = TRUE), .groups = "drop")
+  
+  # --- LAD-Profile anreichern ---
+  lad_profiles_long <- lad_profiles_long %>%
+    left_join(cluster_traits, by = "cluster") %>%
+    left_join(species_mapping, by = "species_class") %>%
+    left_join(leaf_thickness_lookup, by = "species_name") %>%
+    left_join(cluster_heights, by = "cluster")
+  
+  # --- Traits berechnen ---
+  trait_df <- compute_traits_from_lad(lad_profiles_long, res_z)
+  
+  # --- Spatial Centroid für jede Cluster-ID ---
+  cluster_points <- lad_df_clean %>%
+    group_by(cluster) %>%
+    summarise(across(c(X, Y), mean), .groups = "drop") %>%
+    mutate(ENVIMET_ID = paste0("S", formatC(cluster, width = 5, flag = "0"))) %>%
+    st_as_sf(coords = c("X", "Y"), crs = 25832)
+  
+  # --- Export .gpkg und .pld ---
+  st_write(cluster_points, file.path(out_dir, "synthetic_envimet_profiles.gpkg"), delete_dsn = TRUE)
+  export_lad_to_envimet_p3d(lad_profiles_long, file.path(out_dir, "synthetic_envimet_profiles.pld"),
+                            res_z = res_z, trait_df = trait_df)
+}
+
+#' Export microclimf-compatible profiles per cluster
+#'
+#' @param lad_df_clean Cleaned LAD data with coordinates and cluster ID
+#' @param out_file Output GPKG path
+#' @export
+export_microclimf_profiles <- function(lad_df_clean, out_file = "data/microclimf/synthetic_microclimf_profiles.gpkg") {
+  dir.create(dirname(out_file), showWarnings = FALSE, recursive = TRUE)
+  
+  # Mittelung aller nicht-Koordinaten nach Cluster
+  mean_traits <- lad_df_clean %>%
+    group_by(cluster) %>%
+    summarise(across(-c(X, Y), ~mean(.x, na.rm = TRUE)), .groups = "drop")
+  
+  # Cluster-Zentroiden
+  cluster_points <- lad_df_clean %>%
+    group_by(cluster) %>%
+    summarise(across(c(X, Y), mean), .groups = "drop")
+  
+  # Zusammenfügen
+  out_df <- left_join(cluster_points, mean_traits, by = "cluster") %>%
+    st_as_sf(coords = c("X", "Y"), crs = 25832)
+  
+  st_write(out_df, out_file, delete_dsn = TRUE)
+}
+
+#' Export all original LAD point profiles to GeoPackage with full spatial attribution
+#'
+#' @param lad_df_clean DataFrame with cleaned LAD columns and traits
+#' @param out_gpkg Path to output .gpkg file
+#' @param layer_name Layer name inside the GPKG
+#' @return Writes .gpkg file to disk
+export_full_lad_profiles_gpkg <- function(lad_df_clean, out_gpkg = "data/lad_profiles_full.gpkg", layer_name = "lad_profiles") {
+  stopifnot(all(c("X", "Y") %in% colnames(lad_df_clean)))
+  
+  # Create sf object
+  sf_points <- sf::st_as_sf(lad_df_clean, coords = c("X", "Y"), crs = 25832)  # EPSG 25832 = UTM Zone 32N
+  
+  # Write to GPKG
+  sf::st_write(sf_points, out_gpkg, layer = layer_name, delete_layer = TRUE)
+}

@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-
 /.quarto/
 data/ALS/las_mof.las
 data/ALS/las_mof.las
@@ -12,3 +11,6 @@ tiles/tile_01.las
 data/envimet/*.gpkg
 images/*.bmp
 docs/site_libs/
+bfg.jar
+output
+output.pld
