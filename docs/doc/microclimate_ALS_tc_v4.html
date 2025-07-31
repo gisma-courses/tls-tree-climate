@@ -264,6 +264,7 @@ window.Quarto = {
   <li><a href="#export-tree-locations" id="toc-export-tree-locations" class="nav-link" data-scroll-target="#export-tree-locations">Export Tree Locations</a></li>
   <li><a href="#weak-points" id="toc-weak-points" class="nav-link" data-scroll-target="#weak-points">Weak Points</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#todos" id="toc-todos" class="nav-link" data-scroll-target="#todos">ToDos</a></li>
   <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source Code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/gisma-courses/TLS-tree-climate/edit/main/doc/microclimate_ALS_tc_v4.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/gisma-courses/TLS-tree-climate/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -504,14 +505,16 @@ window.Quarto = {
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>This pipeline generates realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles i.e.&nbsp;the structural types. The final <code>.pld</code> and <code>.gpkg</code> can be directly used for the QGIS ENVI-met plugin.:</p>
+<p>This pipeline generates realistic, location-aware synthetic vegetation objects based on ALS-derived LAD profiles i.e.&nbsp;the structural types. The final <code>.pld</code> and <code>.gpkg</code> can be directly used for the QGIS ENVI-met plugin.</p>
+</section>
+<section id="todos" class="level1">
+<h1>ToDos</h1>
 <ul>
 <li>Replacing max-based LAD normalization with transmittance calibration</li>
 <li>Incorporating TLS-derived QSM traits</li>
 <li>Using functional trait databases for <code>LeafThickness</code> and roughness</li>
 <li>Validating <code>.pld</code> export by reverse simulation</li>
 </ul>
-<p>The current pipeline serves as a robust foundation for vegetation–atmosphere model coupling using real-world ALS data.</p>
 </section>
 <section id="source-code" class="level1">
 <h1>Source Code</h1>
