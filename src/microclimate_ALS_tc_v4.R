@@ -29,7 +29,7 @@ ts <- data.frame(
 )
 valid_species <- c("alder", "ash", "beech", "douglas_fir", "larch", "oak", "spruce")
 valid_ids <- ts$ID[ts$value %in% valid_species]
-
+plant_prefix="SYN"
 visualize <- FALSE
 las_file <- here("data/ALS/tiles/")
 res_xy <- 2
@@ -245,7 +245,7 @@ cluster_profiles <- lad_df_clean %>%
 
 # Schritt 2: Eindeutige ENVIMET_ID je Cluster erzeugen
 cluster_profiles <- cluster_profiles %>%
-  mutate(ENVIMET_ID = paste0("PLANT", formatC(cluster, width = 3, flag = "0")))
+  mutate(ENVIMET_ID = paste0(plant_prefix, formatC(cluster, width = 3, flag = "0")))
 # Schritt 3: ID zurück an alle Originalpunkte hängen
 lad_df_clean <- lad_df_clean %>%
   left_join(cluster_profiles %>% select(cluster, ENVIMET_ID), by = "cluster")

@@ -498,10 +498,6 @@ window.Quarto = {
 <td>XML export</td>
 <td><code>.pld</code> profiles rely on rigid class–species mapping, not trait-driven</td>
 </tr>
-<tr class="even">
-<td>ID generation</td>
-<td>No collision protection in <code>int_to_base36()</code> if reused across domains</td>
-</tr>
 </tbody>
 </table>
 <hr>
@@ -1852,7 +1848,7 @@ found on '../src/microclimate_ALS_tc_v4.R'</code></pre>
 <span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>valid_species <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"alder"</span>, <span class="st">"ash"</span>, <span class="st">"beech"</span>, <span class="st">"douglas_fir"</span>, <span class="st">"larch"</span>, <span class="st">"oak"</span>, <span class="st">"spruce"</span>)</span>
 <span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>valid_ids <span class="ot">&lt;-</span> ts<span class="sc">$</span>ID[ts<span class="sc">$</span>value <span class="sc">%in%</span> valid_species]</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>plant_prefix<span class="ot">=</span><span class="st">"SYN"</span></span>
 <span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>visualize <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
 <span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>las_file <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data/ALS/tiles/"</span>)</span>
 <span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>res_xy <span class="ot">&lt;-</span> <span class="dv">2</span></span>
@@ -2066,7 +2062,7 @@ found on '../src/microclimate_ALS_tc_v4.R'</code></pre>
 <span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="co"># Schritt 2: Eindeutige ENVIMET_ID je Cluster erzeugen</span></span>
 <span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>cluster_profiles <span class="ot">&lt;-</span> cluster_profiles <span class="sc">%&gt;%</span></span>
-<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ENVIMET_ID =</span> <span class="fu">paste0</span>(<span class="st">"PLANT"</span>, <span class="fu">formatC</span>(cluster, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">flag =</span> <span class="st">"0"</span>)))</span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ENVIMET_ID =</span> <span class="fu">paste0</span>(plant_prefix, <span class="fu">formatC</span>(cluster, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">flag =</span> <span class="st">"0"</span>)))</span>
 <span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="co"># Schritt 3: ID zurück an alle Originalpunkte hängen</span></span>
 <span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a>lad_df_clean <span class="ot">&lt;-</span> lad_df_clean <span class="sc">%&gt;%</span></span>
 <span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(cluster_profiles <span class="sc">%&gt;%</span> <span class="fu">select</span>(cluster, ENVIMET_ID), <span class="at">by =</span> <span class="st">"cluster"</span>)</span>

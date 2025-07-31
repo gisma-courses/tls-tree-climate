@@ -209,7 +209,6 @@ st_write(sf_points, output_gpkg)
 | Trait mapping           | `LeafThickness` hard-coded; no fallback if species unknown            |
 | Memory                  | `lad_matrix`, `NbClust`, full CHM are RAM-intensive steps             |
 | XML export              | `.pld` profiles rely on rigid class–species mapping, not trait-driven |
-| ID generation           | No collision protection in `int_to_base36()` if reused across domains |
 
 ---
 
